@@ -1,0 +1,834 @@
+<!DOCTYPE html><html lang="zh-cn"><head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Now Building a Video Conferencing Solution Is As Easy As Ordering Your Next Pizza... Tagged with webdev, devops, android, productivity.">
+    <meta name="keywords" content="webdev, devops, android, productivity, software, coding, development, engineering, inclusive, community">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0,width=device-width">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* stylelint-disable selector-list-comma-newline-after */
+
+        .blog-header {
+            line-height: 1;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .blog-header-logo {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif
+            /*rtl:Amiri, Georgia, "Times New Roman", serif*/
+            ;
+            font-size: 2.25rem;
+        }
+
+            .blog-header-logo:hover {
+                text-decoration: none;
+            }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif
+            /*rtl:Amiri, Georgia, "Times New Roman", serif*/
+            ;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .display-4 {
+                font-size: 3rem;
+            }
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+            .nav-scroller .nav {
+                display: flex;
+                flex-wrap: nowrap;
+                padding-bottom: 1rem;
+                margin-top: -1px;
+                overflow-x: auto;
+                text-align: center;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .nav-scroller .nav-link {
+                padding-top: .75rem;
+                padding-bottom: .75rem;
+                font-size: .875rem;
+            }
+
+        .card-img-right {
+            height: 100%;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .flex-auto {
+            flex: 0 0 auto;
+        }
+
+        .h-250 {
+            height: 250px;
+        }
+
+        @media (min-width: 768px) {
+            .h-md-250 {
+                height: 250px;
+            }
+        }
+
+        /* Pagination */
+        .blog-pagination {
+            margin-bottom: 4rem;
+        }
+
+            .blog-pagination > .btn {
+                border-radius: 2rem;
+            }
+
+        /*
+         * Blog posts
+         */
+        .blog-post {
+            margin-bottom: 4rem;
+        }
+
+        .blog-post-title {
+            margin-bottom: .25rem;
+            font-size: 2.5rem;
+        }
+
+        .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #727272;
+        }
+
+        /*
+         * Footer
+         */
+        .blog-footer {
+            padding: 2.5rem 0;
+            color: #727272;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-top: .05rem solid #e5e5e5;
+        }
+
+            .blog-footer p:last-child {
+                margin-bottom: 0;
+            }
+    </style>
+    <script defer="" src="../../assets/js/news.f199aaa8.js"></script>
+</head>
+
+<body>
+
+    <style>
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .text-small {
+            font-size: 85%;
+        }
+
+        .dropdown-toggle {
+            outline: 0;
+        }
+    </style>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+            <title>Bootstrap</title>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+            </path>
+        </symbol>
+        <symbol id="home" viewBox="0 0 16 16">
+            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z">
+            </path>
+        </symbol>
+        <symbol id="speedometer2" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z">
+            </path>
+            <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z">
+            </path>
+        </symbol>
+        <symbol id="table" viewBox="0 0 16 16">
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z">
+            </path>
+        </symbol>
+        <symbol id="people-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z">
+            </path>
+        </symbol>
+        <symbol id="grid" viewBox="0 0 16 16">
+            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z">
+            </path>
+        </symbol>
+    </svg>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            格式化校验
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                            <li><a class="dropdown-item" href="jsonindex.html">格式化校验</a></li>
+
+                            <li><a class="dropdown-item" href="json2entity.html">JSON转实体类</a></li>
+
+                            <li><a class="dropdown-item" href="jsonview.html">JSON视图</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Base64
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                            <li><a class="dropdown-item" href="encodeindex.html">Base64</a></li>
+
+                            <li><a class="dropdown-item" href="encodeurl.html">URL编码</a></li>
+
+                            <li><a class="dropdown-item" href="encodemd5.html">MD5编码</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Excel转CSV
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                            <li><a class="dropdown-item" href="excelindex.html">Excel转CSV</a></li>
+
+                            <li><a class="dropdown-item" href="excelcsv.html">CSV转Excel</a></li>
+
+                            <li><a class="dropdown-item" href="exceli18n.html">i18n</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     active" href="appparser.html">
+                            工具
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     active" href="link.html">
+                            每日收藏
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                <!--            <form class="d-flex">-->
+                <!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+                <!--                <button class="btn btn-warning" type="submit">Search</button>-->
+                <!--            </form>-->
+
+                <div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group">
+                    <a href="" class="btn btn-outline-warning  active " aria-current="page">简体中文</a>
+                    <a href="" class="btn btn-outline-warning ">English</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container container-fluid pb-3" style="padding-top:3rem;">
+
+    </div>
+
+    <main class="container">
+
+        <div class="row g-5">
+            <div class="col-md-8" id="article"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="763242" data-author-id="669716" data-path="/videosdk/video-sdk-embed-low-code-prebuilt-sdk-1-0-videosdk-live-46e6" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+        <header class="crayons-article__header" id="main-title">
+
+          <div class="crayons-article__header__meta">
+            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
+              Video SDK Embed: Low-Code Prebuilt SDK 1.0 | videosdk.live
+            </h1>
+
+              
+
+            <div class="crayons-article__subheader"><span class="block">
+              
+                
+                videosdk.live
+              
+              
+
+              
+                  Jul 19
+
+                  
+                    Originally published at
+                    blog.videosdk.live
+                      on
+                      Jul 19
+                  
+
+                ・5 min read
+              
+              
+            <!--/span--></span></div>
+          </div>
+        </header>
+
+        <div class="crayons-article__main">
+
+          <div class="crayons-article__body text-styles spec__body" data-article-id="763242" id="article-body">
+            <h2>
+  <a name="now-building-a-video-conferencing-solution-is-as-easy-as-ordering-your-next-pizza-online" href="#now-building-a-video-conferencing-solution-is-as-easy-as-ordering-your-next-pizza-online">
+  </a>
+  Now Building a Video Conferencing Solution Is As Easy As Ordering Your Next Pizza Online.
+</h2>
+
+<h3>
+  <a name="presenting-you-the-prebuilt" href="#presenting-you-the-prebuilt">
+  </a>
+  <strong>Presenting you the Prebuilt</strong>
+</h3>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--5bZ7yJLo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/http://blog.videosdk.live/content/images/2021/07/video-sdk-linkedin-cover.jpg" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--5bZ7yJLo--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/http://blog.videosdk.live/content/images/2021/07/video-sdk-linkedin-cover.jpg" alt="Video SDK Embed: Low-Code Prebuilt SDK 1.0" loading="lazy"></a></p>
+
+<p>Following our announcement on launching the pre-built in the previous blog, we are excited to deliver the manual for the same. This blog will get the readers up and running with the pre-built in no time.</p>
+
+<h3>
+  <a name="how-to-embed-video-calls-using-the-videosdklive-prebuilt" href="#how-to-embed-video-calls-using-the-videosdklive-prebuilt">
+  </a>
+  <strong>How to embed video calls using the Videosdk.live pre-built</strong>
+</h3>
+
+<p>Embedding a video call to your application becomes easy with Videosdk.live. With our Pre-built, you can add video calls on your website and application with just a few lines of code and nothing could be simpler than this. You can share URLs to the participants for the video calls and accommodate more than 5000 people over the same call.</p>
+
+<p>We provide you with a free set-up to experience how to use our prebuilt so you can make the best of it. We also offer you 10,000 minutes, free every month.</p>
+
+<p>Prebuilt SDK enables the opportunity to integrate real-time communication SDK without writing explicit code. It supports all modern javascript frameworks such as React JS, Vue, and Angular including Vanilla JS.</p>
+
+<h3>
+  <a name="to-get-started-follow-the-steps" href="#to-get-started-follow-the-steps">
+  </a>
+  <strong>To get started, follow the steps</strong>
+</h3>
+
+<p>For better understanding, we have divided the prebuilt setup into few steps. Each step describes the code snippet that one needs to use while constructing integrating the SDK.</p>
+
+<p>The prebuilt has codes that sometimes become difficult for a fresher or an inexperienced developer. In that case, one can take the help of a developer to configure the setup. In aid, you can always reach us, we provide 24/7 customer support for our clients.</p>
+
+<h3>
+  <a name="video-calls-with-videosdklive-offer-users-amazing-features-with-quality-as-our-prior-most-concern" href="#video-calls-with-videosdklive-offer-users-amazing-features-with-quality-as-our-prior-most-concern">
+  </a>
+  <strong>Video calls with Videosdk.live offer users amazing features with quality as our prior most concern.</strong>
+</h3>
+
+<ol>
+<li>10,000 minutes free each month</li>
+<li>Participant capacity up to 5,000</li>
+<li>End-to-end encrypted calls</li>
+<li>HIPAA Compliance in enterprise mode</li>
+<li>HD and Full HD Video calls</li>
+<li>Audio support of 16kHz to 48kHz</li>
+<li>360 Spatial Audio</li>
+<li>Intelligence Active Speaker Switch</li>
+<li>Real-time messaging</li>
+<li>Cloud recording</li>
+<li>Whiteboard and poll support</li>
+</ol>
+
+<p>Let's begin with the prebuilt setup. Read all the steps carefully before installing one in your application.</p>
+
+<h3>
+  <a name="step-0-generate-access-token-in-node-js" href="#step-0-generate-access-token-in-node-js">
+  </a>
+  <strong>Step 0:</strong> Generate access token in Node JS
+</h3>
+
+<p><strong>Access token generation (server-side code)</strong></p>
+
+<p>An access token is required to authenticate with Videosdk and make any API calls. You can generate one with the _ <strong>API key</strong> _ and _ <strong>secret</strong> _ mentioned in your developer portal at the Videosdk console.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>const express = require("express");
+const jwt = require("jsonwebtoken");
+const cors = require("cors");
+const request = require("request");
+
+const app = express();
+const port = 9000;
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.get("/get-token", (req, res) =&gt; {
+  const API_KEY = process.env.ZUJONOW_API_KEY;
+  const SECRET_KEY = process.env.ZUJONOW_SECRET_KEY;
+  const options = { expiresIn: "10m", algorithm: "HS256" };
+  const payload = {
+    apikey: API_KEY,
+    permissions: ["allow_join", "allow_mod", "ask_join"], // Trigger permission.
+  };
+  const token = jwt.sign(payload, SECRET_KEY, options);
+  res.json({ token });
+});
+
+app.listen(port, () =&gt; {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>The available permissions are:</p>
+
+<ul>
+<li>_ <strong>allow_join</strong> _: A participant will be permitted entry without request</li>
+<li>_ <strong>ask_join</strong> _: A participant will not be permitted entry without request</li>
+<li>_ <strong>allow_mod</strong> _: Allow participant to enable/disable other participant’s mic/ webcam</li>
+</ul>
+
+<p>The generated token must be sent in the _ <strong>Authorization</strong> _ header for all API calls and it should also be used with the <strong>ZujoSDK.config(token</strong>) method.</p>
+
+<p>After the initial step of access token generation, one reaches the next or the first step, creating or joining the meeting.</p>
+
+<h3>
+  <a name="step-1-create-or-join-the-meeting" href="#step-1-create-or-join-the-meeting">
+  </a>
+  <strong>Step 1: Create or join the meeting</strong>
+</h3>
+
+<p>Get a meeting ID for a new meeting or validate an existing meeting ID to join a meeting. Below mentioned are two code snippets, where one is for a new meeting and the other one is for an existing meeting for joining.</p>
+
+<p><strong>Create a new meeting ID</strong><br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>app.post("/create-meeting/", (req, res) =&gt; {
+  const token = req.body.token;
+  const ZUJONOW_API_ENDPOINT = `${ZUJONOW_API_ENDPOINT}/api/meetings`;
+
+  const options = {
+    method: "POST",
+    headers: {
+      Authorization: token,
+    },
+  };
+
+  fetch(ZUJONOW_API_ENDPOINT, options)
+    .then((response) =&gt; response.json())
+    .then((result) =&gt; res.json(result)) // result will contain meetingId
+    .catch((error) =&gt; throw error);
+});
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>OR</p>
+
+<p><strong>Validate existing meeting ID for joining</strong><br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>app.get("/validate-meeting/:token", (req, res) =&gt; {
+  const token = req.params.token;
+  const ZUJONOW_API_ENDPOINT = `${ZUJONOW_API_ENDPOINT}/api/meetings`;
+
+  const options = {
+    method: "POST",
+    headers: {
+      Authorization: token,
+    },
+  };
+
+  fetch(ZUJONOW_API_ENDPOINT, options)
+    .then((response) =&gt; response.json())
+    .then((result) =&gt; res.json(result)) // result will contain meetingId
+    .catch((error) =&gt; throw error);
+});
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>These two code snippets are the initial ones taking you further to the next part of the prebuilt, where you need to install the prebuilt in the web application.</p>
+
+<p><strong>Step 2: Install prebuilt SDK in your Web app</strong></p>
+
+<p>One can install the prebuilt in your application by using either the <strong>script</strong> or the <strong>npm package manager.</strong> Please use the installation method suitable for your project.</p>
+
+<p><strong>Setting up prebuilt SDK using</strong> _ <strong></strong> _</p>
+
+<p>The easiest way to get started is by just adding our prebuilt script to your website.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;script src="https://sdk.videosdk.live/embedded/index.js"&gt;&lt;/script&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>OR</p>
+
+<p><strong>Setting up prebuilt SDK using NPM package manager</strong></p>
+
+<p>Another way is by installing _ <strong><a class="mentioned-user" href="https://dev.to/videosdk">@videosdk</a>
+.live/js-prebuilt</strong> _ in your app<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>npm install @videosdk.live/js-prebuilt
+
+#OR#
+
+yarn add @videosdk.live/js-prebuilt
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p><strong>Heading towards the final steps</strong></p>
+
+<p><strong>Step 3: Add script into your application</strong></p>
+
+<p>Initialize _ <strong>VideoSDKMeeting</strong> _ on the page where you want to start the meeting<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>const videoMeeting = new VideoSDKMeeting();
+
+const videoMeetingSpecs = {
+  micEnabled: true,
+  webcamEnabled: true,
+  name: "/* NAME OF PARTICIPANT */",
+  meetingId: "/* MEETING ID */",
+  redirectOnLeave: "/* REDIRECT ON LEAVE */",
+  chatEnabled: true,
+  screenShareEnabled: true,
+  pollEnabled: true,
+  whiteBoardEnabled: true,
+  participantCanToggleSelfWebcam: true,
+  participantCanToggleSelfMic: true,
+  raiseHandEnabled: true,
+  token: "/* YOUR TOKEN */",
+  containerId: null,
+};
+
+videoMeeting.init(videoMeetingSpecs);
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Just copy the script and paste it into your application on the page where you want the meeting to take place.</p>
+
+<p>Hold on! There is one final step.</p>
+
+<p><strong>Step 4: Run the Application</strong></p>
+
+<p>Once call _ <strong>init</strong> _ and run the application, you will be able to see the meeting screen.</p>
+
+<p>Run the application with the prebuilt. Here is the video call API on your application.</p>
+
+<p><strong>That’s it. You made it.</strong></p>
+
+<p>Send the invite code to the participants or just open the same page in multiple tabs to join the meeting and appreciate yourself investing time on worthwhile goals.</p>
+
+<p>Connect with us. We are happy to serve you!</p>
+
+<h3>
+  <a name="find-our-documentation-here" href="#find-our-documentation-here">
+  </a>
+  <strong>Find our documentation here:</strong>
+</h3>
+
+<p>[</p>
+
+<p>Quickstart for Prebuilt JS | videosdk.live Documentation</p>
+
+<p>videosdk.live tutorials will help you to deep dive into details of all the SDK and API. We tried to include example of all the possible programming langaguges.</p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--gyjQAFY9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://docs.videosdk.live/img/videosdklive-thumbnail.jpg" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--gyjQAFY9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://docs.videosdk.live/img/videosdklive-thumbnail.jpg" alt="Video SDK Embed: Low-Code Prebuilt SDK 1.0" loading="lazy"></a><br>
+](<a href="https://docs.videosdk.live/docs/tutorials/realtime-communication/prebuilt-sdk/quickstart-prebuilt-js">https://docs.videosdk.live/docs/tutorials/realtime-communication/prebuilt-sdk/quickstart-prebuilt-js</a>)</p>
+
+<p>Setup | videosdk.live Documentation</p>
+
+<p>Using prebuilt sdk</p>
+
+<p><a href="https://docs.videosdk.live/docs/realtime-communication/sdk-reference/prebuilt-sdk-js/setup">Launching: Prebuilt Video SDK for developers 1.0</a></p>
+
+<h3>
+  <a name="get-10000-minutes-free-every-month" href="#get-10000-minutes-free-every-month">
+  </a>
+  <strong>🚀Get 10,000 minutes free every month🚀</strong>
+</h3>
+
+<p>(<a href="https://www.videosdk.live">https://www.videosdk.live</a>)</p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--J2lZAuF0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/http://blog.videosdk.live/content/images/2021/07/Untitled-design--7--1.gif" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--J2lZAuF0--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/http://blog.videosdk.live/content/images/2021/07/Untitled-design--7--1.gif" alt="Launching: Prebuilt Video SDK for developers 1.0" loading="lazy"></a></p>
+
+
+          </div>
+
+        </div>
+          
+
+
+      </article></div>
+
+            <div class="col-md-4">
+                <div class="position-sticky" style="top: 2rem;">
+                    <div class="p-4 mb-3 bg-light rounded">
+                        <h4>关于我们</h4>
+                        <p class="mb-0">每天分享最新最好的文章，精选世界各地实时的优质内容</p>
+                    </div>
+
+                    <div class="p-4">
+                        <h4>热门文章</h4>
+                        <ol class="list-unstyled mb-0" id="topArticle">
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="4-javascript-projects-to-build-fast-and-get-hired-in-1-month-4agf.html">
+                                    4
+                                    JavaScript Projects To Build FAST And Get Hired In 1 Month
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="moving-away-from-reactjs-and-vuejs-on-front-end-using-clean-architecture-3olk.html">
+                                    Moving
+                                    away from ReactJs and VueJs on front-end using Clean Architecture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="vue-academy-0-what-is-vuejs-fastly-2eha.html">
+                                    Vue Academy #0: What is VueJs ?
+                                    (Fastly)
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="opensource-no-more-free-39m6.html">Opensource... NO more free?!</a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="placeholder-text-on-an-input-instead-of-a-label-does-it-pass-wcag-the-answer-may-surprise-you-94m.html">
+                                    I
+                                    was shocked 😱 that placeholder text on an <input> (instead of a <label>
+                                        ) might
+                                        TECHNICALLY PASS WCAG⁉ Do you agree?
+                                </label></a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="top-10-open-source-saas-that-could-help-you-build-the-next-big-thing-2eai.html">
+                                    Top
+                                    10 open-source SaaS that could help you build the next big thing
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="gitlive-13-0-codeshare-now-supports-sharing-via-live-share-and-code-with-me-331.html">
+                                    GitLive
+                                    13.0: Codeshare now supports sharing via Live Share and Code With Me
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="running-on-aws-savings-plans-you-can-still-reduce-your-cloud-bill-59j1.html">
+                                    Running
+                                    on AWS Savings Plans? You can still reduce your cloud bill
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="the-road-to-ember-4-0-7f1.html">The Road to Ember 4.0</a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="solving-advent-of-code-puzzles-in-idiomatic-kotlin-1m62.html">
+                                    Solving Advent
+                                    of Code Puzzles in Idiomatic Kotlin
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="react-dashboard-open-source-full-stack-products-4224.html">
+                                    React Dashboard -
+                                    Open-source Full-stack Products
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="job-searches-and-career-changes-when-you-re-not-the-default-4c4p.html">
+                                    Job
+                                    Searches and Career Changes When You're Not the "Default"
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="7-tips-our-developers-recommend-to-newbie-devs-50ji.html">
+                                    7 Tips our
+                                    Developers recommend to Newbie Devs
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="a-python-native-engine-for-web-development-4i8a.html">
+                                    A Python native engine
+                                    for Web Development
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="application-layer-ddos-attacks-47em.html">Application Layer DDoS Attacks</a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="blog-footer">
+        <p>
+            Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.
+        </p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+
+
+
+</body></html>

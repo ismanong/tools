@@ -1,0 +1,2662 @@
+<!DOCTYPE html><html lang="zh-cn"><head>
+<!--    <base href="../">&lt;!&ndash;  设置后当前页锚点不可用  &ndash;&gt;-->
+    <meta charset="utf-8"> <meta name="viewport" content="width=device-width,initial-scale=1"> <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0,width=device-width"> <meta name="description" content="I've picked up a ton of useful tips over the years developing and writing about Vue. Some are clever, some I use almost every day, and some are more advanced —&nbsp;but they're all useful. Tagged with vue, webdev, javascript, tutorial."> <meta name="keywords" content="vue, webdev, javascript, tutorial, software, coding, development, engineering, inclusive, community"> <meta name="author" content=""> <title></title> <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> 
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+        @media (min-width: 768px) {
+            .display-4 {
+                font-size: 3rem;
+            }
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-scroller .nav-link {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            font-size: .875rem;
+        }
+
+        .card-img-right {
+            height: 100%;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .flex-auto {
+            flex: 0 0 auto;
+        }
+
+        .h-250 { height: 250px; }
+        @media (min-width: 768px) {
+            .h-md-250 { height: 250px; }
+        }
+
+        /* Pagination */
+        .blog-pagination {
+            margin-bottom: 4rem;
+        }
+        .blog-pagination > .btn {
+            border-radius: 2rem;
+        }
+
+        /*
+         * Blog posts
+         */
+        .blog-post {
+            margin-bottom: 4rem;
+        }
+        .blog-post-title {
+            margin-bottom: .25rem;
+            font-size: 2.5rem;
+        }
+        .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #727272;
+        }
+
+
+    </style>
+<script defer="" src="../../assets/js/news.7f8b220c.js"></script></head>
+<body>
+<input type="hidden" name="" id="template_version" value="1">
+
+<style>
+    .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+    .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+    }
+    .text-small {
+        font-size: 85%;
+    }
+    .dropdown-toggle {
+        outline: 0;
+    }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="bootstrap" viewBox="0 0 118 94">
+        <title>Bootstrap</title>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+    </symbol>
+    <symbol id="home" viewBox="0 0 16 16">
+        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"></path>
+    </symbol>
+    <symbol id="speedometer2" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
+        <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"></path>
+    </symbol>
+    <symbol id="table" viewBox="0 0 16 16">
+        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
+    </symbol>
+    <symbol id="people-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+    </symbol>
+    <symbol id="grid" viewBox="0 0 16 16">
+        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"></path>
+    </symbol>
+</svg>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Formatting checks
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../jsonindex.html">Formatting checks</a></li>
+                        
+                         <li><a class="dropdown-item" href="../json2entity.html">JSON to entity class</a></li>
+                        
+                         <li><a class="dropdown-item" href="../jsonview.html">JSON View</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Base64
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../encodeindex.html">Base64</a></li>
+                        
+                         <li><a class="dropdown-item" href="../encodeurl.html">URL encoding</a></li>
+                        
+                         <li><a class="dropdown-item" href="../encodemd5.html">MD5 encoding</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Excel to CSV
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../excelindex.html">Excel to CSV</a></li>
+                        
+                         <li><a class="dropdown-item" href="../excelcsv.html">CSV to Excel</a></li>
+                        
+                         <li><a class="dropdown-item" href="../exceli18n.html">i18n</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../appparser.html">
+                        Tools
+                    </a>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../link.html">
+                        Daily Collection
+                    </a>
+                
+                </li>
+                
+            </ul>
+
+<!--            <form class="d-flex">-->
+<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-warning" type="submit">Search</button>-->
+<!--            </form>-->
+
+            
+        </div>
+    </div>
+</header>
+
+
+    <div class="container container-fluid pb-3" style="padding-top:3rem;">
+
+    </div>
+
+<main class="container">
+
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="767571" data-author-id="107692" data-path="/michaelthiessen/25-vue-tips-you-need-to-know-2h70" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+        <header class="crayons-article__header" id="main-title">
+            
+
+          <div class="crayons-article__header__meta">
+            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
+              25 Vue Tips You Need to Know
+            </h1>
+
+              
+
+            <div class="crayons-article__subheader"><span class="block">
+              
+                
+                Michael Thiessen
+              
+              
+
+              
+                  Jul 21
+
+
+                ・18 min read
+              
+              
+            <!--/span--></span></div>
+          </div>
+        </header>
+
+        <div class="crayons-article__main">
+
+          <div class="crayons-article__body text-styles spec__body" data-article-id="767571" id="article-body">
+            <p>Learning to be a better Vue developer isn't always about the big concepts that take time and effort to master.</p>
+
+<p>It's also about the short tips and tricks that can make your life a whole lot easier — without a whole lot of work.</p>
+
+<p>I've picked up a ton of useful tips over the years developing and writing about Vue. Some are clever, some I use almost every day, and some are more advanced —&nbsp;but they're all useful.</p>
+
+<p>All of these were first published in my <a href="//michaelnthiessen.com/newsletter">weekly newsletter</a>. Make sure to sign up if you want more great tips like these!</p>
+
+<h2>
+  <a name="1-restrict-a-prop-to-a-list-of-types" href="#1-restrict-a-prop-to-a-list-of-types">
+  </a>
+  1. Restrict a prop to a list of types
+</h2>
+
+<p>Using the <code>validator</code> option in a prop definition you can restrict a prop to a specific set of values:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Image</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">src</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">style</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="na">validator</span><span class="p">:</span> <span class="nx">s</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="dl">'</span><span class="s1">square</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">rounded</span><span class="dl">'</span><span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>This validator function takes in a prop, and returns either <code>true</code> or <code>false</code> — if the prop is valid or not.</p>
+
+<p>I often use this when I need more options than a <code>boolean</code> will allow, but still want to restrict what can be set.</p>
+
+<p>Button types or alert types (info, success, danger, warning) are some of the most common uses —&nbsp;at least in what I work on. Colours, too, are a really great use for this.</p>
+
+<p>But there are many more!</p>
+
+<h2>
+  <a name="2-default-content-and-extension-points" href="#2-default-content-and-extension-points">
+  </a>
+  2. Default Content and Extension Points
+</h2>
+
+<p>Slots in Vue can have default content, which allows you to make components that are much easier to use:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"$emit('click')"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;slot&gt;</span>
+    <span class="c">&lt;!-- Used if no slot is provided --&gt;</span>
+    Click me
+  <span class="nt">&lt;/slot&gt;</span>
+<span class="nt">&lt;/button&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>My favourite use for default slots though, is using them to create <em>extension points.</em></p>
+
+<p>Basically, you take any part of a component, wrap it in a slot, and now you can override that part of the component with whatever you want. By default it'll still work the way it always has, but now you have more options:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"button"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"$emit('click')"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- Adding in the slot tag does nothing at first --&gt;</span>
+    <span class="c">&lt;!-- We can override this by providing content to the slot --&gt;</span>
+    <span class="nt">&lt;slot&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"formatting"</span><span class="nt">&gt;</span>
+        {{ text }}
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/slot&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Now you can use this component in many different ways. The easy, default way, or your own, custom way:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- Uses default functionality of the component --&gt;</span>
+<span class="nt">&lt;ButtonWithExtensionPoint</span> <span class="na">text=</span><span class="s">"Formatted text"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Use the extension point to create custom behaviour --&gt;</span>
+<span class="nt">&lt;ButtonWithExtensionPoint&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"different-formatting"</span><span class="nt">&gt;</span>
+    Do something a little different here
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/ButtonWithExtensionPoint&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here's a Codesandbox you can dive into:</p>
+
+<p><a href="https://codesandbox.io/s/default-content-and-extension-points-bl87m?file=/src/App.vue">https://codesandbox.io/s/default-content-and-extension-points-bl87m?file=/src/App.vue</a></p>
+
+<h2>
+  <a name="3-use-quotes-to-watch-nested-values" href="#3-use-quotes-to-watch-nested-values">
+  </a>
+  3. Use quotes to watch nested values
+</h2>
+
+<p>You may not have known this, but you can easily watch nested values directly, just by using quotes:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="nx">watch</span> <span class="p">{</span>
+  <span class="dl">'</span><span class="s1">$route.query.id</span><span class="dl">'</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>This is really useful for working with deeply nested objects!</p>
+
+<h2>
+  <a name="4-know-when-to-use-vif-and-when-to-avoid-it" href="#4-know-when-to-use-vif-and-when-to-avoid-it">
+  </a>
+  4. Know when to use v-if (and when to avoid it)
+</h2>
+
+<p>Instead of using <code>v-if</code>, it's sometimes more performant to use <code>v-show</code> instead:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;ComplicatedChart</span> <span class="na">v-show=</span><span class="s">"chartEnabled"</span> <span class="nt">/&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>When <code>v-if</code> is toggled on and off it will create and destroy the element completely. Instead, <code>v-show</code> will create the element and leave it there, hiding it by setting it's style to <code>display: none</code>.</p>
+
+<p>Doing this can be much more efficient if the component you're toggling is expensive to render.</p>
+
+<p>On the flip side, if you don't need that expensive component immediately, use <code>v-if</code> so that it will skip rendering it and load the page just a bit faster.</p>
+
+<h2>
+  <a name="5-shorthand-for-single-scoped-slot-no-template-tag-needed" href="#5-shorthand-for-single-scoped-slot-no-template-tag-needed">
+  </a>
+  5. Shorthand for single scoped slot (no template tag needed!)
+</h2>
+
+<p>Scoped slots are lots of fun, but in order to use them you have to use a lot of <code>template</code> tags, too.</p>
+
+<p>Luckily, there's a shorthand that let's us get rid of it, but only if we're using a single scoped slot.</p>
+
+<p>Instead of writing this:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;DataTable&gt;</span>
+  <span class="nt">&lt;template</span> <span class="na">#header</span><span class="err">="</span><span class="na">tableAttributes</span><span class="err">"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;TableHeader</span> <span class="na">v-bind=</span><span class="s">"tableAttributes"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/template&gt;</span>
+<span class="nt">&lt;/DataTable&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>We can write this:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;DataTable</span> <span class="na">#header</span><span class="err">="</span><span class="na">tableAttributes</span><span class="err">"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;TableHeader</span> <span class="na">v-bind=</span><span class="s">"tableAttributes"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/DataTable&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Simple, straightforward, and marvelous.</p>
+
+<p>(Ok, maybe not <em>quite</em> marvelous, but still pretty good)</p>
+
+<p>All of these tips were first published in my <a href="//michaelnthiessen.com/newsletter">weekly newsletter</a>. Make sure to sign up if you want more great tips like these!</p>
+
+<h2>
+  <a name="6-conditionally-rendering-slots-and-why-youd-need-to" href="#6-conditionally-rendering-slots-and-why-youd-need-to">
+  </a>
+  6. Conditionally Rendering Slots (and why you'd need to)
+</h2>
+
+<p>First I'll show you <em>how</em>, then we'll get into <em>why</em> you'd want to hide slots.</p>
+
+<p>Every Vue component has a special <code>$slots</code> object with all of your slots in it. The default slot has the key <code>default</code>, and any named slots use their name as the key:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="kd">const</span> <span class="nx">$slots</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">default</span><span class="p">:</span> <span class="o">&lt;</span><span class="k">default</span> <span class="nx">slot</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="na">icon</span><span class="p">:</span> <span class="o">&lt;</span><span class="nx">icon</span> <span class="nx">slot</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="na">button</span><span class="p">:</span> <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">slot</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>But this <code>$slots</code> object only has the slots that are <em>applied</em> to the component, not every slot that is <em>defined</em>.</p>
+
+<p>Take this component that defines several slots, including a couple named ones:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- Slots.vue --&gt;</span>
+<span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Here are some slots<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;slot</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;slot</span> <span class="na">name=</span><span class="s">"second"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;slot</span> <span class="na">name=</span><span class="s">"third"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>If we only apply one slot to the component, only that slot will show up in our <code>$slots</code> object:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;Slots&gt;</span>
+    <span class="nt">&lt;template</span> <span class="na">#second</span><span class="nt">&gt;</span>
+      This will be applied to the second slot.
+    <span class="nt">&lt;/template&gt;</span>
+  <span class="nt">&lt;/Slots&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>$slots = { second: &lt;vnode&gt; }
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>We can use this in our components to detect which slots have been applied to the component, for example, by hiding the wrapper element for the slot:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>A wrapped slot<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">v-if=</span><span class="s">"$slots.default"</span> <span class="na">class=</span><span class="s">"styles"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;slot</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Now the wrapper <code>div</code> that applies the styling will only be rendered if we actually fill that slot with something.</p>
+
+<p>If we don't use the <code>v-if</code>, we would end up with an empty and unnecessary <code>div</code> if we didn't have a slot. Depending on what styling that <code>div</code> has, this could mess up our layout and make things look weird.</p>
+
+<h3>
+  <a name="so-why-do-we-want-to-be-able-to-conditionally-render-slots" href="#so-why-do-we-want-to-be-able-to-conditionally-render-slots">
+  </a>
+  So why do we want to be able to conditionally render slots?
+</h3>
+
+<p>There are three main reasons to use a conditional slot:</p>
+
+<ol>
+<li>When using wrapper <code>div</code>s to add default styles</li>
+<li>The slot is empty</li>
+<li>If we're combining default content with <a href="https://michaelnthiessen.com/nested-slots-in-vue">nested slots</a>
+</li>
+</ol>
+
+<p>For example, when we're adding default styles, we're adding a <code>div</code> around a slot:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>This is a pretty great component, amirite?<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"default-styling"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;slot</span> <span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"$emit('click')"</span><span class="nt">&gt;</span>Click me!<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>However, if no content is applied to that slot by the parent component, we'll end up with an empty <code>div</code> rendered to the page:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>This is a pretty great component, amirite?<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"default-styling"</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- No content in the slot, but this div
+          is still rendered. Oops. --&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"$emit('click')"</span><span class="nt">&gt;</span>Click me!<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Adding that <code>v-if</code> on the wrapping <code>div</code> solves the problem though. No content applied to the slot? No problem:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>This is a pretty great component, amirite?<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;button</span> <span class="err">@</span><span class="na">click=</span><span class="s">"$emit('click')"</span><span class="nt">&gt;</span>Click me!<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here's a Codesandbox with a working demo if you want to take a look: <a href="https://codesandbox.io/s/reactive-slots-bth28?file=/src/components/HasSlot.vue">https://codesandbox.io/s/reactive-slots-bth28?file=/src/components/HasSlot.vue</a></p>
+
+<p>I wrote more tips on slots in this article: <a href="https://michaelnthiessen.com/supercharge-your-slots">Tips to Supercharge Your Slots (Named, Scoped, and Dynamic)</a></p>
+
+<h2>
+  <a name="7-how-to-watch-a-slot-for-changes" href="#7-how-to-watch-a-slot-for-changes">
+  </a>
+  7. How to watch a slot for changes
+</h2>
+
+<p><em>This tip comes from Austin Gil —&nbsp;check out his awesome blog post on this <a href="https://austingil.com/watching-changes-vue-js-component-slot-content/">here</a>.</em></p>
+
+<p>Sometimes we need to know when the content inside of a slot has changed:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- Too bad this event doesn't exist --&gt;</span>
+<span class="nt">&lt;slot</span> <span class="err">@</span><span class="na">change=</span><span class="s">"update"</span> <span class="nt">/&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Unfortunately, Vue has no built-in way for us to detect this.</p>
+
+<p>However, my friend Austin figured out a very clean way of doing this using a <a href="https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver">mutation observer</a>:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">mounted</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Call `update` when something changes</span>
+    <span class="kd">const</span> <span class="nx">observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MutationObserver</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">);</span>
+
+    <span class="c1">// Watch this component for changes</span>
+    <span class="nx">observer</span><span class="p">.</span><span class="nx">observe</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$el</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">childList</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="na">subtree</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>You'll also need to clean up the observer, but Austin covers that, and more, in <a href="https://austingil.com/watching-changes-vue-js-component-slot-content/">his article</a>.</p>
+
+<h2>
+  <a name="8-mixing-local-and-global-styles-together" href="#8-mixing-local-and-global-styles-together">
+  </a>
+  8. Mixing local and global styles together
+</h2>
+
+<p>Normally, when working with styles we want them to be scoped to a single component:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;style </span><span class="na">scoped</span><span class="nt">&gt;</span>
+  <span class="nc">.component</span> <span class="p">{</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>In a pinch though, you can also add a non-scoped style block to add in global styles if you need it:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;style&gt;</span>
+  <span class="c">/* Applied globally */</span>
+  <span class="nc">.component</span> <span class="nt">p</span> <span class="p">{</span>
+    <span class="nl">margin-bottom</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="nt">&lt;style </span><span class="na">scoped</span><span class="nt">&gt;</span>
+  <span class="c">/* Scoped to this specific component */</span>
+  <span class="nc">.component</span> <span class="p">{</span>
+    <span class="nl">background</span><span class="p">:</span> <span class="no">green</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Be careful though —&nbsp;global styles are dangerous and hard to track down. Sometimes, though, they're the perfect escape hatch and are exactly what you need.</p>
+
+<h2>
+  <a name="9-overriding-styles-of-a-child-component-the-right-way" href="#9-overriding-styles-of-a-child-component-the-right-way">
+  </a>
+  9. Overriding styles of a child component — the right way
+</h2>
+
+<p>Scoped CSS is fantastic for keeping things tidy, and not accidentally bleeding styles into other parts of your app.</p>
+
+<p>But sometimes you need to override the styles of a child component, and break out of that scope.</p>
+
+<p>Vue has a <code>deep</code> selector just for this:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;style </span><span class="na">scoped</span><span class="nt">&gt;</span>
+<span class="c">/* Override CSS of a child component
+   while keeping styles scoped */</span>
+<span class="nc">.my-component</span> <span class="o">&gt;&gt;&gt;</span> <span class="nc">.child-component</span> <span class="p">{</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">24px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Yes, a couple months ago I covered exactly why <a href="https://michaelnthiessen.com/dont-override-component-css/">you shouldn't</a> do this, but overriding styles <em>can</em> be the best solution (we don't believe in "best practices" here).</p>
+
+<p>Note: If you're using a CSS pre-processor like SCSS, you may need to use <code>/deep/</code> instead.</p>
+
+<h2>
+  <a name="10-creating-magic-with-contextaware-components" href="#10-creating-magic-with-contextaware-components">
+  </a>
+  10. Creating Magic with Context-Aware Components
+</h2>
+
+<p>Context-aware components are "magical" —&nbsp;they adapt to what's going on around them automatically, handling edge cases, state sharing, and more.</p>
+
+<p>There are 3 main types of context-aware components, but configuration is the one I find most interesting.</p>
+
+<h3>
+  <a name="1-state-sharing" href="#1-state-sharing">
+  </a>
+  1. State Sharing
+</h3>
+
+<p>When you break up a large component into multiple smaller ones, they often still need to share state.</p>
+
+<p>Instead of pushing that work on whoever's consuming the components, you can make this happen "behind the scenes".</p>
+
+<p>You may break up a <code>Dropdown</code> component into <code>Select</code> and <code>Option</code> components to give you more flexibility. But to make it easier to use, the <code>Select</code> and <code>Option</code> components share the <code>selected</code> state with each other:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- Used as a single component for simplicity --&gt;</span>
+<span class="nt">&lt;Dropdown</span> <span class="na">v-model=</span><span class="s">"selected"</span> <span class="na">:options=</span><span class="s">"[]"</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!-- Split up for more flexibility --&gt;</span>
+<span class="nt">&lt;Select</span> <span class="na">v-model=</span><span class="s">"selected"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;Option</span> <span class="na">value=</span><span class="s">"mustard"</span><span class="nt">&gt;</span>Mustard<span class="nt">&lt;/Option&gt;</span>
+  <span class="nt">&lt;Option</span> <span class="na">value=</span><span class="s">"ketchup"</span><span class="nt">&gt;</span>Ketchup<span class="nt">&lt;/Option&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"relish-wrapper"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Option</span> <span class="na">value=</span><span class="s">"relish"</span><span class="nt">&gt;</span>Relish<span class="nt">&lt;/Option&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/Select&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="2-configuration" href="#2-configuration">
+  </a>
+  2. Configuration
+</h3>
+
+<p>Sometimes the behaviour of a component needs to be changed based on what's going on in the rest of the application. This is often done to automagically handle edge cases that would otherwise be annoying to deal with.</p>
+
+<p>A <code>Popup</code> or <code>Tooltip</code> should re-position itself so it doesn't overflow out of the page. But if that component is inside of a modal, it should re-position itself so it doesn't overflow out of the <em>modal</em>.</p>
+
+<p>This can be done automagically if the <code>Tooltip</code> knows when it's inside of a modal.</p>
+
+<h3>
+  <a name="3-styling" href="#3-styling">
+  </a>
+  3. Styling
+</h3>
+
+<p>You already create context-aware CSS, applying different styles based on what's happening in parent or sibling elements.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code><span class="nc">.statistic</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="no">black</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">24px</span><span class="p">;</span>
+  <span class="nl">font-weight</span><span class="p">:</span> <span class="nb">bold</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Give some separation between stats
+   that are right beside each other */</span>
+<span class="nc">.statistic</span> <span class="o">+</span> <span class="nc">.statistic</span> <span class="p">{</span>
+  <span class="nl">margin-left</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>CSS variables let us push this even further, allowing us to set different values in different parts of a page.</p>
+
+<p>Check out this thread on Twitter if you want to discuss this concept!</p>
+
+
+<blockquote class="ltag__twitter-tweet" data-url="https://twitter.com/michaelthiessen/status/1382436106466168839">
+      <div class="ltag__twitter-tweet__media">
+        <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--gdva9Mjd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://pbs.twimg.com/media/Ey9kwTDWYAYnxPe.jpg" alt="unknown tweet media content" loading="lazy">
+      </div>
+
+  <div class="ltag__twitter-tweet__main" data-url="https://twitter.com/michaelthiessen/status/1382436106466168839">
+    <div class="ltag__twitter-tweet__header">
+      <img class="ltag__twitter-tweet__profile-image" src="https://res.cloudinary.com/practicaldev/image/fetch/s--swGvAVoE--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://pbs.twimg.com/profile_images/1098964143066017793/UaA0bdxr_normal.png" alt="Michael Thiessen profile image" loading="lazy">
+      <div class="ltag__twitter-tweet__full-name">
+        Michael Thiessen
+      </div>
+      <div class="ltag__twitter-tweet__username">
+        <a class="mentioned-user" href="https://dev.to/michaelthiessen">@michaelthiessen</a>
+
+      </div>
+      <div class="ltag__twitter-tweet__twitter-logo">
+        <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ir1kO05j--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev.to/assets/twitter-f95605061196010f91e64806688390eb1a4dbc9e913682e043eb8b1e06ca484f.svg" alt="twitter logo" loading="lazy">
+      </div>
+    </div>
+    <div class="ltag__twitter-tweet__body">
+      Context-aware components are "magical" —&nbsp;they adapt to what's going on around them automatically, handling edge cases, state sharing, and more.<br><br>There are 3 main types of context-aware components👇<br><br>(Configuration is the most interesting one IMO) 
+    </div>
+    <div class="ltag__twitter-tweet__date">
+      20:50 PM - 14 Apr 2021
+    </div>
+
+
+    <div class="ltag__twitter-tweet__actions">
+      <a href="https://twitter.com/intent/tweet?in_reply_to=1382436106466168839" class="ltag__twitter-tweet__actions__button">
+        <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--fFnoeFxk--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev.to/assets/twitter-reply-action-238fe0a37991706a6880ed13941c3efd6b371e4aefe288fe8e0db85250708bc4.svg" alt="Twitter reply action" loading="lazy">
+      </a>
+      <a href="https://twitter.com/intent/retweet?tweet_id=1382436106466168839" class="ltag__twitter-tweet__actions__button">
+        <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--k6dcrOn8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev.to/assets/twitter-retweet-action-632c83532a4e7de573c5c08dbb090ee18b348b13e2793175fea914827bc42046.svg" alt="Twitter retweet action" loading="lazy">
+      </a>
+      <a href="https://twitter.com/intent/like?tweet_id=1382436106466168839" class="ltag__twitter-tweet__actions__button">
+        <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--SRQc9lOp--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev.to/assets/twitter-like-action-1ea89f4b87c7d37465b0eb78d51fcb7fe6c03a089805d7ea014ba71365be5171.svg" alt="Twitter like action" loading="lazy">
+      </a>
+    </div>
+  </div>
+</blockquote>
+
+
+<h2>
+  <a name="exclusive-tips-and-insights-every-week" href="#exclusive-tips-and-insights-every-week">
+  </a>
+  Exclusive tips and insights every week
+</h2>
+
+<p>Join 8135 other Vue devs and get exclusive tips and insights like these delivered straight to your inbox, every week.</p>
+
+<blockquote>
+<p>You have great content in your emails. I seriously learn something from every one of them. —&nbsp;Titus Decali</p>
+
+<p>Thanks for another beautiful tip 🙏 —&nbsp;Victor Onuoha</p>
+
+<p>Loving these, and the spaced repetition —&nbsp;Mark Goldstein</p>
+</blockquote>
+
+<p><a href="//michaelnthiessen.com/newsletter">Sign up here</a></p>
+
+<h2>
+  <a name="11-how-to-make-a-variable-created-outside-of-vue-reactive-vue-2-and-3" href="#11-how-to-make-a-variable-created-outside-of-vue-reactive-vue-2-and-3">
+  </a>
+  11. How to make a variable created outside of Vue reactive (Vue 2 and 3)
+</h2>
+
+<p>If you get a variable from outside of Vue, it's nice to be able to make it reactive.</p>
+
+<p>That way you can use it in computed props, watchers, and everywhere else, and it works just like any other state in Vue.</p>
+
+<p>If you're using the options API, all you need is to put it in the <code>data</code> section of your component:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="kd">const</span> <span class="nx">externalVariable</span> <span class="o">=</span> <span class="nx">getValue</span><span class="p">();</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">reactiveVariable</span><span class="p">:</span> <span class="nx">externalVariable</span><span class="p">,</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>If you're using the composition API with Vue 3, you can use <code>ref</code> or <code>reactive</code> directly:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">ref</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// Can be done entirely outside of a Vue component</span>
+<span class="kd">const</span> <span class="nx">externalVariable</span> <span class="o">=</span> <span class="nx">getValue</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">reactiveVariable</span> <span class="o">=</span> <span class="nx">ref</span><span class="p">(</span><span class="nx">externalVariable</span><span class="p">);</span>
+
+<span class="c1">// Access using .value</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">reactiveVariable</span><span class="p">.</span><span class="nx">value</span><span class="p">);</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Using <code>reactive</code> instead:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">reactive</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="c1">// Can be done entirely outside of a Vue component</span>
+<span class="kd">const</span> <span class="nx">externalVariable</span> <span class="o">=</span> <span class="nx">getValue</span><span class="p">();</span>
+<span class="c1">// Reactive only works with objects and arrays</span>
+<span class="kd">const</span> <span class="nx">anotherReactiveVariable</span> <span class="o">=</span> <span class="nx">reactive</span><span class="p">(</span><span class="nx">externalVariable</span><span class="p">);</span>
+
+<span class="c1">// Access directly</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">anotherReactiveVariable</span><span class="p">);</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>If you're still on Vue 2 (as many of us are) you can use <code>observable</code> instead of <code>reactive</code> to achieve exactly the same result.</p>
+
+<h2>
+  <a name="12-destructuring-in-a-vfor" href="#12-destructuring-in-a-vfor">
+  </a>
+  12. Destructuring in a v-for
+</h2>
+
+<p>Did you know that you can destructure in a <code>v-for</code>?<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;li</span>
+  <span class="na">v-for=</span><span class="s">"{ name, id } in users"</span>
+  <span class="na">:key=</span><span class="s">"id"</span>
+<span class="nt">&gt;</span>
+  {{ name }}
+<span class="nt">&lt;/li&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>It's more widely known that you can grab the index out of the v-for by using a tuple like this:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(movie, index) in [
+  'Lion King',
+  'Frozen',
+  'The Princess Bride'
+]"</span><span class="nt">&gt;</span>
+  {{ index + 1 }} - {{ movie }}
+<span class="nt">&lt;/li&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>When using an object you can also grab the key:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(value, key) in {
+  name: 'Lion King',
+  released: 2019,
+  director: 'Jon Favreau',
+}"</span><span class="nt">&gt;</span>
+  {{ key }}: {{ value }}
+<span class="nt">&lt;/li&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>It's also possible to combine these two methods, grabbing the key as well as the index of the property:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"(value, key, index) in {
+  name: 'Lion King',
+  released: 2019,
+  director: 'Jon Favreau',
+}"</span><span class="nt">&gt;</span>
+  #{{ index + 1 }}. {{ key }}: {{ value }}
+<span class="nt">&lt;/li&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h2>
+  <a name="13-looping-over-a-range-in-vue" href="#13-looping-over-a-range-in-vue">
+  </a>
+  13. Looping Over a Range in Vue
+</h2>
+
+<p>The <code>v-for</code> directive allows us to loop over an Array, but it also let's us loop <a href="https://vuejs.org/v2/guide/list.html#v-for-with-a-Range">over a range</a>:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">v-for=</span><span class="s">"n in 5"</span><span class="nt">&gt;</span>Item #{{ n }}<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>This will render out:</p>
+
+<ul>
+<li>Item #1</li>
+<li>Item #2</li>
+<li>Item #3</li>
+<li>Item #4</li>
+<li>Item #5</li>
+</ul>
+
+<p>When we use <code>v-for</code> with a range, it will start at 1 and end on the number we specify.</p>
+
+<h2>
+  <a name="14-watch-anything-in-your-component" href="#14-watch-anything-in-your-component">
+  </a>
+  14. Watch anything in your component
+</h2>
+
+<p>It took me a very long time to realize this, but anything in your component that is reactive can be watched:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">computed</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">someComputedProperty</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// Update the computed prop</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">someComputedProperty</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// Do something when the computed prop is updated</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>You can watch:</p>
+
+<ul>
+<li>computed props</li>
+<li>props</li>
+<li><a href="https://michaelnthiessen.com/use-quotes-watch-nested-values/">nested values</a></li>
+</ul>
+
+<p>If you're using the composition API, any value can be watched, as long as it's a <code>ref</code> or <code>reactive</code> object.</p>
+
+<h2>
+  <a name="15-stealing-prop-types" href="#15-stealing-prop-types">
+  </a>
+  15. Stealing Prop Types
+</h2>
+
+<p>Often I find that I'm copying prop types from a child component, just to use them in a parent component. But I've discovered that <em>stealing</em> those prop types is much better than just copying them.</p>
+
+<p>For example, we have an <code>Icon</code> component being used in this component:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>{{ heading }}<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;Icon</span>
+      <span class="na">:type=</span><span class="s">"iconType"</span>
+      <span class="na">:size=</span><span class="s">"iconSize"</span>
+      <span class="na">:colour=</span><span class="s">"iconColour"</span>
+    <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>To get this to work, we need to add the correct prop types, copying from the <code>Icon</code> component:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">import</span> <span class="nx">Icon</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./Icon</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">{</span> <span class="nx">Icon</span> <span class="p">},</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">iconType</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="na">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">iconSize</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="na">default</span><span class="p">:</span> <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">validator</span><span class="p">:</span> <span class="nx">size</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="dl">'</span><span class="s1">small</span><span class="dl">'</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">medium</span><span class="dl">'</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">large</span><span class="dl">'</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">x-large</span><span class="dl">'</span>
+      <span class="p">].</span><span class="nx">includes</span><span class="p">(</span><span class="nx">size</span><span class="p">),</span>
+    <span class="p">},</span>
+    <span class="na">iconColour</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="na">default</span><span class="p">:</span> <span class="dl">'</span><span class="s1">black</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="na">heading</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="na">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>What a pain.</p>
+
+<p>And when the prop types of the <code>Icon</code> component are updated, you can be sure that you'll forget to come back to this component and update them. Over time bugs will be introduced as the prop types for this component start to drift away from the prop types in the <code>Icon</code> component.</p>
+
+<p>So that's why we'll steal them instead:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">import</span> <span class="nx">Icon</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./Icon</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">{</span> <span class="nx">Icon</span> <span class="p">},</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">...</span><span class="nx">Icon</span><span class="p">.</span><span class="nx">props</span><span class="p">,</span>
+    <span class="na">heading</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="na">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>It doesn't have to get any more complicated than that!</p>
+
+<p>Except in our example, we have "icon" added to the beginning of each prop name. So we'll have to do some extra work to get that to happen:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">import</span> <span class="nx">Icon</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./Icon</span><span class="dl">'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">iconProps</span> <span class="o">=</span> <span class="p">{};</span>
+
+<span class="c1">// Do some processing beforehand</span>
+<span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">Icon</span><span class="p">.</span><span class="nx">props</span><span class="p">).</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">key</span><span class="p">,</span> <span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">iconProps</span><span class="p">[</span><span class="s2">`icon</span><span class="p">${</span><span class="nx">key</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()}</span><span class="s2">`</span><span class="p">]</span> <span class="o">=</span> <span class="nx">val</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">{</span> <span class="nx">Icon</span> <span class="p">},</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+    <span class="p">...</span><span class="nx">iconProps</span><span class="p">,</span>
+    <span class="na">heading</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+      <span class="na">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Now, if the prop types in the <code>Icon</code> component are modified, our component will stay up-to-date.</p>
+
+<p>But what if a prop type is added or removed from the <code>Icon</code> component? To cover those cases we can use <code>v-bind</code> and a computed prop to keep things dynamic.</p>
+
+<p>All of these were first published in my <a href="//michaelnthiessen.com/newsletter">weekly newsletter</a>. Make sure to sign up if you want more great tips like these!</p>
+
+<h2>
+  <a name="16-detecting-clicks-outside-of-an-element-or-inside" href="#16-detecting-clicks-outside-of-an-element-or-inside">
+  </a>
+  16. Detecting clicks outside of an element (or inside)
+</h2>
+
+<p>Once in awhile I need to detect whether a click happens <em>inside</em> or <em>outside</em> of a particular element <code>el</code>. This is the approach I typically use:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">mousedown</span><span class="dl">'</span><span class="p">,</span> <span class="nx">e</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Get the element that was clicked</span>
+  <span class="kd">const</span> <span class="nx">clickedEl</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">;</span>
+
+  <span class="c1">// `el` is the element you're detecting clicks outside of</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">.</span><span class="nx">contains</span><span class="p">(</span><span class="nx">clickedEl</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// Clicked inside of `el`</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="c1">// Clicked outside of `el`</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h2>
+  <a name="17-recursive-slots" href="#17-recursive-slots">
+  </a>
+  17. Recursive slots
+</h2>
+
+<p>One time I decided to see if I could make a <code>v-for</code> component using only the template. Along the way I discovered how to use slots recursively, too.</p>
+
+<p>This is what the component looks like:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- VFor.vue --&gt;</span>
+<span class="nt">&lt;template&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="c">&lt;!-- Render the first item --&gt;</span>
+    {{ list[0] }}
+        <span class="c">&lt;!-- If we have more items, continue!
+                 But leave off the item we just rendered --&gt;</span>
+    <span class="nt">&lt;v-for</span>
+      <span class="na">v-if=</span><span class="s">"list.length &gt; 1"</span>
+            <span class="na">:list=</span><span class="s">"list.slice(1)"</span>
+        <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>If you wanted to do this with scoped slots  —&nbsp;and why wouldn't you?! — it just takes a few tweaks:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="c">&lt;!-- Pass the item into the slot to be rendered --&gt;</span>
+    <span class="nt">&lt;slot</span> <span class="na">v-bind:item=</span><span class="s">"list[0]"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Default --&gt;</span>
+      {{ list[0] }}
+    <span class="nt">&lt;/slot&gt;</span>
+
+    <span class="nt">&lt;v-for</span>
+      <span class="na">v-if=</span><span class="s">"list.length &gt; 1"</span>
+      <span class="na">:list=</span><span class="s">"list.slice(1)"</span>
+    <span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Recursively pass down scoped slot --&gt;</span>
+      <span class="nt">&lt;template</span> <span class="na">v-slot=</span><span class="s">"{ item }"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;slot</span> <span class="na">v-bind:item=</span><span class="s">"item"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/template&gt;</span>
+    <span class="nt">&lt;/v-for&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here is how this component is used:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="c">&lt;!-- Regular list --&gt;</span>
+    <span class="nt">&lt;v-for</span> <span class="na">:list=</span><span class="s">"list"</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- List with bolded items --&gt;</span>
+    <span class="nt">&lt;v-for</span> <span class="na">:list=</span><span class="s">"list"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;template</span> <span class="na">v-slot=</span><span class="s">"{ item }"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;strong&gt;</span>{{ item }}<span class="nt">&lt;/strong&gt;</span>
+      <span class="nt">&lt;/template&gt;</span>
+    <span class="nt">&lt;/v-for&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>For a more detailed explanation of this example and nested slots, check out my blog post on it: <a href="https://michaelnthiessen.com/nested-slots-in-vue">How to Use Nested Slots in Vue (including scoped slots)</a></p>
+
+<h2>
+  <a name="18-component-metadata" href="#18-component-metadata">
+  </a>
+  18. Component Metadata
+</h2>
+
+<p>Not every bit of info you add to a component is state. Sometimes you need to add some metadata that gives <em>other</em> components more information.</p>
+
+<p>For example, if you're building a bunch of different widgets for an analytics dashboard like Google Analytics:</p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--Z0KSchUV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://michaelnthiessen.com/assets/static/analytics.3919e73.668fbb9a1ffe61d1a18972dc10c0a847.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--Z0KSchUV--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://michaelnthiessen.com/assets/static/analytics.3919e73.668fbb9a1ffe61d1a18972dc10c0a847.png" alt="Screenshot of Google Analytics dashboard" loading="lazy"></a></p>
+
+<p>If you want the layout to know how many columns each widget should take up, you can add that directly on the component as metadata:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LiveUsersWidget</span><span class="dl">'</span><span class="p">,</span>
+  <span class="c1">// 👇 Just add it as an extra property</span>
+  <span class="na">columns</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+  <span class="p">},</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="c1">//...</span>
+    <span class="p">};</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>You'll find this metadata as a property on the component:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">import</span> <span class="nx">LiveUsersWidget</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">./LiveUsersWidget.vue</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="nx">columns</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">LiveUsersWidget</span><span class="p">;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>You can also access the metadata from within the component through the special <code>$options</code> property:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">LiveUsersWidget</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">columns</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 👇 `$options` contains all the metadata for a component</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Using </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">$options</span><span class="p">.</span><span class="nx">metadata</span><span class="p">}</span><span class="s2"> columns`</span><span class="p">);</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Just keep in mind that this metadata is the same for each instance of the component, and is <em>not</em> reactive.</p>
+
+<p>Other uses for this include (but are not limited to):</p>
+
+<ul>
+<li>Keeping version numbers for individual components</li>
+<li>Custom flags for build tools to treat components differently</li>
+<li>Adding custom features to components beyond computed props, data, watchers, etc.</li>
+<li>and many more I can't think of!</li>
+</ul>
+
+<p>See a live example here: <a href="https://codesandbox.io/s/vue-metadata-bew9j?file=/src/App.vue">https://codesandbox.io/s/vue-metadata-bew9j?file=/src/App.vue</a></p>
+
+<h2>
+  <a name="19-multifile-singlefile-components" href="#19-multifile-singlefile-components">
+  </a>
+  19. Multi-file single-file components
+</h2>
+
+<p>Here's a little known feature of SFC.</p>
+
+<p>You can import files just like you would with a regular HTML file:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- A "single" file component --&gt;</span>
+<span class="nt">&lt;template</span> <span class="na">src=</span><span class="s">"./template.html"</span><span class="nt">&gt;&lt;/template&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./script.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;style </span><span class="na">scoped</span> <span class="na">src=</span><span class="s">"./styles.css"</span><span class="nt">&gt;&lt;/style&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>If you need to share styles, docs, or anything else, this can come in really handy. Also perfect for that super long component file that's wearing out your finger from all the scrolling...</p>
+
+<p>Here's a working demo of it in action: <a href="https://codesandbox.io/s/interesting-rosalind-9wwmr?file=/src/components/HelloWorld.vue">https://codesandbox.io/s/interesting-rosalind-9wwmr?file=/src/components/HelloWorld.vue</a></p>
+
+<h2>
+  <a name="20-reusable-components-arent-what-you-think" href="#20-reusable-components-arent-what-you-think">
+  </a>
+  20. Reusable Components Aren't What You Think
+</h2>
+
+<p>Reusable components don't have to be big or complex things.</p>
+
+<p>I often make small and short components reusable.</p>
+
+<p>Because I'm not re-writing this code all over the place, updating it becomes much easier, and I can make sure that every <code>OverflowMenu</code> looks and works exactly the same —&nbsp;because they <em>are</em> the same!<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- OverflowMenu.vue --&gt;</span>
+<span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;Menu&gt;</span>
+    <span class="c">&lt;!-- Add a custom button to trigger our Menu --&gt;</span>
+    <span class="nt">&lt;template</span> <span class="na">#button</span> <span class="na">v-slot=</span><span class="s">"bind"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Use bind to pass click handlers,
+           a11y attributes, etc. --&gt;</span>
+      <span class="nt">&lt;Button</span> <span class="na">v-bind=</span><span class="s">"bind"</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- Use our own "..." icon and no text
+             for this button --&gt;</span>
+        <span class="nt">&lt;template</span> <span class="na">#icon</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;svg</span> <span class="na">src=</span><span class="s">"./ellipsis.svg"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/template&gt;</span>
+      <span class="nt">&lt;/Button&gt;</span>
+    <span class="nt">&lt;/template&gt;</span>
+  <span class="nt">&lt;/Menu&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here we're taking a <code>Menu</code> component, but adding a '...' (ellipsis) icon to the button that triggers it open.</p>
+
+<p>It almost seems like it's not worth making a reusable component out of this, because it's only a few lines. Can't we just add the icon every time we want to use a <code>Menu</code> like this?</p>
+
+<p>But this <code>OverflowMenu</code> will be used dozens of times, and now if we want to update the icon or it's behaviour, we can do it very easily. And using it is much simpler too!<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;OverflowMenu</span>
+    <span class="na">:menu-items=</span><span class="s">"items"</span>
+    <span class="err">@</span><span class="na">click=</span><span class="s">"handleMenuClick"</span>
+  <span class="nt">/&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>If you want to go even deeper on building highly reusable components, I have a <a href="//michaelnthiessen.com/reusable-components">course</a> that teaches you a completely different way of thinking about your components.</p>
+
+<h2>
+  <a name="21-calling-a-method-from-outside-of-the-component" href="#21-calling-a-method-from-outside-of-the-component">
+  </a>
+  21. Calling a Method from Outside of the Component
+</h2>
+
+<p>You can call a method from outside of a component by giving it a <code>ref</code>:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- Parent.vue --&gt;</span>
+<span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;ChildComponent</span> <span class="na">ref=</span><span class="s">"child"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="c1">// Somewhere in Parent.vue</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">child</span><span class="p">.</span><span class="nx">method</span><span class="p">();</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Let me explain this one a bit more.</p>
+
+<p>Every now and then the "best practices" don't work for what you're doing, and you need an escape hatch like this.</p>
+
+<p>Typically, we communicate between components using props and events. Props are sent down into child components, and events are emitted back up to parent components.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;ChildComponent</span>
+    <span class="na">:tell-me-what-to-do=</span><span class="s">"someInstructions"</span>
+    <span class="err">@</span><span class="na">something-happened=</span><span class="s">"hereIWillHelpYouWithThat"</span>
+  <span class="nt">/&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Once in a while though, you may end up in a situation where you need your parent to trigger a method in the child component. This is where <em>only</em> passing props down doesn't work as well.</p>
+
+<p>You <em>could</em> pass a boolean down and have the child component watch it:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- Parent.vue --&gt;</span>
+<span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;ChildComponent</span> <span class="na">:trigger=</span><span class="s">"shouldCallMethod"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="c1">// Child.vue</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">trigger</span><span class="dl">'</span><span class="p">],</span>
+  <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">shouldCallMethod</span><span class="p">(</span><span class="nx">newVal</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">newVal</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Call the method when the trigger is set to `true`</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">method</span><span class="p">();</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>This works fine, but only on the first call. If you needed to trigger this multiple times you'd have to clean up and reset the state. The logic would then look like this:</p>
+
+<ol>
+<li>The Parent component passes <code>true</code> to <code>trigger</code> prop</li>
+<li>Watch is triggered, and the Child component calls the method</li>
+<li>The Child component emits an event to tell the Parent component that the method has been triggered successfully</li>
+<li>The Parent component resets <code>trigger</code> back to <code>false</code>, so we can do this all over again</li>
+</ol>
+
+<p>Ugh.</p>
+
+<p>Instead, if we set a <code>ref</code> on the child component we can call that method directly:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="c">&lt;!-- Parent.vue --&gt;</span>
+<span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;ChildComponent</span> <span class="na">ref=</span><span class="s">"child"</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="c1">// Somewhere in Parent.vue</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">child</span><span class="p">.</span><span class="nx">method</span><span class="p">();</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Yes, we're breaking the "props down, events up" rule, and we're breaking encapsulation, but it's so much cleaner and easier to understand that it's worth it!</p>
+
+<p>Sometimes the "best" solution ends up being the <em>worst</em> solution.</p>
+
+<h2>
+  <a name="22-watching-arrays-and-objects" href="#22-watching-arrays-and-objects">
+  </a>
+  22. Watching Arrays and Objects
+</h2>
+
+<p>The trickiest part of using a watcher is that sometimes it doesn't seem to trigger properly.</p>
+
+<p>Usually, this is because you're trying to watch an Array or an Object, but didn't set <code>deep</code> to <code>true</code>:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ColourChange</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">colours</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">type</span><span class="p">:</span> <span class="nb">Array</span><span class="p">,</span>
+      <span class="na">required</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="na">watch</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// Use the object syntax instead of just a method</span>
+    <span class="na">colours</span><span class="p">:</span> <span class="p">{</span>
+      <span class="c1">// This will let Vue know to look inside the array</span>
+      <span class="na">deep</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+
+      <span class="c1">// We have to move our method to a handler field</span>
+      <span class="nx">handler</span><span class="p">()</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">The list of colours has changed!</span><span class="dl">'</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Using the reactivity API from Vue 3 would look like this:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="nx">watch</span><span class="p">(</span>
+  <span class="nx">colours</span><span class="p">,</span>
+  <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">The list of colours has changed!</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">deep</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">);</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here are the docs for <a href="https://v3.vuejs.org/api/computed-watch-api.html#computed">Vue 3</a> and <a href="https://vuejs.org/v2/api/#watch">Vue 2</a> if you want to read more on this.</p>
+
+<h2>
+  <a name="23-deep-linking-with-vue-router" href="#23-deep-linking-with-vue-router">
+  </a>
+  23. Deep Linking with Vue Router
+</h2>
+
+<p>You can store (a bit of) state in the URL, allowing you to jump right into a specific state on the page.</p>
+
+<p>For example, you can load a page with a date range filter already selected:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>someurl.com/edit?date-range=last-week
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>This is great for the parts of your app where users may share lots of links, for an app that is server rendered, or communicating more information between two separate apps than a regular link normally provides.</p>
+
+<p>You can store filters, search values, whether a modal is open or closed, or where in a list we've scrolled to — perfect for infinite pagination.</p>
+
+<p>Grabbing the query using <code>vue-router</code> works like this (this will work on most Vue frameworks like Nuxt and Vuepress too):<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="kd">const</span> <span class="nx">dateRange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">dateRange</span><span class="p">;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>To change it we use the <code>RouterLink</code> component and update the <code>query</code>:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;RouterLink</span> <span class="na">:to=</span><span class="s">"{
+  query: {
+    dateRange: newDateRange
+  }
+}"</span><span class="nt">&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here's a demo of this in action:</p>
+
+<p><a href="https://codesandbox.io/s/deep-linking-with-vue-router-vhxkq?file=/src/components/DeepLinking.vue">https://codesandbox.io/s/deep-linking-with-vue-router-vhxkq?file=/src/components/DeepLinking.vue</a></p>
+
+<h2>
+  <a name="24-another-use-for-the-template-tag" href="#24-another-use-for-the-template-tag">
+  </a>
+  24. Another Use for the Template Tag
+</h2>
+
+<p>The <code>template</code> tag can be used anywhere inside of your template to organize code better.</p>
+
+<p>I like to use it to simplify <code>v-if</code> logic, and sometimes <code>v-for</code>, too.</p>
+
+<p>In this example, we have several elements that all use the same <code>v-if</code> condition:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"imgPath"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>
+      {{ title }}
+    <span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">v-if=</span><span class="s">"expanded"</span><span class="nt">&gt;</span>
+      {{ subheading }}
+    <span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;div</span>
+      <span class="na">v-if=</span><span class="s">"expanded"</span>
+      <span class="na">class=</span><span class="s">"card-content"</span>
+    <span class="nt">&gt;</span>
+      <span class="nt">&lt;slot</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;SocialShare</span> <span class="na">v-if=</span><span class="s">"expanded"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>It's a little clunky, and not obvious at first that a bunch of these elements are being shown and hidden together. On a bigger, more complicated component, this could be an even worse situation!</p>
+
+<p>But we can fix that.</p>
+
+<p>We can use the <code>template</code> tag to group these elements, and lift the <code>v-if</code> on to the <code>template</code> tag itself:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"imgPath"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;h3&gt;</span>
+      {{ title }}
+    <span class="nt">&lt;/h3&gt;</span>
+    <span class="nt">&lt;template</span> <span class="na">v-if=</span><span class="s">"expanded"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h4&gt;</span>
+        {{ subheading }}
+      <span class="nt">&lt;/h4&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"card-content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;slot</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;SocialShare</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/template&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Now we have something that's much easier to read. And it's much easier to understand what's going on at a glance.</p>
+
+<h2>
+  <a name="25-a-better-way-to-handle-errors-and-warnings" href="#25-a-better-way-to-handle-errors-and-warnings">
+  </a>
+  25. A better way to handle errors (and warnings)
+</h2>
+
+<p>You can provide a custom handler for errors and warnings in Vue:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="c1">// Vue 3</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">createApp</span><span class="p">(</span><span class="nx">App</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">errorHandler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="c1">// Vue 2</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">errorHandler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Bug tracking services like Bugsnag and Rollbar hook into these handlers to log errors, but you can also use them to handle errors more gracefully for a better UX.</p>
+
+<p>For example, instead of the application just crashing if an error is unhandled, you can show a full page error screen and get the user to refresh or try something else.</p>
+
+<p>In Vue 3 the error handler only works on template and watcher errors, but the Vue 2 error handler will catch almost everything. The warning handler in both versions only works in development.</p>
+
+<p>I created a demo showing how this works. It uses Vue 3, but Vue 2 works nearly the same:</p>
+
+<p><a href="https://codesandbox.io/s/custom-warningerror-handlers-bgwc0?file=/src/main.js:259-312">Error Handler Demo</a></p>
+
+<h2>
+  <a name="exclusive-tips-and-insights-every-week" href="#exclusive-tips-and-insights-every-week">
+  </a>
+  Exclusive tips and insights every week
+</h2>
+
+<p>Join 8135 other Vue devs and get exclusive tips and insights like these delivered straight to your inbox, every week.</p>
+
+<blockquote>
+<p>You have great content in your emails. I seriously learn something from every one of them. —&nbsp;Titus Decali</p>
+
+<p>Thanks for another beautiful tip 🙏 —&nbsp;Victor Onuoha</p>
+
+<p>Loving these, and the spaced repetition —&nbsp;Mark Goldstein</p>
+</blockquote>
+
+<p><a href="//michaelnthiessen.com/newsletter">Sign up here</a></p>
+
+
+          </div>
+
+        </div>
+          
+
+
+      </article></div>
+
+</main>
+
+
+
+
+
+<style>
+    .icon-list {
+      padding-left: 0;
+      list-style: none;
+    }
+    .icon-list >div {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: .25rem;
+      font-size: 12px;
+    }
+    .icon-list >div::before {
+      display: block;
+      flex-shrink: 0;
+      width: 1em;
+      height: 1em;
+      margin-top: .2rem;
+      margin-right: .5rem;
+      content: "";
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+</style>
+<!--<section class="container py-5">-->
+<!--    <h2 style="padding-bottom: 10px"><%= langMap['news_hot'] %></h2>-->
+<!--    -->
+<!--</section>-->
+<section class="container py-5">
+    <h5 style="padding-bottom: 10px">热门文章</h5>
+    <div class="row icon-list" id="news_list_slot">
+        
+    <div class="col-6">
+            <a class="d-inline-block text-truncate" href="25-vue-tips-you-need-to-know-2h70.html">25 vue tips you need to know</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="forem-self-host-is-now-officially-supported-16h0.html">forem self host is now officially supported</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="windows-11-but-for-web-22h1.html">windows 11 but for web</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="programmers-that-don-t-blog-should-start-right-now-295c.html">programmers that don t blog should start right now</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="i-created-8-free-dashboard-templates-built-with-tailwind-for-react-next-vue-and-nuxt-3d69.html">i created 8 free dashboard templates built with tailwind for react next vue and nuxt</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="5-packages-to-optimize-and-speed-up-your-react-app-during-development-4h5f.html">5 packages to optimize and speed up your react app during development</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="improving-mobile-app-performance-with-a-powerful-database-7j5.html">improving mobile app performance with a powerful database</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="nato-condemns-cyberattack-pegasus-cyber-espionage-tool-steam-s-new-console-more-on-devnews-kjb.html">nato condemns cyberattack pegasus cyber espionage tool steam s new console more on devnews</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="how-to-integrate-video-conferencing-to-your-platform-1djm.html">how to integrate video conferencing to your platform</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="hoppscotch-is-celebrating-30-000-github-stars-1gg9.html">hoppscotch is celebrating 30 000 github stars</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="the-7-categories-of-engineering-management-w-ian-nowland-of-datadog-3de1.html">the 7 categories of engineering management w ian nowland of datadog</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="ui-dev-newsletter-66-5fml.html">ui dev newsletter 66</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="writing-inclusive-job-adverts-1n0c.html">writing inclusive job adverts</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="here-s-why-software-engineers-choose-linux-over-windows-for-programming-2mi7.html">here s why software engineers choose linux over windows for programming</a>
+        </div></div>
+</section>
+<style>
+    .icon-list {
+        padding-left: 0;
+        list-style: none;
+    }
+    .icon-list >div {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: .25rem;
+        font-size: 12px;
+    }
+    .icon-list >div::before {
+        display: block;
+        flex-shrink: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: .2rem;
+        margin-right: .5rem;
+        content: "";
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+</style>
+<footer class="container pt-5 my-5 text-muted border-top">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>www.atob.com · © 2021</p>
+</footer>
+    
+
+</body></html>

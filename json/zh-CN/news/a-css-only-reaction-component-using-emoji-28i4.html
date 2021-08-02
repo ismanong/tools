@@ -1,0 +1,784 @@
+<!DOCTYPE html><html lang="zh-cn"><head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Like star rating, reactions is something widely used in many websites so here I am with my own... Tagged with html, css, webdev, beginners.">
+    <meta name="keywords" content="html, css, webdev, beginners, software, coding, development, engineering, inclusive, community">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=0,width=device-width">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        /* stylelint-disable selector-list-comma-newline-after */
+
+        .blog-header {
+            line-height: 1;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .blog-header-logo {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif
+            /*rtl:Amiri, Georgia, "Times New Roman", serif*/
+            ;
+            font-size: 2.25rem;
+        }
+
+            .blog-header-logo:hover {
+                text-decoration: none;
+            }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif
+            /*rtl:Amiri, Georgia, "Times New Roman", serif*/
+            ;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .display-4 {
+                font-size: 3rem;
+            }
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+            .nav-scroller .nav {
+                display: flex;
+                flex-wrap: nowrap;
+                padding-bottom: 1rem;
+                margin-top: -1px;
+                overflow-x: auto;
+                text-align: center;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .nav-scroller .nav-link {
+                padding-top: .75rem;
+                padding-bottom: .75rem;
+                font-size: .875rem;
+            }
+
+        .card-img-right {
+            height: 100%;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .flex-auto {
+            flex: 0 0 auto;
+        }
+
+        .h-250 {
+            height: 250px;
+        }
+
+        @media (min-width: 768px) {
+            .h-md-250 {
+                height: 250px;
+            }
+        }
+
+        /* Pagination */
+        .blog-pagination {
+            margin-bottom: 4rem;
+        }
+
+            .blog-pagination > .btn {
+                border-radius: 2rem;
+            }
+
+        /*
+         * Blog posts
+         */
+        .blog-post {
+            margin-bottom: 4rem;
+        }
+
+        .blog-post-title {
+            margin-bottom: .25rem;
+            font-size: 2.5rem;
+        }
+
+        .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #727272;
+        }
+
+        /*
+         * Footer
+         */
+        .blog-footer {
+            padding: 2.5rem 0;
+            color: #727272;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-top: .05rem solid #e5e5e5;
+        }
+
+            .blog-footer p:last-child {
+                margin-bottom: 0;
+            }
+    </style>
+    <script defer="" src="../../assets/js/news.f199aaa8.js"></script>
+</head>
+
+<body>
+
+    <style>
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .text-small {
+            font-size: 85%;
+        }
+
+        .dropdown-toggle {
+            outline: 0;
+        }
+    </style>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+            <title>Bootstrap</title>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z">
+            </path>
+        </symbol>
+        <symbol id="home" viewBox="0 0 16 16">
+            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z">
+            </path>
+        </symbol>
+        <symbol id="speedometer2" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z">
+            </path>
+            <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z">
+            </path>
+        </symbol>
+        <symbol id="table" viewBox="0 0 16 16">
+            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z">
+            </path>
+        </symbol>
+        <symbol id="people-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z">
+            </path>
+        </symbol>
+        <symbol id="grid" viewBox="0 0 16 16">
+            <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z">
+            </path>
+        </symbol>
+    </svg>
+    <header class="p-3 bg-dark text-white">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+
+                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            格式化校验
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                            <li><a class="dropdown-item" href="jsonindex.html">格式化校验</a></li>
+
+                            <li><a class="dropdown-item" href="json2entity.html">JSON转实体类</a></li>
+
+                            <li><a class="dropdown-item" href="jsonview.html">JSON视图</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Base64
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                            <li><a class="dropdown-item" href="encodeindex.html">Base64</a></li>
+
+                            <li><a class="dropdown-item" href="encodeurl.html">URL编码</a></li>
+
+                            <li><a class="dropdown-item" href="encodemd5.html">MD5编码</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Excel转CSV
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
+                            <li><a class="dropdown-item" href="excelindex.html">Excel转CSV</a></li>
+
+                            <li><a class="dropdown-item" href="excelcsv.html">CSV转Excel</a></li>
+
+                            <li><a class="dropdown-item" href="exceli18n.html">i18n</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     active" href="appparser.html">
+                            工具
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link px-2
+
+                    text-white
+
+                     active" href="link.html">
+                            每日收藏
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                <!--            <form class="d-flex">-->
+                <!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+                <!--                <button class="btn btn-warning" type="submit">Search</button>-->
+                <!--            </form>-->
+
+                <div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group">
+                    <a href="" class="btn btn-outline-warning  active " aria-current="page">简体中文</a>
+                    <a href="" class="btn btn-outline-warning ">English</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container container-fluid pb-3" style="padding-top:3rem;">
+
+    </div>
+
+    <main class="container">
+
+        <div class="row g-5">
+            <div class="col-md-8" id="article"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="762778" data-author-id="577896" data-path="/afif/a-css-only-reaction-component-using-emoji-28i4" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+        <header class="crayons-article__header" id="main-title">
+            
+
+          <div class="crayons-article__header__meta">
+            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
+              A CSS-only reaction component using emoji
+            </h1>
+
+              
+
+            <div class="crayons-article__subheader"><span class="block">
+              
+                
+                Temani Afif
+              
+              
+
+              
+                  Jul 18
+
+
+                ・4 min read
+              
+              
+            <!--/span--></span></div>
+          </div>
+        </header>
+
+        <div class="crayons-article__main">
+
+          <div class="crayons-article__body text-styles spec__body" data-article-id="762778" id="article-body">
+            <p>Like <a href="https://dev.to/afif/series/13564">star rating</a>, reactions is something widely used in many websites so here I am with my own implementation: A CSS-only reaction component that works with emojis or any kind of custom icons. </p>
+
+<p>No need to bother yourself dealing with SVG or PNG images. Grab you favorite emoji and build your own component.</p>
+
+<p>See it in play:</p>
+
+<p><iframe height="600" src="https://codepen.io/t_afif/embed/NWjgqWK?height=600&amp;default-tab=result&amp;embed-version=2" scrolling="no" frameborder="no" allowtransparency="true" loading="lazy" style="width: 100%;">
+</iframe>
+</p>
+
+<p>In the above you will find no <code>@keyframes</code>. All the animations are done using only CSS transition</p>
+
+
+<hr>
+
+<h2>
+  <a name="how-does-it-work" href="#how-does-it-work">
+  </a>
+  How does it work?
+</h2>
+
+<p>The above rely on the very basic HTML code:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"r1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"r1"</span> <span class="na">class=</span><span class="s">"react"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;i</span> <span class="na">data-icon=</span><span class="s">"💯"</span><span class="nt">&gt;&lt;/i&gt;</span>
+<span class="nt">&lt;/label&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+<p>Nothing complex. An <code>&lt;input&gt;</code> with its corresponding <code>&lt;label&gt;</code> and a <code>&lt;i&gt;</code> element having our Emoji as data attribute. That's it!</p>
+
+<p>All the magic is done using CSS and we have different layers illustrated like below:<br>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">id=</span><span class="s">"r1"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"r1"</span> <span class="na">class=</span><span class="s">"react"</span><span class="nt">&gt;</span>
+  ::before [1]
+  <span class="nt">&lt;i</span> <span class="na">data-icon=</span><span class="s">"💯"</span><span class="nt">&gt;</span>
+    ::before [2]
+    ::after [3]
+  <span class="nt">&lt;/i&gt;</span>
+  ::after [4]
+<span class="nt">&lt;/label&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--kRReJXh7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/x1anl77vd11djvpx5s5t.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--kRReJXh7--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/x1anl77vd11djvpx5s5t.png" alt="reactions layers" loading="lazy"></a></p>
+
+<p>All the layers are above each other thanks to the use of <code>display:inline-grid</code> and <code>grid-area:1/1</code></p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--vBBfun6S--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m1r3byqgb9fksjvggvg4.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--vBBfun6S--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m1r3byqgb9fksjvggvg4.png" alt="All layers" loading="lazy"></a></p>
+
+<p><strong>[1]</strong> is a basic circle created like below:<br>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code><span class="nc">.react</span><span class="nd">:before</span> <span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span><span class="s1">""</span><span class="p">;</span>
+  <span class="py">grid-area</span><span class="p">:</span><span class="m">1</span><span class="p">/</span><span class="m">1</span><span class="p">;</span>
+  <span class="nl">border-radius</span><span class="p">:</span><span class="m">50%</span><span class="p">;</span>
+  <span class="nl">border</span><span class="p">:</span><span class="nb">solid</span> <span class="no">orange</span> <span class="n">calc</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+<p>Its transition is a scale one (from <code>0</code> to <code>1</code>) then a <code>border-width</code> (from <code>calc(var(--r)/2)</code> to <code>0</code>)<br>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code><span class="nt">transition</span><span class="o">:</span>
+    <span class="nt">transform</span> <span class="err">0</span><span class="o">.</span><span class="err">5</span><span class="nt">s</span><span class="o">,</span>
+    <span class="nt">border-width</span> <span class="err">0</span><span class="o">.</span><span class="err">5</span><span class="nt">s</span> <span class="err">0</span><span class="o">.</span><span class="err">5</span><span class="nt">s</span><span class="o">;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+<p><code>--r</code> is the variable that will control all the sizing of our component. Yes it's a scalable one! You only need to adjust one variable to control the overall size.</p>
+
+<p><strong>[2]</strong> is our emoji. Nothing complex here:<br>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code><span class="nc">.react</span> <span class="nt">i</span><span class="nd">:before</span> <span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span><span class="n">attr</span><span class="p">(</span><span class="n">data-icon</span><span class="p">);</span>
+  <span class="py">grid-area</span><span class="p">:</span><span class="m">1</span><span class="p">/</span><span class="m">1</span><span class="p">;</span>
+  <span class="nl">font-style</span><span class="p">:</span><span class="nb">normal</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span><span class="n">calc</span><span class="p">(</span><span class="m">0.6</span><span class="err">*</span><span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+<p>The fun start with <strong>[3]</strong> and <strong>[4]</strong>. Those small circles are built using multiple <code>radial-gradient</code>. The difference between [3] and [4] is the circle size and a small rotation to avoid the overlap:<br>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code><span class="nc">.react</span><span class="nd">:after</span><span class="o">,</span>
+<span class="nc">.react</span> <span class="nt">i</span><span class="nd">:after</span><span class="p">{</span>
+  <span class="nl">content</span><span class="p">:</span><span class="s1">""</span><span class="p">;</span>
+  <span class="py">grid-area</span><span class="p">:</span><span class="m">1</span><span class="p">/</span><span class="m">1</span><span class="p">;</span>
+  <span class="nl">margin</span><span class="p">:</span> <span class="n">calc</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">-2</span><span class="p">);</span>
+  <span class="py">--c1</span><span class="p">:</span><span class="n">radial-gradient</span><span class="p">(</span><span class="no">red</span>    <span class="m">50%</span><span class="p">,</span><span class="m">#0000</span> <span class="m">60%</span><span class="p">);</span>
+  <span class="py">--c2</span><span class="p">:</span><span class="n">radial-gradient</span><span class="p">(</span><span class="no">orange</span> <span class="m">50%</span><span class="p">,</span><span class="m">#0000</span> <span class="m">60%</span><span class="p">);</span>
+  <span class="nl">background</span><span class="p">:</span>
+    <span class="n">var</span><span class="p">(</span><span class="n">--c1</span><span class="p">),</span><span class="n">var</span><span class="p">(</span><span class="n">--c1</span><span class="p">),</span><span class="n">var</span><span class="p">(</span><span class="n">--c1</span><span class="p">),</span><span class="n">var</span><span class="p">(</span><span class="n">--c1</span><span class="p">),</span>
+    <span class="n">var</span><span class="p">(</span><span class="n">--c2</span><span class="p">),</span><span class="n">var</span><span class="p">(</span><span class="n">--c2</span><span class="p">),</span><span class="n">var</span><span class="p">(</span><span class="n">--c2</span><span class="p">),</span><span class="n">var</span><span class="p">(</span><span class="n">--c2</span><span class="p">);</span> 
+  <span class="nl">background-size</span><span class="p">:</span><span class="n">calc</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">6</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">6</span><span class="p">);</span> 
+  <span class="nl">background-position</span><span class="p">:</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="n">-</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="n">-</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="n">-</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="n">-</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">2</span><span class="p">),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span>  <span class="m">0px</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)</span><span class="err">*</span><span class="m">0.707</span><span class="p">),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)</span><span class="err">*</span><span class="m">0.707</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span>  <span class="m">0px</span><span class="p">),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="n">-</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)</span><span class="err">*</span><span class="m">0.707</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span>  <span class="m">0px</span><span class="p">),</span>
+    <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="err">+</span>  <span class="m">0px</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="m">50%</span> <span class="n">-</span> <span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)</span><span class="err">*</span><span class="m">0.707</span><span class="p">);</span>
+  <span class="nl">background-repeat</span><span class="p">:</span><span class="nb">no-repeat</span><span class="p">;</span>
+  <span class="nl">transform</span><span class="p">:</span><span class="n">scale</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nc">.react</span> <span class="nt">i</span><span class="nd">:after</span> <span class="p">{</span>
+  <span class="nl">background-size</span><span class="p">:</span><span class="n">calc</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">8</span><span class="p">)</span> <span class="n">calc</span><span class="p">(</span><span class="n">var</span><span class="p">(</span><span class="n">--r</span><span class="p">)/</span><span class="m">8</span><span class="p">);</span>
+  <span class="nl">transform</span><span class="p">:</span><span class="n">rotate</span><span class="p">(</span><span class="m">60deg</span><span class="p">)</span> <span class="n">scale</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+<p>Each one is made with 8 circles (4 red &amp; 4 orange) placed in a circular shape. The Math-folks will notice the value of <code>sin()</code> and <code>cos()</code> for the angles <code>N*45deg</code>.</p>
+
+<p>Their transition is a scale one (from <code>0</code> to <code>1</code>) then a <code>background-size</code> one (from the value defined above to <code>0</code>) combined with <code>opacity</code><br>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code><span class="nt">transition</span><span class="o">:</span>
+    <span class="nt">transform</span> <span class="err">0</span><span class="o">.</span><span class="err">5</span><span class="nt">s</span> <span class="err">0</span><span class="o">.</span><span class="err">5</span><span class="nt">s</span><span class="o">,</span>
+    <span class="nt">opacity</span>   <span class="err">0</span><span class="o">.</span><span class="err">4</span><span class="nt">s</span> <span class="err">0</span><span class="o">.</span><span class="err">9</span><span class="nt">s</span><span class="o">,</span>
+    <span class="nt">background-size</span> <span class="err">0</span><span class="o">.</span><span class="err">5</span><span class="nt">s</span> <span class="err">0</span><span class="o">.</span><span class="err">9</span><span class="nt">s</span><span class="o">;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+<p>Finally we have the transition applied to the <code>&lt;i&gt;</code> element that will affect both <strong>[2]</strong> and <strong>[3]</strong>. We have the filter one that allow us to have the grey coloration that transition to the original color of the emoji and a scale one.</p>
+
+<p>For the scale one I am using a magic <code>cubic-bezier</code> function to create a transtion from <code>1</code> to <code>0</code> to <code>1</code>.<br>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code>  <span class="nt">transition</span><span class="o">:</span>
+     <span class="nt">filter</span> <span class="o">.</span><span class="err">5</span><span class="nt">s</span> <span class="o">.</span><span class="err">5</span><span class="nt">s</span><span class="o">,</span>
+     <span class="nt">transform</span> <span class="err">1</span><span class="nt">s</span> <span class="nt">cubic-bezier</span><span class="o">(</span><span class="err">0</span><span class="o">,</span><span class="err">26</span><span class="o">.</span><span class="err">67</span><span class="o">,.</span><span class="err">5</span><span class="o">,</span><span class="err">26</span><span class="o">.</span><span class="err">67</span><span class="o">);</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+<p>I am detailing this technique in the below post:</p>
+
+
+<div class="ltag__link">
+  <a href="/this-is-learning" class="ltag__link__link">
+    <div class="ltag__link__org__pic">
+      <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--SV2c6g9T--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://res.cloudinary.com/practicaldev/image/fetch/s--TcsNlUvs--/c_fill%2Cf_auto%2Cfl_progressive%2Ch_150%2Cq_auto%2Cw_150/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/3314/dc73eb74-08f9-4592-b599-c08f2bb14b4d.png" alt="This is Learning" loading="lazy">
+      <div class="ltag__link__user__pic">
+        <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--jSZolrIL--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://res.cloudinary.com/practicaldev/image/fetch/s--5k2bquNj--/c_fill%2Cf_auto%2Cfl_progressive%2Ch_150%2Cq_auto%2Cw_150/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/577896/343fde9f-609b-419b-95d1-07d16b320a37.png" alt="" loading="lazy">
+      </div>
+    </div>
+  </a>
+  <a href="/this-is-learning/advanced-css-animation-using-cubic-bezier-nho" class="ltag__link__link">
+    <div class="ltag__link__content">
+      <h2>Advanced CSS Animation Using cubic-bezier()</h2>
+      <h3>Temani Afif for This is Learning ・ May 19 ・ 12 min read</h3>
+      <div class="ltag__link__taglist">
+        <span class="ltag__link__tag">#css</span>
+        <span class="ltag__link__tag">#webdev</span>
+        <span class="ltag__link__tag">#tutorial</span>
+        <span class="ltag__link__tag">#codepen</span>
+      </div>
+    </div>
+  </a>
+</div>
+
+
+
+<p>I am also adding a shake effect on hover where I am using another <code>cubic-bezier</code> detailed in the same post.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code><span class="nt">transition</span><span class="nd">:transform</span> <span class="err">0</span><span class="o">.</span><span class="err">25</span><span class="nt">s</span> <span class="nt">cubic-bezier</span><span class="o">(</span><span class="err">0</span><span class="o">.</span><span class="err">5</span><span class="o">,</span><span class="err">400</span><span class="o">,</span><span class="err">0</span><span class="o">.</span><span class="err">5</span><span class="o">,</span><span class="nt">-400</span><span class="o">);</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+
+<hr>
+
+<h3>
+  <a name="thats-it" href="#thats-it">
+  </a>
+  That's it!
+</h3>
+
+<p>All you have to do is to pick your emoji or an icon from Font Awesome and adjust the <code>--r</code> to control the size.</p>
+
+<p>I made some trivial changes to the initial code to be able to use Font Awesome icons as we don't need to define <code>content</code> since the CSS of Font Awesome will do it for us.</p>
+
+<p><iframe height="600" src="https://codepen.io/t_afif/embed/gOWRLGN?height=600&amp;default-tab=result&amp;embed-version=2" scrolling="no" frameborder="no" allowtransparency="true" loading="lazy" style="width: 100%;">
+</iframe>
+</p>
+
+<p>PS: The idea was inspired from a Stack Overflow question I answered a while ago: <a href="https://stackoverflow.com/a/54600583/8620333">How to make a sparkling button animation?</a>. It's the same effect with a few adjustments to my old code.</p>
+
+
+          </div>
+
+        </div>
+          
+
+
+      </article></div>
+
+            <div class="col-md-4">
+                <div class="position-sticky" style="top: 2rem;">
+                    <div class="p-4 mb-3 bg-light rounded">
+                        <h4>关于我们</h4>
+                        <p class="mb-0">每天分享最新最好的文章，精选世界各地实时的优质内容</p>
+                    </div>
+
+                    <div class="p-4">
+                        <h4>热门文章</h4>
+                        <ol class="list-unstyled mb-0" id="topArticle">
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="4-javascript-projects-to-build-fast-and-get-hired-in-1-month-4agf.html">
+                                    4
+                                    JavaScript Projects To Build FAST And Get Hired In 1 Month
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="moving-away-from-reactjs-and-vuejs-on-front-end-using-clean-architecture-3olk.html">
+                                    Moving
+                                    away from ReactJs and VueJs on front-end using Clean Architecture
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="vue-academy-0-what-is-vuejs-fastly-2eha.html">
+                                    Vue Academy #0: What is VueJs ?
+                                    (Fastly)
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="opensource-no-more-free-39m6.html">Opensource... NO more free?!</a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="placeholder-text-on-an-input-instead-of-a-label-does-it-pass-wcag-the-answer-may-surprise-you-94m.html">
+                                    I
+                                    was shocked 😱 that placeholder text on an <input> (instead of a <label>
+                                        ) might
+                                        TECHNICALLY PASS WCAG⁉ Do you agree?
+                                </label></a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="top-10-open-source-saas-that-could-help-you-build-the-next-big-thing-2eai.html">
+                                    Top
+                                    10 open-source SaaS that could help you build the next big thing
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="gitlive-13-0-codeshare-now-supports-sharing-via-live-share-and-code-with-me-331.html">
+                                    GitLive
+                                    13.0: Codeshare now supports sharing via Live Share and Code With Me
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="running-on-aws-savings-plans-you-can-still-reduce-your-cloud-bill-59j1.html">
+                                    Running
+                                    on AWS Savings Plans? You can still reduce your cloud bill
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="the-road-to-ember-4-0-7f1.html">The Road to Ember 4.0</a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="solving-advent-of-code-puzzles-in-idiomatic-kotlin-1m62.html">
+                                    Solving Advent
+                                    of Code Puzzles in Idiomatic Kotlin
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="react-dashboard-open-source-full-stack-products-4224.html">
+                                    React Dashboard -
+                                    Open-source Full-stack Products
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="job-searches-and-career-changes-when-you-re-not-the-default-4c4p.html">
+                                    Job
+                                    Searches and Career Changes When You're Not the "Default"
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="7-tips-our-developers-recommend-to-newbie-devs-50ji.html">
+                                    7 Tips our
+                                    Developers recommend to Newbie Devs
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="a-python-native-engine-for-web-development-4i8a.html">
+                                    A Python native engine
+                                    for Web Development
+                                </a>
+                            </li>
+                            <li>
+                                <a class="d-inline-block text-truncate" style="width: 100%;" href="application-layer-ddos-attacks-47em.html">Application Layer DDoS Attacks</a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="blog-footer">
+        <p>
+            Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.
+        </p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
+
+
+
+</body></html>
