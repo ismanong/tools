@@ -1,1 +1,0 @@
-importScripts("//cdn.jsdelivr.net/npm/xlsx@0.17.0/dist/xlsx.full.min.js"),postMessage({t:"ready"}),onmessage=function(s){var t;try{t=XLSX.read(s.data.d,s.data.b)}catch(s){postMessage({t:"e",d:s.stack})}postMessage({t:s.data.t,d:JSON.stringify(t)})};
