@@ -21,16 +21,34 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <!-- import Vue before Element -->
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <!-- 引入组件库 -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.0/dist/xlsx.full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
-<script defer src="../assets/js/excelindex.a88f2895.js"></script><link href="../assets/css/excelindex.a88f2895.css" rel="stylesheet"></head>
+    <!-- Filepond stylesheet -->
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <!-- Load FilePond library -->
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/chenquincy/app-info-parser/dist/app-info-parser.min.js"></script>
+    <style>
+        .drop-box{
+            width: 320px;
+            height: 460px;
+        }
+        .filepond--root{
+            width: 100%;
+            height: 100%;
+        }
+        .filepond--panel-root{
+            background-color: #F8BA0B;
+        }
+        .filepond--drop-label{
+            height: 100%;
+        }
+        .filepond--label-action{
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+    </style>
+<script defer src="assets/js/appparser.e9d5fa81.js"></script><link href="assets/css/appparser.e9d5fa81.css" rel="stylesheet"></head>
 <body>
 
 <style>
@@ -134,7 +152,7 @@
                 
                     <a class="nav-link px-2 
                     
-                    text-secondary
+                    text-white
                     
                      dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Excel to CSV
@@ -155,7 +173,7 @@
                 
                 <a class="nav-link px-2 
                     
-                    text-white
+                    text-secondary
                     
                      active" href="appparser.html">
                         Tools
@@ -196,8 +214,8 @@
 
             
             <div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group">
-                <a href="/zh-CN/excelindex.html" class="btn btn-outline-warning " aria-current="page">简体中文</a>
-                <a href="/en/excelindex.html" class="btn btn-outline-warning  active ">English</a>
+                <a href="/zh-CN/appparser.html" class="btn btn-outline-warning " aria-current="page">简体中文</a>
+                <a href="/en/appparser.html" class="btn btn-outline-warning  active ">English</a>
             </div>        
             
         </div>
@@ -205,54 +223,47 @@
 </header>
 
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Twelfth navbar example">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-              <ul class="navbar-nav">
-                
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="excelindex.html">Excel to CSV</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="excelcsv.html">CSV to Excel</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="exceli18n.html">i18n</a>
-            </li>
-            
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <h3 class="container page-title">Excel to CSV</h3>
-        
 
-    <div class="container container-fluid pb-3">
-        <div class="content" style="height: 300px;" id="csv_box">
-            
-        <div id="drop_zone" style="height: 100%;border: 2px dashed #bbb;border-radius: 5px;padding: 16px;background: white;transition: border-color 0.5s;text-align: center;position: relative;overflow: hidden;">
-            <input type="file" style="position:absolute; top: -100px" id="drop_picker">
-            <div id="drop_zone_tips"
-                style="position: absolute;top: 0;left: 0;width:100%;height:100%;display: flex;align-items: center;justify-content: center;background: rgba(255, 255, 255,.9);cursor: pointer;z-index: 1;">
-                <div style="text-align: left;">
-                    <div style="color: #999;">Drag and Drop</div>
+
+    <div class="container container-fluid pb-3" style="padding-top: 3rem">
+        <p>Drag and drop apk, ipa files to parse</p>
+
+        <div class="d-grid gap-3" style="grid-template-columns: auto 1fr;">
+            <div class="position-sticky drop-box">
+                <!-- Filepond input-->
+                <input type="file" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="100MB"
+                       data-max-files="3">
+            </div>
+            <div class="bg-light border rounded-3">
+
+                <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Basic Information
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <h6 class="text-secondary text-center" style="padding: 20px 0;">Please add the app file, don't worry, we won't upload your app</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                                Application Permissions
+                            </button>
+                        </h2>
+                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                            <div class="accordion-body">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-            <div id="drop_content" style="width:100%;height: 100%;position: relative;background: transparent;"></div>
         </div>
-        
-        </div>
-
-        <div id="app"></div>
-<!--        <div class="bg-light border rounded-3">-->
-<!--            <pre><code id="csv_box"></code></pre>-->
-<!--        </div>-->
-
     </div>
 
 

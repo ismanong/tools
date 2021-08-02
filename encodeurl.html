@@ -21,16 +21,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <!-- import Vue before Element -->
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <!-- 引入组件库 -->
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.0/dist/xlsx.full.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.5/dist/FileSaver.min.js"></script>
-<script defer src="../assets/js/excelindex.a88f2895.js"></script><link href="../assets/css/excelindex.a88f2895.css" rel="stylesheet"></head>
+<script defer src="assets/js/encodeurl.5516fa64.js"></script><link href="assets/css/encodeurl.5516fa64.css" rel="stylesheet"></head>
 <body>
 
 <style>
@@ -113,7 +104,7 @@
                 
                     <a class="nav-link px-2 
                     
-                    text-white
+                    text-secondary
                     
                      dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Base64
@@ -134,7 +125,7 @@
                 
                     <a class="nav-link px-2 
                     
-                    text-secondary
+                    text-white
                     
                      dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Excel to CSV
@@ -196,8 +187,8 @@
 
             
             <div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group">
-                <a href="/zh-CN/excelindex.html" class="btn btn-outline-warning " aria-current="page">简体中文</a>
-                <a href="/en/excelindex.html" class="btn btn-outline-warning  active ">English</a>
+                <a href="/zh-CN/encodeurl.html" class="btn btn-outline-warning " aria-current="page">简体中文</a>
+                <a href="/en/encodeurl.html" class="btn btn-outline-warning  active ">English</a>
             </div>        
             
         </div>
@@ -214,46 +205,556 @@
               <ul class="navbar-nav">
                 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="excelindex.html">Excel to CSV</a>
+              <a class="nav-link " aria-current="page" href="encodeindex.html">Base64</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="excelcsv.html">CSV to Excel</a>
+              <a class="nav-link active" aria-current="page" href="encodeurl.html">URL encoding</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="exceli18n.html">i18n</a>
+              <a class="nav-link " aria-current="page" href="encodemd5.html">MD5 encoding</a>
             </li>
             
               </ul>
             </div>
           </div>
         </nav>
-        <h3 class="container page-title">Excel to CSV</h3>
+        <h3 class="container page-title">URL encoding</h3>
         
 
-    <div class="container container-fluid pb-3">
-        <div class="content" style="height: 300px;" id="csv_box">
-            
-        <div id="drop_zone" style="height: 100%;border: 2px dashed #bbb;border-radius: 5px;padding: 16px;background: white;transition: border-color 0.5s;text-align: center;position: relative;overflow: hidden;">
-            <input type="file" style="position:absolute; top: -100px" id="drop_picker">
-            <div id="drop_zone_tips"
-                style="position: absolute;top: 0;left: 0;width:100%;height:100%;display: flex;align-items: center;justify-content: center;background: rgba(255, 255, 255,.9);cursor: pointer;z-index: 1;">
-                <div style="text-align: left;">
-                    <div style="color: #999;">Drag and Drop</div>
-                </div>
+<div class="container container-fluid pb-3">
+    <div class="d-grid gap-3" style="grid-template-columns: 2fr auto;">
+        <div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Encrypt/decrypt text</label>
+                <textarea class="form-control" id="exampleFormControlInput1" rows="3"></textarea>
             </div>
-            <div id="drop_content" style="width:100%;height: 100%;position: relative;background: transparent;"></div>
-        </div>
-        
-        </div>
 
-        <div id="app"></div>
-<!--        <div class="bg-light border rounded-3">-->
-<!--            <pre><code id="csv_box"></code></pre>-->
-<!--        </div>-->
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="padding: 16px 0;">
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio1">URL encoding</label>
 
+                <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                <label class="btn btn-outline-primary" for="btnradio2">URL decoding</label>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">encodeURI encoding, not encoding special symbols</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea2" class="form-label">encodeURIComponent encoding method, will encode special symbols</label>
+                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+            </div>
+        </div>
+        <div style="display: flex;flex-flow: column;overflow: hidden;height: 460px;">
+            <h6>URL code table</h6>
+            <div class="bg-light border rounded-3 p-1" style="flex: 1;overflow:auto;">
+                <table class="table" style="font-size: 12px;">
+                    <thead>
+                    <tr>
+                        <th scope="col">Character</th>
+                        <th scope="col" style="width:130px">Character Name</th>
+                        <th scope="col" style="width:120px">URL Encoding</th>
+                        <th scope="col" style="width:140px">ASCII</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <span>&nbsp;</span>
+                        </td>
+                        <td>
+                            <span>Space</span>
+                        </td>
+                        <td>
+                            <span>+ or %20</span>
+                        </td>
+                        <td>
+                            <span>32</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>
+                            </b>
+                            <span><b>a-z</b></span>
+                        </td>
+                        <td>
+                            <span>Lower case letters</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>97-122 (&amp;61-&amp;7A)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>
+                            </b>
+                            <span><b>A-Z</b></span>
+                        </td>
+                        <td>
+                            <span>Upper case letters</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>65-90 (&amp;41-&amp;5A)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><b>
+                            </b>
+                            <span><b>0-9</b></span>
+                        </td>
+                        <td>
+                            <span>Numbers</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>48-57 (&amp;30-&amp;39)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>`</span>
+                        </td>
+                        <td>
+                            <span>Accent Grave</span>
+                        </td>
+                        <td>
+                            <span>%60</span>
+                        </td>
+                        <td>
+                            <span>96</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>~</span></td>
+                        <td>
+                            <span>Tilde</span>
+                        </td>
+                        <td>
+                            <span>%7E</span>
+                        </td>
+                        <td>
+                            <span>126</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>!</span>
+                        </td>
+                        <td>
+                            <span>Exclamation</span>
+                        </td>
+                        <td>
+                            <span>%21</span>
+                        </td>
+                        <td>
+                            <span>33</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>@</span>
+                        </td>
+                        <td>
+                            <span>At</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>64 (&amp;40)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>#</span>
+                        </td>
+                        <td>
+                            <span>Number Sign</span>
+                        </td>
+                        <td>
+                            <span>%23</span>
+                        </td>
+                        <td>
+                            <span>35</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>$</span>
+                        </td>
+                        <td>
+                            <span>Dollar Sign</span>
+                        </td>
+                        <td>
+                            <span>%24</span>
+                        </td>
+                        <td>
+                            <span>36</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>%</span>
+                        </td>
+                        <td>
+                            <span>Percent</span>
+                        </td>
+                        <td>
+                            <span>%25</span>
+                        </td>
+                        <td>
+                            <span>37</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>^</span>
+                        </td>
+                        <td>
+                            <span>Circumflex</span>
+                        </td>
+                        <td>
+                            <span>%5E</span>
+                        </td>
+                        <td>
+                            <span>94</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>&amp;</span>
+                        </td>
+                        <td>
+                            <span>Ampersand</span>
+                        </td>
+                        <td>
+                            <span>%26</span>
+                        </td>
+                        <td>
+                            <span>38</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>*</span>
+                        </td>
+                        <td>
+                            <span>Asterisk</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>42 (&amp;2A)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>(</span>
+                        </td>
+                        <td>
+                            <span>Open Parenthesis</span>
+                        </td>
+                        <td>
+                            <span>%28</span>
+                        </td>
+                        <td>
+                            <span>40</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>)</span>
+                        </td>
+                        <td>
+                            <span>Close Parenthesis</span>
+                        </td>
+                        <td>
+                            <span>%29</span>
+                        </td>
+                        <td>
+                            <span>41</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>-</span>
+                        </td>
+                        <td>
+                            <span>Hyphen</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>45 (&amp;2D)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>_</span>
+                        </td>
+                        <td>
+                            <span>Underscore</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>95 (&amp;5F)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>=</span>
+                        </td>
+                        <td>
+                            <span>Equals</span>
+                        </td>
+                        <td>
+                            <span>%3D</span>
+                        </td>
+                        <td>
+                            <span>61</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>+</span>
+                        </td>
+                        <td>
+                            <span>Plus</span>
+                        </td>
+                        <td>
+                            <span>%2B</span>
+                        </td>
+                        <td>
+                            <span>43</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>\</span>
+                        </td>
+                        <td>
+                            <span>Back Slash *</span>
+                        </td>
+                        <td>
+                            <span>%5C</span>
+                        </td>
+                        <td>
+                            <span>92</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>|</span>
+                        </td>
+                        <td>
+                            <span>Bar</span>
+                        </td>
+                        <td>
+                            <span>%7C</span>
+                        </td>
+                        <td>
+                            <span>124</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>[</span>
+                        </td>
+                        <td>
+                            <span>Left Bracket</span>
+                        </td>
+                        <td>
+                            <span>%5B</span>
+                        </td>
+                        <td>
+                            <span>91</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>]</span>
+                        </td>
+                        <td>
+                            <span>Right Bracket</span>
+                        </td>
+                        <td>
+                            <span>%5D</span>
+                        </td>
+                        <td>
+                            <span>93</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>{</span>
+                        </td>
+                        <td>
+                            <span>Left Brace</span>
+                        </td>
+                        <td>
+                            <span>%7B</span>
+                        </td>
+                        <td>
+                            <span>123</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>}</span>
+                        </td>
+                        <td>
+                            <span>Right Brace</span>
+                        </td>
+                        <td>
+                            <span>%7D</span>
+                        </td>
+                        <td>
+                            <span>125</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>;</span>
+                        </td>
+                        <td>
+                            <span>Semi-colon</span>
+                        </td>
+                        <td>
+                            <span>%3B</span>
+                        </td>
+                        <td>
+                            <span>59</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>:</span>
+                        </td>
+                        <td>
+                            <span>Colon</span>
+                        </td>
+                        <td>
+                            <span>%3A</span>
+                        </td>
+                        <td>
+                            <span>58</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>'</span>
+                        </td>
+                        <td>
+                            <span>Single Quote</span>
+                        </td>
+                        <td>
+                            <span>%27</span>
+                        </td>
+                        <td>
+                            <span>39</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>"</span>
+                        </td>
+                        <td>
+                            <span>Double Quote *</span>
+                        </td>
+                        <td>
+                            <span>%22</span>
+                        </td>
+                        <td>
+                            <span>34</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>,</span>
+                        </td>
+                        <td>
+                            <span>Comma</span>
+                        </td>
+                        <td>
+                            <span>%2C</span>
+                        </td>
+                        <td>
+                            <span>44</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>.</span>
+                        </td>
+                        <td>
+                            <span>Period</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>46 (&amp;2E)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>&lt;</span>
+                        </td>
+                        <td>
+                            <span>Less Than</span>
+                        </td>
+                        <td>
+                            <span>%3C</span>
+                        </td>
+                        <td>
+                            <span>60</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>&gt;</span>
+                        </td>
+                        <td>
+                            <span>Greater Than</span>
+                        </td>
+                        <td>
+                            <span>%3E</span>
+                        </td>
+                        <td>
+                            <span>62</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>/</span>
+                        </td>
+                        <td>
+                            <span>Forward Slash</span>
+                        </td>
+                        <td>
+                            <span>-</span>
+                        </td>
+                        <td>
+                            <span>47 (&amp;2F)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>?</span>
+                        </td>
+                        <td>
+                            <span>Question Mark</span>
+                        </td>
+                        <td>
+                            <span>%3F</span>
+                        </td>
+                        <td>
+                            <span>63</span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+</div>
 
 
 <style>
