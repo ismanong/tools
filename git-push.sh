@@ -1,2 +1,3 @@
 #!/bin/bash
-git add . && git commit -m "Article Update By  %date%"  && git push 
+curday=`date +%Y-%m-%d`
+git add . && git commit -m "Article Update By  $curday"  && git push 
