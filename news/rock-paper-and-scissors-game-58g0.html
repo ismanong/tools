@@ -1,0 +1,1319 @@
+<!DOCTYPE html><html lang="zh-cn"><head>
+<!--    <base href="../">&lt;!&ndash;  设置后当前页锚点不可用  &ndash;&gt;-->
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!--  禁止ios webview 缩放  -->
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+<!--  禁止ios webview 缩放  end  -->
+<meta name="description" content="A rock, paper, scissor game is usually a hand game played between 2 players normally. But in this... Tagged with javascript, webdev, css, frontend.">
+<meta name="keywords" content="javascript, webdev, css, frontend, software, coding, development, engineering, inclusive, community">
+<meta name="author" content="">
+<title></title>
+
+<!-- <link rel="icon" href="/favicon.ico"/> -->
+<!--<meta itemprop="name" content="xxx">-->
+<!--<meta itemprop="image" content="xxx">-->
+
+<!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
+<!--bootstrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+        @media (min-width: 768px) {
+            .display-4 {
+                font-size: 3rem;
+            }
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-scroller .nav-link {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            font-size: .875rem;
+        }
+
+        .card-img-right {
+            height: 100%;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .flex-auto {
+            flex: 0 0 auto;
+        }
+
+        .h-250 { height: 250px; }
+        @media (min-width: 768px) {
+            .h-md-250 { height: 250px; }
+        }
+
+        /* Pagination */
+        .blog-pagination {
+            margin-bottom: 4rem;
+        }
+        .blog-pagination > .btn {
+            border-radius: 2rem;
+        }
+
+        /*
+         * Blog posts
+         */
+        .blog-post {
+            margin-bottom: 4rem;
+        }
+        .blog-post-title {
+            margin-bottom: .25rem;
+            font-size: 2.5rem;
+        }
+        .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #727272;
+        }
+
+
+    </style>
+<script defer="" src="../assets/js/news.9f8df4ba.js"></script><link href="../assets/css/news.9f8df4ba.css" rel="stylesheet"></head>
+<body>
+<input type="hidden" name="" id="template_version" value="1">
+
+<style>
+    .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+    .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+    }
+    .text-small {
+        font-size: 85%;
+    }
+    .dropdown-toggle {
+        outline: 0;
+    }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="bootstrap" viewBox="0 0 118 94">
+        <title>Bootstrap</title>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+    </symbol>
+    <symbol id="home" viewBox="0 0 16 16">
+        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"></path>
+    </symbol>
+    <symbol id="speedometer2" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
+        <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"></path>
+    </symbol>
+    <symbol id="table" viewBox="0 0 16 16">
+        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
+    </symbol>
+    <symbol id="people-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+    </symbol>
+    <symbol id="grid" viewBox="0 0 16 16">
+        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"></path>
+    </symbol>
+</svg>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <div id="splash">
+                    <div id="logo-wrap" class="header">
+                        <canvas id="logo-canvas" style="display: block;"></canvas>
+                    </div>
+                </div>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Formatting checks
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../index.html">Formatting checks</a></li>
+                        
+                         <li><a class="dropdown-item" href="../json2entity.html">JSON to entity class</a></li>
+                        
+                         <li><a class="dropdown-item" href="../jsonview.html">JSON View</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Base64
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../encodeindex.html">Base64</a></li>
+                        
+                         <li><a class="dropdown-item" href="../encodeurl.html">URL encoding</a></li>
+                        
+                         <li><a class="dropdown-item" href="../encodemd5.html">MD5 encoding</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Excel to CSV
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../excelindex.html">Excel to CSV</a></li>
+                        
+                         <li><a class="dropdown-item" href="../excelcsv.html">CSV to Excel</a></li>
+                        
+                         <li><a class="dropdown-item" href="../exceli18n.html">i18n</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../appparser.html">
+                        Tools
+                    </a>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../ocrindex.html">
+                        OCR
+                    </a>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../link.html">
+                        Daily Collection
+                    </a>
+                
+                </li>
+                
+            </ul>
+
+<!--            <form class="d-flex">-->
+<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-warning" type="submit">Search</button>-->
+<!--            </form>-->
+
+            
+        </div>
+    </div>
+</header>
+
+
+    <div class="container container-fluid pb-3" style="padding-top:3rem;">
+
+    </div>
+
+<main class="container">
+
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="781203" data-author-id="530684" data-path="/tejeshwer25/rock-paper-and-scissors-game-58g0" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+        <header class="crayons-article__header" id="main-title">
+
+          <div class="crayons-article__header__meta">
+            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
+              Rock Paper and Scissors game
+            </h1>
+
+              
+
+            <div class="crayons-article__subheader"><span class="block">
+              
+                
+                Tejeshwer Singh Sachdeva
+              
+              
+
+              
+                  Aug 4
+
+
+                ・9 min read
+              
+              
+            <!--/span--></span></div>
+          </div>
+        </header>
+
+        <div class="crayons-article__main">
+
+          <div class="crayons-article__body text-styles spec__body" data-article-id="781203" id="article-body">
+            <p>A rock, paper, scissor game is usually a hand game played between 2 players normally. But in this online age let's play our part in modifying this hand-based offline game and make it digital. <br>
+To make this game we'll be using HTML, CSS, and JavaScript. The final game would look something like this:- </p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--pJ1J6vGw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1628054021141/DJ05SYYLk.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--pJ1J6vGw--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1628054021141/DJ05SYYLk.png" alt="Capture.PNG" loading="lazy"></a></p>
+
+<p>To begin with let's start by creating 3 files within your newly created "rock_paper_scissors" folder. The files to be created within the folder are <code>index.html</code>, <code>styles.css</code>, and <code>app.js</code>. </p>
+<h2>
+  <a name="creating-the-markup" href="#creating-the-markup">
+  </a>
+  Creating the Markup
+</h2>
+
+<p>Once done with creating the necessary files and folders let's begin by describing the markup/HTML for our page. For this go to your <code>index.html</code> file and layout the structure:- <br>
+<code>index.html</code><br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Rock Paper Scissors&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>We'll first layout the content for the header of our game, which looks like this:- <br>
+<a href="https://res.cloudinary.com/practicaldev/image/fetch/s--1Y2ns6PT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1628055085890/cQVB1Y4XZ.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--1Y2ns6PT--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1628055085890/cQVB1Y4XZ.png" alt="Capture.PNG" loading="lazy"></a></p>
+
+<p>Within our 'index.html' inside the body tags add an <code>&lt;header&gt;&lt;/header&gt;</code> tag. The header in turn will contain a primary heading of "Rock Paper Scissors" within the <code>h1</code> tag.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt; 
+    ...
+
+    &lt;body&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Rock Paper Scissors&lt;/h1&gt;
+        &lt;/header&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Done with our header we'll now create a <code>section</code> to display the current scores of the user and computer. For that create a section just after our header tag.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;header&gt; .... &lt;/header&gt;
+
+&lt;section class="score-board"&gt;
+    &lt;div class="badge" id="comp-label"&gt;Computer&lt;/div&gt;
+    &lt;div class="badge" id="user-label"&gt;User&lt;/div&gt;
+    &lt;span id="user-score"&gt;0&lt;/span&gt;:&lt;span id="computer-score"&gt;0&lt;/span&gt;
+&lt;/section&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>The div's with the badge class will be designed into badges to represent the user's and computer's sides. The span is used to display the score in a single line and will also help later in JavaScript to modify the scores according to the user's choice. </p>
+
+<p>Now we need a section where after every choice we tell the user whether he has won or lost and what was chosen by computer from "rock, paper or scissor". To do this create a div and within that a paragraph to represent the text.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;header&gt; ... &lt;/header&gt;
+&lt;section class="score-board"&gt;&lt;/section&gt;
+
+&lt;div class="result"&gt;
+        &lt;p id="round__result"&gt;&lt;/p&gt;
+        &lt;p id="result__text"&gt;To begin choose one from rock, paper or scissor&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Now comes the main part of our markup where we create options from which the user can choose one and the game will progress accordingly. To create this, create another div with a class of choices and within this create 3 more divs with the class of choice.  Within each 'choice' div we will add images of rock, paper, and scissors respectively.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;header&gt; ... &lt;/header&gt;
+&lt;section class="score-board"&gt; ... &lt;/section&gt;
+&lt;div class="result"&gt; ... &lt;/div&gt;
+
+&lt;div class="choices"&gt;
+        &lt;div class="choice" id="rock"&gt;
+            &lt;img src="https://tejeshwer25.github.io/Rock_Paper_scissors/images/rock.png" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="choice" id="paper"&gt;
+            &lt;img src="https://tejeshwer25.github.io/Rock_Paper_scissors/images/paper.png" /&gt;
+        &lt;/div&gt;
+
+        &lt;div class="choice" id="scissor"&gt;
+            &lt;img src="https://tejeshwer25.github.io/Rock_Paper_scissors/images/scissor.png" /&gt;
+        &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Now add a little action text which tells the user what to do.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;header&gt; ... &lt;/header&gt;
+&lt;section class="score-board"&gt; ... &lt;/section&gt;
+&lt;div class="result"&gt; ... &lt;/div&gt;
+&lt;div class="choices"&gt; ... &lt;/div&gt;
+
+&lt;div class="action_text"&gt;
+        &lt;p&gt;Make Your Choice Now!&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Great, we're now done with our HTML, take a look at your page. How does it look?<br>
+For now, it might not look great but we've created the basic structure and placed the required elements on our page.<br>
+Before applying styling and functionality let's link the CSS and JS files to our HTML file.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Rock Paper Scissors&lt;/title&gt;
+    &lt;link rel="stylesheet" href="./styles.css"/&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;script src="./app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h2>
+  <a name="adding-styles-to-our-page" href="#adding-styles-to-our-page">
+  </a>
+  Adding styles to our page
+</h2>
+
+<p>Now let's make our game look nicer with some CSS styles. <br>
+But before we add styles to any of our elements let's reset the default styles provided by the browser using the <code>*</code> selector.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>In the above styling we give padding and margin of 0 to all our elements, along with that we give it a box-sizing of border-box which specifies that the border and padding for the element should remain in the calculated element width and height. <br>
+<code>line-height</code> is specified to be 1.6 which gives all our text a default height of 1.6 units.  </p>
+
+<p>First, let's begin with styling our header element.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>* { ... }
+
+header {
+    padding: 1rem 0rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #f3f3f3;
+    color: #333;
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>We start with giving the header <code>padding</code> of <code>1rem</code> from top &amp; bottom which will give our header some space rather than squishing it with the other elements, and then we align the text within it to <code>center</code>.</p>
+
+<p>You might have noticed that other than the header most of our text in the game is of gold color and the background is a bluish color, so rather than separately specifying it for each element we'll provide these styling for the <code>body</code>.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>* { ... }
+
+body {
+    background-color: rgb(28, 28, 59);
+    color: gold;
+}
+
+header { ... }
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Let's now go for the <code>score-board</code>.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>* { ... }
+body { ... }
+header { ... }
+
+.score-board {
+    border: 2px solid white;
+    width: 30%;
+    margin: 3rem auto;
+    border-radius: 10px;
+    padding: 1rem 0rem;
+    font-size: 2rem;
+    position: relative;
+    text-align: center;
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>To place the <code>section</code> in the center we first reduce its width to <code>30%</code> and then give it a margin of 3rem from top &amp; bottom and auto from left-right and that will place it in the center. The positioning is done to be relative because it will help us later in positioning our badges at the required place. Relative positioning keeps our element in it's natural flow but allows us to place it anywhere in the page using top, left, bottom, and right properties. <br>
+For now the badges 'User' and 'Computer' might look odd, so let's style them.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>.badge {
+    font-size: 0.9rem;
+    position: absolute;
+    background-color: gold;
+    color: rgb(28, 28, 59);
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+}
+
+#comp-label {
+    right: -20%;
+    top: 30%;
+}
+
+#user-label {
+    left: -15%;
+    top: 30%;
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>The badge class is common to both user and computer labels so we specify the styles common to both of them in the badge selector, this is the major use of classes. For positioning the labels we've also specified the position as an absolute which will allow us to move our labels with respect to the <code>score-board</code> because the score-board was positioned relative(try removing the relative position property from score-board). Next to position these labels to their respective side we specify the top, right, and left properties individually to their IDs. </p>
+
+<p>Now let's style the result text.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>.result {
+    text-align: center;
+    font-size: 1.5rem;
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>For the result, we just align the text to the center and give it a font size of 1.5rem.</p>
+
+<p>Let's now style the choices the user has.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>.choices {
+    display: flex;
+    justify-content: space-evenly;
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>The choices container is given a display flex property so that all the child elements of it are in one line, and to add spacing between each element we give it a justify-content property of space-evenly.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>.choice {
+    width: 20%;
+    text-align: center;
+    border: 3px solid white ;
+    border-radius: 50%;
+    padding: 1.5rem 0rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.choice:hover {
+    border: 3px solid grey;
+    cursor: pointer;
+    background: rgb(8, 8, 17);
+}
+
+.choice &gt; img {
+    width: 50%;
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>We then give choice(child of choices) a width of 20% so that our elements do not overflow. The transitioning is given so that when the user hovers on the element the respective hover styling appears with some effects after 0.5s. The image is given a width so that the image remains within its parent div. </p>
+
+<p>Now for a short task, it is now up to you to style the 'action text' at the end.<br>
+To make our game responsive we'll now add some media-queries to it.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>@media(max-width:700px) {
+    .score-board {
+        padding: 2rem 0rem;
+    }
+
+    #user-label {
+        left: -20%;
+    }
+
+    #comp-label {
+        right: -30%;
+    }
+}
+
+@media (max-width: 600px) {
+    #user-label {
+        transform: rotate(90deg);
+    }
+
+    #comp-label {
+        right: -30%;
+        top: 35%;
+        transform: rotate(90deg);
+    }
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>The first media query will work on devices with a screen width lower than 700px. And for that case, we modify the positioning of our user and computer labels. <br>
+The next media query will work on devices with screen widths lower than 600px, and in this, we rotate our labels by 90degrees and again modify their positioning. </p>
+<h2>
+  <a name="adding-functionality-using-js" href="#adding-functionality-using-js">
+  </a>
+  Adding functionality using JS
+</h2>
+
+<p>Great, we're done with our markup and we've also styled it. Our game now looks much better, you can check it yourself if you doubt 😁.<br>
+Let's now add some functionality to it, but before doing so we'll catch/cache our DOM, which is done in following manner:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>const userScore_span = document.getElementById('user-score');
+const computerScore_span = document.getElementById('computer-score');
+const resultText_p = document.getElementById('result__text');
+const roundResult_p = document.getElementById('round_result');
+const rock_div = document.getElementById('rock');
+const paper_div = document.getElementById('paper');
+const scissors_div = document.getElementById('scissor');
+
+let userScore = 0;
+let computerScore = 0; 
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>And this is how we cache the DOM, this is helpful as it prevents us from writing the long 'document.getElementById('')' text every time we want to modify the DOM and also improves the performance of our app. Other than caching the DOM we've also specified variables for the user and computer score. </p>
+
+<p>Now let's specify what should happen when our users click on any one choice given to them.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>rock_div.onclick = (e) =&gt; {
+    let result = startGame('rock');
+    result_text();
+    resultStyle(result, rock_div);
+};
+paper_div.onclick = (e) =&gt; {
+    let result = startGame('paper');
+    result_text();
+    resultStyle(result, paper_div);
+};
+scissors_div.onclick = (e) =&gt; {
+    let result = startGame('scissor');
+    result_text();
+    resultStyle(result, scissors_div);
+};
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here we first call the function startGame and pass it the respective argument, and the return value from startGame is stored in result variable. We then call the result_text and resultStyle functions. <br>
+Note that this won't work as we have not defined the required functions, so let's first start with the startGame function.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>function startGame(userChoice) {
+    let compChoice = computerChoice(); 
+
+    if(userChoice===compChoice) {
+        resultText_p.textContent = "It's a draw!!";
+        return 'draw';
+    } 
+    else if((userChoice==='rock' &amp;&amp; compChoice==='scissor') || (userChoice==='paper' &amp;&amp; compChoice==='rock') || (userChoice==='scissor' &amp;&amp; compChoice==='paper')) {
+        userScore++;
+        userScore_span.textContent = userScore;
+        resultText_p.textContent = `Computer tried to block your ${userChoice} with ${compChoice} and failed... You Won 🔥🔥`;
+        return 'win';
+    }
+    else if((userChoice==='rock' &amp;&amp; compChoice==='paper') || (userChoice==='paper' &amp;&amp; compChoice==='scissor') || (userChoice==='scissor' &amp;&amp; compChoice==='rock')) {
+        computerScore++;
+        computerScore_span.textContent = computerScore;
+        resultText_p.textContent = `Computer blocked your ${userChoice} with ${compChoice} successfully... You Lost 😭😭` ;
+        return 'loss';
+    }
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>In the start game we call the computerChoice function which we'll be declaring in a bit, but let's first go through what's happening here. <br>
+In startGame we check whether the user has won or not using the if-elseif-else chain, and then according to that, we increment the user or computers score. Along with that we also modify the scores and resultant text in our DOM which will be reflected on our app. And at last, we return a value based on the user's performance which will be stored in the result variable in the onclick event handlers. <br>
+Now let's define the computerChoice function.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>function computerChoice() {
+    let choice = ['rock', 'paper', 'scissor']
+    let computerChoice = Math.floor(Math.random() * 3);
+    return choice[computerChoice];
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>In this we define an array of choices and then we generate a random number between 0-1 using Math.random(), to keep the number in the range of 0-3 we multiply the result of Math.random() by 3. But the number would still be a decimal number so to make it an integer value we use Math.floor() which will round the number to it's lower integer(2.9 will become 2). Then the choice at that index is retured which is stored in variable compChoice in startGame(). </p>
+
+<p>Now let's implement the result_text function.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>function result_text() {
+    if(userScore &gt;=10) {
+        roundResult_p.textContent = "You won previous round";
+        userScore = 0;
+        computerScore = 0;
+    } else if(computerScore &gt;= 10) {
+        roundResult_p.textContent = "You lost previous round";
+        userScore = 0;
+        computerScore = 0;
+    } 
+
+    setTimeout(() =&gt; {roundResult_p.textContent = ""}, 5000)
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here we check whether the user or computer has won the previous round and this updates our paragraph with round__result id which was empty initially. And using the setTimeout function we make sure that the text is removed after 5000ms or 5sec.</p>
+
+<p>Let's now make our app better with resultStyle function.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>function resultStyle(result, e) {
+    if(result === 'win') {
+        e.classList.add('win');
+        setTimeout(() =&gt; {e.classList.remove('win')}, 1000)
+    } else if (result === 'draw') {
+        e.classList.add('draw');
+        setTimeout(() =&gt; {e.classList.remove('draw')}, 1000)
+    } else {
+        e.classList.add('lost');
+        setTimeout(() =&gt; {e.classList.remove('lost')}, 1000)
+    }
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>In this function, we check the result of the user's choice and then apply the class of win, lost, or draw to the choice div accordingly. Then we make sure that the class is removed after an interval of 1 sec using the setTimeout function. <br>
+Now to make this function work we'll have to add some more styling at the end of our styles.css.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>...
+.choices &gt; .win {
+    border: 3px solid green;
+    box-shadow: 1px 1px 15px green;
+}
+
+.choices &gt; .lost {
+    border: 3px solid red;
+    box-shadow: 1px 1px 15px red;
+}
+
+.choices &gt; .draw {
+    border: 3px solid yellow;
+    box-shadow: 1px 1px 15px yellow;
+}
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Now you can try the app, it functions pretty well and has some more styling that makes it even better.  </p>
+
+<p>So, here we completed our rock paper scissors game. For this project I went through FreeCodeCamp's youtube channel, you can also visit it for more of such amazing contants. </p>
+
+
+          </div>
+
+        </div>
+          
+
+
+      </article></div>
+
+</main>
+
+
+
+
+
+<style>
+    .icon-list {
+      padding-left: 0;
+      list-style: none;
+    }
+    .icon-list >div {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: .25rem;
+      font-size: 12px;
+    }
+    .icon-list >div::before {
+      display: block;
+      flex-shrink: 0;
+      width: 1em;
+      height: 1em;
+      margin-top: .2rem;
+      margin-right: .5rem;
+      content: "";
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+</style>
+<!--<section class="container py-5">-->
+<!--    <h2 style="padding-bottom: 10px"><%= langMap['news_hot'] %></h2>-->
+<!--    -->
+<!--</section>-->
+<section class="container py-5">
+    <h5 style="padding-bottom: 10px">Hot Articles</h5>
+    <div class="row icon-list" id="news_list_slot">
+        
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-see-which-branch-your-teammate-is-on-in-intellij-5aip.html">how to see which branch your teammate is on in intellij</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/10-trending-projects-on-github-for-web-developers-23rd-july-2021-524.html">10 trending projects on github for web developers 23rd july 2021</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/launching-support-for-clickhouse-as-storage-backend-for-signoz-1fk9.html">launching support for clickhouse as storage backend for signoz</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/top-skill-needed-as-a-javascript-developer-554n.html">top skill needed as a javascript developer</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/fanatic-laravel-stack-fantastically-laravel-combo-stacked-with-knock-out-power-3dbf.html">fanatic laravel stack fantastically laravel combo stacked with knock out power</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-code-a-game-like-apex-legends-3797.html">how to code a game like apex legends</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/modifying-array-data-with-indices-3d71.html">modifying array data with indices</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/set-up-talkback-like-a-pro-in-just-a-few-minutes-1foo.html">set up talkback like a pro in just a few minutes</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/implementing-merge-sort-in-rust-4ko8.html">implementing merge sort in rust</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/it-compliance-in-practice-correctly-containing-and-deleting-data-and-projects-in-b2b-software-development-2lfm.html">it compliance in practice correctly containing and deleting data and projects in b2b software development</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/utilizando-react-memo-43h.html">utilizando react memo</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/top-android-app-development-company-in-india-best-android-app-development-1d3f.html">top android app development company in india best android app development</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/generate-your-own-application-with-end-to-end-testing-thanks-to-jhipster-net-1f4l.html">generate your own application with end to end testing thanks to jhipster net</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/best-iphone-app-development-company-india-ios-app-development-agency-218h.html">best iphone app development company india ios app development agency</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-supercharge-your-software-engineering-skills-5dj2.html">how to supercharge your software engineering skills</a>
+        </div>
+          
+    </div>
+</section>
+<style>
+    .icon-list {
+        padding-left: 0;
+        list-style: none;
+    }
+    .icon-list >div {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: .25rem;
+        font-size: 12px;
+    }
+    .icon-list >div::before {
+        display: block;
+        flex-shrink: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: .2rem;
+        margin-right: .5rem;
+        content: "";
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+</style>
+<footer class="container pt-5 my-5 text-muted border-top">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>www.atob.com · © 2021
+        <a href="">
+            <svg id="github" width="20" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+    </p>
+</footer>
+
+<div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">提示</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      感谢您的反馈!
+    </div>
+  </div>
+</div>
+
+<div class="container pb-md-4 text-center">
+    <div class="row justify-content-center">
+        <h4 class="mb-3">Feedback on requirements and issues</h4>
+        <div class="col-lg-6 col-md-7">
+            <div class="input-group">
+                <textarea class="form-control" aria-label="With textarea" id="report_textarea"></textarea>
+                <button class="btn btn-primary" type="submit" name="subscribe" id="report_button" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="focus" title="提示" data-bs-content="感谢您的提交！">Submit</button>
+            </div>
+        </div>
+        <div class="form-text opacity-50">If you have a good web tool that you would like to put on this site for use, please write down your github address and we will contact you!</div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/autosize@5.0.1/dist/autosize.min.js"></script>
+<!--<script-->
+<!--  src="https://js.sentry-cdn.com/2891f0de7aff4745b87a3813c8c0a31e.min.js"-->
+<!--  crossorigin="anonymous"-->
+<!--&gt;</script>-->
+<script type="text/javascript">
+    let report_textarea = document.querySelector('#report_textarea');
+    autosize(report_textarea);
+    let toast = new bootstrap.Toast(document.querySelector('.toast'))
+    let report_button = document.querySelector('#report_button');
+    var popover = new bootstrap.Popover(report_button, {
+      trigger: 'focus'
+    })
+    // report_button.onclick= function(e) {
+    //     Sentry.captureMessage(report_textarea.value);
+    //     toast.show();
+    // };
+    // Sentry.onLoad(function() {
+    //     Sentry.init();
+    //     Sentry.configureScope(scope => {
+    //         scope.setTag("data", 'report');
+    //         // scope.setUser({
+    //         //     id: 42,
+    //         //     email: "john.doe@example.com",
+    //         // });
+    //     });
+    // });
+    
+</script>
+    
+
+</body></html>

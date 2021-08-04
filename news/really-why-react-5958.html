@@ -1,0 +1,1004 @@
+<!DOCTYPE html><html lang="zh-cn"><head>
+<!--    <base href="../">&lt;!&ndash;  设置后当前页锚点不可用  &ndash;&gt;-->
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!--  禁止ios webview 缩放  -->
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+<!--  禁止ios webview 缩放  end  -->
+<meta name="description" content="NOTE: I wrote this more than a year ago and decided to not publish it. I'd rather focus on writing... Tagged with really, why, react, javascript.">
+<meta name="keywords" content="really, why, react, javascript, software, coding, development, engineering, inclusive, community">
+<meta name="author" content="">
+<title></title>
+
+<!-- <link rel="icon" href="/favicon.ico"/> -->
+<!--<meta itemprop="name" content="xxx">-->
+<!--<meta itemprop="image" content="xxx">-->
+
+<!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
+<!--bootstrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+        @media (min-width: 768px) {
+            .display-4 {
+                font-size: 3rem;
+            }
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-scroller .nav-link {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            font-size: .875rem;
+        }
+
+        .card-img-right {
+            height: 100%;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .flex-auto {
+            flex: 0 0 auto;
+        }
+
+        .h-250 { height: 250px; }
+        @media (min-width: 768px) {
+            .h-md-250 { height: 250px; }
+        }
+
+        /* Pagination */
+        .blog-pagination {
+            margin-bottom: 4rem;
+        }
+        .blog-pagination > .btn {
+            border-radius: 2rem;
+        }
+
+        /*
+         * Blog posts
+         */
+        .blog-post {
+            margin-bottom: 4rem;
+        }
+        .blog-post-title {
+            margin-bottom: .25rem;
+            font-size: 2.5rem;
+        }
+        .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #727272;
+        }
+
+
+    </style>
+<script defer="" src="../assets/js/news.9f8df4ba.js"></script><link href="../assets/css/news.9f8df4ba.css" rel="stylesheet"></head>
+<body>
+<input type="hidden" name="" id="template_version" value="1">
+
+<style>
+    .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+    .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+    }
+    .text-small {
+        font-size: 85%;
+    }
+    .dropdown-toggle {
+        outline: 0;
+    }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="bootstrap" viewBox="0 0 118 94">
+        <title>Bootstrap</title>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+    </symbol>
+    <symbol id="home" viewBox="0 0 16 16">
+        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"></path>
+    </symbol>
+    <symbol id="speedometer2" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
+        <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"></path>
+    </symbol>
+    <symbol id="table" viewBox="0 0 16 16">
+        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
+    </symbol>
+    <symbol id="people-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+    </symbol>
+    <symbol id="grid" viewBox="0 0 16 16">
+        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"></path>
+    </symbol>
+</svg>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <div id="splash">
+                    <div id="logo-wrap" class="header">
+                        <canvas id="logo-canvas" style="display: block;"></canvas>
+                    </div>
+                </div>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Formatting checks
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../index.html">Formatting checks</a></li>
+                        
+                         <li><a class="dropdown-item" href="../json2entity.html">JSON to entity class</a></li>
+                        
+                         <li><a class="dropdown-item" href="../jsonview.html">JSON View</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Base64
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../encodeindex.html">Base64</a></li>
+                        
+                         <li><a class="dropdown-item" href="../encodeurl.html">URL encoding</a></li>
+                        
+                         <li><a class="dropdown-item" href="../encodemd5.html">MD5 encoding</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Excel to CSV
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../excelindex.html">Excel to CSV</a></li>
+                        
+                         <li><a class="dropdown-item" href="../excelcsv.html">CSV to Excel</a></li>
+                        
+                         <li><a class="dropdown-item" href="../exceli18n.html">i18n</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../appparser.html">
+                        Tools
+                    </a>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../ocrindex.html">
+                        OCR
+                    </a>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../link.html">
+                        Daily Collection
+                    </a>
+                
+                </li>
+                
+            </ul>
+
+<!--            <form class="d-flex">-->
+<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-warning" type="submit">Search</button>-->
+<!--            </form>-->
+
+            
+        </div>
+    </div>
+</header>
+
+
+    <div class="container container-fluid pb-3" style="padding-top:3rem;">
+
+    </div>
+
+<main class="container">
+
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="251400" data-author-id="138312" data-path="/jfbrennan/really-why-react-5958" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+        <header class="crayons-article__header" id="main-title">
+
+          <div class="crayons-article__header__meta">
+            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 short">
+              Really, why React?
+            </h1>
+
+              
+
+            <div class="crayons-article__subheader"><span class="block">
+              
+                
+                Jordan Brennan
+              
+              
+
+              
+                  Aug 4
+
+
+                ・11 min read
+              
+              
+            <!--/span--></span></div>
+          </div>
+        </header>
+
+        <div class="crayons-article__main">
+
+          <div class="crayons-article__body text-styles spec__body" data-article-id="251400" id="article-body">
+            <p><em><strong>NOTE:</strong> I wrote this more than a year ago and decided to not publish it. I'd rather focus on writing constructive stuff (ok, and because future hiring managers might be React die-hards haha!).</em> </p>
+
+<p><em>But today I reviewed a candidate's take-home that made me close my laptop and go take a shower. It was 10x over-engineered and the worst part was it's all "correct" according to modern React! I immediately came here and published.</em></p>
+
+<p>I recently got back into React since it first came out and I'm wondering all over again why someone would choose to use this library. Ironically, it's the <strong>React team's own words</strong> that reaffirm my aversion to it:</p>
+
+<blockquote>
+<p>We’ve often had to maintain components that started out simple but grew into an unmanageable mess of stateful logic and side effects.<br>
+<small><a href="https://reactjs.org/docs/hooks-intro.html#complex-components-become-hard-to-understand">https://reactjs.org/docs/hooks-intro.html#complex-components-become-hard-to-understand</a></small></p>
+</blockquote>
+
+<p>That's the opposite result of what has been so heavily marketed and promoted, and this is coming from Facebook's own engineers. If React doesn't help Facebook avoid an "unmanageable mess", then who does it help? React projects I've worked on aren't much better than the old jQuery spaghetti apps of the past. "But hooks can fix this!" Meh, more of a band-aid than a fix and it's just one of many issues I have with React. Here's my beef:</p>
+
+<ul>
+<li><strong>Excessiveness</strong></li>
+<li><strong>JSX</strong></li>
+<li><strong>Too many options, patterns, ideas</strong></li>
+<li><strong>Synthetic events</strong></li>
+<li><strong>Styles</strong></li>
+<li><strong>DX is lame</strong></li>
+<li><strong>Lack of respect for web standards</strong></li>
+<li><strong>Over-engineering is normal, even encouraged</strong></li>
+</ul>
+
+<p>Let's start with excessiveness...</p>
+
+<h2>
+  <a name="excessiveness" href="#excessiveness">
+  </a>
+  Excessiveness
+</h2>
+
+<p>I crave tools that simplify my work. If linking to a library, opening its docs, and using standards-based code doesn't work, I'm 98% less interested in that library.</p>
+
+<p>jQuery, for example, required nothing but a <code>&lt;script&gt;</code> tag. The same used to be true for Bootstrap. Today, it's yarning (because npm is not cool enough) and CLIing for an hour before you get to use the thing. </p>
+
+<p>I'm not convinced modern ideas can't be implemented in a way that delivers the amazingly simple experience of the past. <a href="https://polyfill.io/v3/">Polyfill.io</a> is a good example of a modern use case that avoids the excessiveness of Babel/Webpack polyfills. Frameworks like React should be easy like that.</p>
+
+<h2>
+  <a name="jsx-templates" href="#jsx-templates">
+  </a>
+  JSX templates
+</h2>
+
+<p>Instead of HTML or template literals, React templates use, according to the docs, a "funny tag syntax [that] is neither a string nor HTML." This non-standard syntax results in not-so-funny PHP- and JSP-like code. What is funny though is <strong>JSX was added as a way to <em>avoid</em> using React's own <code>createElement</code> API</strong>. What kind of library adds one weird solution so you can get out of having to use their other weird solution?!</p>
+
+<p>A lot of the template code you would expect to write you can't because "React DOM uses camelCase property naming convention instead of HTML attribute names." For example, the perfectly valid <code>&lt;label for=""&gt;</code> will not work because <code>for</code> gets parsed as JavaScript. You have to use a funny JSX attribute: <code>&lt;label htmlFor=""&gt;</code>. </p>
+
+<p>Also, you have to do a funny comment syntax because HTML comment syntax is not allowed.</p>
+
+<p>And don't forget to slash your self-closing tags, e.g. <code>&lt;img /&gt;</code>, even though HTML5 dropped that syntax more than 10 years ago.</p>
+
+<p>SVG code can't have namespaces or else "React's JSX doesn't support namespace tags."</p>
+
+<p>Another one I still don't understand and don't want to understand is:</p>
+
+<blockquote>
+<p>Error: The <code>style</code> prop expects a mapping from style properties to values, not a string.</p>
+</blockquote>
+
+<p>I'm certainly not a proponent of using the style attribute, but this is just another ridiculous speed bump in my work.</p>
+
+<p>Hopes for changing all the funny stuff have come and gone (see <a href="https://github.com/facebook/react/pull/10169">https://github.com/facebook/react/pull/10169</a>). What happens is developers come along expecting to use their HTML knowledge inside React templates - understandably so - and slowly realize how far off JSX really is, and so they of course expect it will get fixed. But the jokes on them! JSX isn't broken, this is <em>by design</em> and is unlikely to ever change unless React introduces a JSX replacement that actually supports HTML. </p>
+
+<p>There's a bunch of these JSX gotchas buried in <a href="https://reactjs.org/docs/jsx-in-depth.html">the docs</a> and I guess this is just one of those things you have to...what exactly? <strong>Really, what do developers honestly think of JSX?</strong> </p>
+
+<p>Another very big departure from HTML is JSX can pass <em>content</em> to attributes. From the docs:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="k">return</span> <span class="p">(</span>
+  <span class="o">&lt;</span><span class="nx">SplitPane</span>
+    <span class="nx">left</span><span class="o">=</span><span class="p">{</span> <span class="o">&lt;</span><span class="nx">Contacts</span> <span class="o">/&gt;</span> <span class="p">}</span>
+    <span class="nx">right</span><span class="o">=</span><span class="p">{</span> <span class="o">&lt;</span><span class="nx">Chat</span> <span class="o">/&gt;</span> <span class="p">}</span> 
+  <span class="sr">/</span><span class="err">&gt;
+</span><span class="p">);</span>
+
+
+<span class="kd">function</span> <span class="nx">SplitPane</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">SplitPane</span><span class="dl">"</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">SplitPane-left</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">left</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="dl">"</span><span class="s2">SplitPane-right</span><span class="dl">"</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">right</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Because of all this specialness you can't easily port JSX. That rubs me the wrong way. Template code should be easy to port because HTML is a standard. What a bummer that so many millions of lines of JSX have been written and will not be portable once JSX goes away!</p>
+
+<p>So, to summarize templates in React:</p>
+
+<ul>
+<li>Use the funny JSX syntax to avoid <code>createElement</code>
+</li>
+<li>Your JSX will turn into a PHP-like "unmanageable mess"</li>
+<li>You must learn a long list of JSX gotchas, which is worthless knowledge that doesn't actually help you accomplish anything or transfer to other libraries</li>
+<li>Your template code will not be portable </li>
+</ul>
+
+<p>Not funny.</p>
+
+<h2>
+  <a name="functional-or-classbased-controlled-or-uncontrolled-forwardref-mixins-hoc-hooks-etc" href="#functional-or-classbased-controlled-or-uncontrolled-forwardref-mixins-hoc-hooks-etc">
+  </a>
+  Functional or Class-based, controlled or uncontrolled, forwardRef, mixins, HOC, Hooks, etc.
+</h2>
+
+<p>I'll let the React docs summarize this problem for me:</p>
+
+<blockquote>
+<p>If you look at a typical React application in React DevTools, you will likely find a “wrapper hell” of components surrounded by layers of providers, consumers, higher-order components, render props, and other abstractions.</p>
+</blockquote>
+
+<p>They weren't kidding when they said "unmanageable mess". I appreciate the honesty. Acknowledging you have a problem is the first step to recovery. </p>
+
+<p>The fact that there are so many options and types of components confuses me. This immediately makes an engineer question which way is better? What are the tradeoffs? Perhaps one or more of these are getting deprecated?</p>
+
+<p>When a tool can be used in so many ways it creates doubt in its user. That's why, as the React team admits, <strong>"even between experienced React developers [there's disagreement]"</strong> on just a subset of these options. It's scope creep and it's exhausting! I want simple tools, like a hammer. A hammer has just two options: pound nails and pull nails. Its design makes it obvious to the user which interface is used for what.</p>
+
+<p>Anyway, React docs say "the simplest way" is functions:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span><span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>I agree. Nice and simple. But that doesn't address all the questions and concerns when presented with the Class alternative:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="kd">class</span> <span class="nx">Welcome</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>To avoid reading too much into several contradictions in the React documentation, I'll skip to what I know: the differences between these two options are less now than they used to be since the introduction of yet another option: Hooks. </p>
+
+<p>The docs say Hooks were introduced as a new way to solve for certain needs, like code reuse, and because higher-order components are too "cumbersome and make code harder to follow". For me this just adds to the chaos. Should I now do a function with a <code>useEffects</code> Hook or stick with a class and lifecycle methods? And what benefit do I get from picking the better option? Or maybe there is no better option and this is all a show and no one actually knows so everyone just quietly follows along?</p>
+
+<p>In engineering - software or otherwise - when more solutions are added to address common issues in the original solution it's a sign that original solution was flawed. A big rewrite or abandonment is the inevitable outcome.</p>
+
+<p>I recently read a React post that highlights one of these design issues:</p>
+
+<blockquote>
+<p>In larger apps you may find that the components you're using to pass props down aren't even using those props at all, but need to pass them in order for children components to use the state.</p>
+</blockquote>
+
+<p>That's a flaw of the original design and an additional solution - Hooks - was added as a way to deal with it. The original design of state in React was like using URL query strings for session storage. In order for state to persist through a user's session the query string would have to be explicitly passed on every navigation regardless of whether the next page needed those params or not. That would be a very error-prone and burdensome design, and yet that's the design React has. A better design would have provided a way to access state from a global context and that's one thing Hooks are trying to fix.</p>
+
+<p>That's just function vs. class, there's still so many more options like controlled vs. uncontrolled. React's docs refer to controlled components as "tedious" and "annoying". I agree. So why not fix the underlying issues that created the need for these two options instead of <em>adding</em> more workarounds?</p>
+
+<p>Like JSX, is all this mess just accepted without a second thought? Or are people simply tolerating it and moving on?</p>
+
+<h2>
+  <a name="synthetic-events" href="#synthetic-events">
+  </a>
+  Synthetic events
+</h2>
+
+<p>Here's another one that just boggles my mind. JavaScript, which React and JSX are supposed to support, has the ability to dispatch custom events on any element. Like this:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="c1">// Create custom "bark" event</span>
+<span class="kd">const</span> <span class="nx">bark</span> <span class="nx">Event</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CustomEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">bark</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="c1">// Bind to the bark event in your render function</span>
+<span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">x</span><span class="dl">"</span> <span class="nx">onBark</span> <span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">handleBark</span><span class="p">}</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">}</span>
+
+<span class="c1">// Now make the div "bark" </span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">dog</span><span class="dl">'</span><span class="p">).</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">barkEvent</span><span class="p">)</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Yeah, doesn't work with React. </p>
+
+<p>This is because React has its own events implementation that isn't smart enough to support <code>CustomEvent</code>s. Is not supporting core DOM technology normal? Developers are okay with React just not supporting some parts of the internet? </p>
+
+<p>Fine, I'm not being fair. Yes, React can do it...you just have to use two other parts of React (<code>componentDidMount</code> and <code>createRef</code>) and <strong>not use the primary feature of React</strong> (<code>render</code>):<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createRef</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">x</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">bark</span><span class="dl">'</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleBark</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="dl">"</span><span class="s2">dog</span><span class="dl">"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span><span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>If JSX is funny, then synthetic events are hilarious.</p>
+
+<h2>
+  <a name="styles" href="#styles">
+  </a>
+  Styles
+</h2>
+
+<p>When I find stuff like this <a href="https://github.com/airbnb/react-with-styles">https://github.com/airbnb/react-with-styles</a> I just have to wonder what other devs think. That's A LOT of API to learn just to get some styles; to make CSS work lol! Are we sure this problem hasn't been completely overthought or does React really need this kind of nuclear-scale solution to make CSS work? I don't think it does, but sheesh! there's <a href="https://github.com/MicheleBertoli/css-in-js">62 ways to do CSS-in-JS</a>, so somebody thinks it does. </p>
+
+<p>Meanwhile I'm over here with Vue and Riot getting scoped styles using real CSS:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code>// Vue component
+<span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;button&gt;</span>Save<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+
+<span class="nt">&lt;script&gt;</span><span class="p">...</span><span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;style </span><span class="na">scoped</span><span class="nt">&gt;</span>
+  <span class="nt">button</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">lightblue</span> <span class="p">}</span>
+  <span class="nt">button</span><span class="nd">:hover</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+
+
+// Riot component
+<span class="nt">&lt;my-component&gt;</span>
+  <span class="nt">&lt;button&gt;</span>Save<span class="nt">&lt;/button&gt;</span>
+
+  <span class="nt">&lt;script&gt;</span><span class="p">...</span><span class="nt">&lt;/script&gt;</span>
+
+  <span class="nt">&lt;style&gt;</span>
+    <span class="nt">button</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">lightblue</span> <span class="p">}</span>
+    <span class="nt">button</span><span class="nd">:hover</span> <span class="p">{</span> <span class="nl">background-color</span><span class="p">:</span> <span class="no">blue</span> <span class="p">}</span>
+  <span class="nt">&lt;/style&gt;</span>
+<span class="nt">&lt;/my-component&gt;</span>
+
+
+// Pre-processors are easy too
+<span class="nt">&lt;style </span><span class="na">lang=</span><span class="s">"scss"</span><span class="nt">&gt;</span><span class="o">...</span><span class="nt">&lt;/style&gt;</span> // Vue
+<span class="nt">&lt;style </span><span class="na">type=</span><span class="s">"scss"</span><span class="nt">&gt;</span><span class="o">...</span><span class="nt">&lt;/style&gt;</span> // Riot
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h2>
+  <a name="developer-experience" href="#developer-experience">
+  </a>
+  Developer Experience
+</h2>
+
+<p>No, React is not "just JavaScript" as advertised. In fact, it is so far from it you can't even debug your app without installing special React tools:</p>
+
+<blockquote>
+<p>"Download the React DevTools for a better development experience"</p>
+</blockquote>
+
+<p>I think that message from the logs should read:</p>
+
+<blockquote>
+<p>"We're sorry, but out-of-the-box the React development experience is broken. In order to make it usable you'll need to stop what you're doing and install our browser plugin before you can debug."</p>
+</blockquote>
+
+<p>Better install the Redux extension while you're at it.</p>
+
+<p>And don't forget that JSX plug-in. </p>
+
+<p>Oh, and you'll need to set up a build pipeline before any of this is even going to work. Better yet, don't even install React. Go get the create-react-app CLI and use that.</p>
+
+<p>Once you have things working, you still run into ridiculous speed bumps when trying to implement the most basic things, like <a href="https://github.com/vercel/next.js/issues/160">Google Tag Manager</a>.</p>
+
+<p>Meanwhile Riot.js (and others) is instantly usable from a CDN and actually is "just JavaScript", so you can debug your app and inspect the DOM as you normally would.</p>
+
+<h2>
+  <a name="standards-portability-and-overengineering" href="#standards-portability-and-overengineering">
+  </a>
+  Standards, portability, and over-engineering
+</h2>
+
+<p>HTML, CSS, and JavaScript are web standards. They will outlive every framework, library, service, preprocessor, syntax, bundler, pattern, corporate-sponsored open-source project, and over-hyped fad that comes along. </p>
+
+<p>When you write JSX and CSS-in-JS you are laying down code that can't be picked up and ported to a new stack. This is a major drawback of any framework that encourages these non-standard solutions. I heard a really good piece of advice from a developer friend who said, "Pick a framework not because it’s popular, but for how much of a legacy mess will be leftover when it’s not." There's a lot of wisdom in that. A great framework is loosely-coupled and respects standards. If you want to change parts of it, or all of it, you should be able to do so without a complete rewrite. Good design works that way. </p>
+
+<p>I think React is one of the worst offenders and one of the worst areas for portability are React functional components because they're basically used as a way to dynamically render HTML or a string. JavaScript template functions are a dependency-free standards-based solution for doing the same thing! On the surface there's only a 3 character difference between these two code snippets, but in reality they are worlds apart:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="c1">// Don't</span>
+<span class="kd">function</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="sr">/h1&gt;</span><span class="err">;
+</span><span class="p">}</span>
+
+<span class="c1">// Do</span>
+<span class="kd">function</span> <span class="nx">Welcome</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s2">`&lt;h1&gt;Hello, </span><span class="p">${</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">&lt;/h1&gt;`</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Even basic stuff like <code>&lt;textarea&gt;</code> has been messed with and can't be ported:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;textarea</span> <span class="na">value=</span><span class="s">{this.state.value}/</span><span class="nt">&gt;</span>
+
+Versus everything else
+
+`<span class="nt">&lt;textarea&gt;</span>${value}<span class="nt">&lt;/textarea&gt;</span>`    // JavaScript
+<span class="nt">&lt;textarea&gt;</span>{state.value}<span class="nt">&lt;/textarea&gt;</span> // Riot
+<span class="nt">&lt;textarea&gt;</span>{{value}}<span class="nt">&lt;/textarea&gt;</span>      // Vue
+<span class="nt">&lt;textarea&gt;</span>{{value}}<span class="nt">&lt;/textarea&gt;</span>     // Handlebars
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>It just kills me to not be able to use real HTML with React.</p>
+
+<p>What's just as crazy is even when HTML works as expected, the React docs suggest you start with "a small component like Button." Components like that are bad engineering. Button, headings, anchor, and the other 100+ HTML elements should not be recreated as React abstractions! Reasons include:</p>
+
+<ul>
+<li>Doesn't respect standards</li>
+<li>Wasted effort on re-inventing what already exists</li>
+<li>Needs custom documentation</li>
+<li>Adds unnecessary point of failure</li>
+<li>Needs tests and adds test execution overhead</li>
+<li>Adds browser execution overhead</li>
+<li>Bloats your bundle</li>
+<li>Can't be used by non-React apps</li>
+</ul>
+
+<p>The next time you see something like this (it's a real code sample btw) just run away and tell an adult:<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="nt">&lt;Link</span> <span class="na">href=</span><span class="s">"/about"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a&gt;</span>About<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/Link&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>A popular React framework recently announced:</p>
+
+<blockquote>
+<p>Applications can now directly import .css files as global stylesheets.</p>
+</blockquote>
+
+<p>This is ridiculous. One tiny line of regular HTML does the same thing. The React current has been slowly drifting people further and further away from the web platform into deep over-engineered waters.</p>
+
+<h2>
+  <a name="performance" href="#performance">
+  </a>
+  Performance
+</h2>
+
+<p>The React docs say, "No matter how good a UI library (such as React) might look on a benchmark...a certain amount of work in your components will always cause stutter." Whoa, React used to brag about how insanely fast it is and how the virtual dom, one of React's fundamental technologies, makes it all possible. Now there's unavoidable stutter. Then Svelte and Riot showed how a vdom and its issues can be safely avoided <em>and increase performance</em>. </p>
+
+<p>Performance of a library is always a bit too subjective, so I look at how does that library impact the overall performance of my app. Is the library big, like 10+ kb big? Does it tend to require a lot of extra dependencies? Does it demand a lot of idiomatic abstractions or does it get out of my way and allow for vanilla js? Does it add to the complexity and finickiness of the build process? React is the ultimate complexifier and in this way I find its performance to be unbearable.</p>
+
+<h2>
+  <a name="bonus-strictmode" href="#bonus-strictmode">
+  </a>
+  <em>Bonus:</em> StrictMode
+</h2>
+
+<p>When a framework has to introduce special “modes” to help you navigate the bad stuff, it’s done. Burnt. End-of-life. Time to cut it loose and push it out to sea.</p>
+
+
+          </div>
+
+        </div>
+          
+
+
+      </article></div>
+
+</main>
+
+
+
+
+
+<style>
+    .icon-list {
+      padding-left: 0;
+      list-style: none;
+    }
+    .icon-list >div {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: .25rem;
+      font-size: 12px;
+    }
+    .icon-list >div::before {
+      display: block;
+      flex-shrink: 0;
+      width: 1em;
+      height: 1em;
+      margin-top: .2rem;
+      margin-right: .5rem;
+      content: "";
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+</style>
+<!--<section class="container py-5">-->
+<!--    <h2 style="padding-bottom: 10px"><%= langMap['news_hot'] %></h2>-->
+<!--    -->
+<!--</section>-->
+<section class="container py-5">
+    <h5 style="padding-bottom: 10px">Hot Articles</h5>
+    <div class="row icon-list" id="news_list_slot">
+        
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-see-which-branch-your-teammate-is-on-in-intellij-5aip.html">how to see which branch your teammate is on in intellij</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/10-trending-projects-on-github-for-web-developers-23rd-july-2021-524.html">10 trending projects on github for web developers 23rd july 2021</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/launching-support-for-clickhouse-as-storage-backend-for-signoz-1fk9.html">launching support for clickhouse as storage backend for signoz</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/top-skill-needed-as-a-javascript-developer-554n.html">top skill needed as a javascript developer</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/fanatic-laravel-stack-fantastically-laravel-combo-stacked-with-knock-out-power-3dbf.html">fanatic laravel stack fantastically laravel combo stacked with knock out power</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-code-a-game-like-apex-legends-3797.html">how to code a game like apex legends</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/modifying-array-data-with-indices-3d71.html">modifying array data with indices</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/set-up-talkback-like-a-pro-in-just-a-few-minutes-1foo.html">set up talkback like a pro in just a few minutes</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/implementing-merge-sort-in-rust-4ko8.html">implementing merge sort in rust</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/it-compliance-in-practice-correctly-containing-and-deleting-data-and-projects-in-b2b-software-development-2lfm.html">it compliance in practice correctly containing and deleting data and projects in b2b software development</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/utilizando-react-memo-43h.html">utilizando react memo</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/top-android-app-development-company-in-india-best-android-app-development-1d3f.html">top android app development company in india best android app development</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/generate-your-own-application-with-end-to-end-testing-thanks-to-jhipster-net-1f4l.html">generate your own application with end to end testing thanks to jhipster net</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/best-iphone-app-development-company-india-ios-app-development-agency-218h.html">best iphone app development company india ios app development agency</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-supercharge-your-software-engineering-skills-5dj2.html">how to supercharge your software engineering skills</a>
+        </div>
+          
+    </div>
+</section>
+<style>
+    .icon-list {
+        padding-left: 0;
+        list-style: none;
+    }
+    .icon-list >div {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: .25rem;
+        font-size: 12px;
+    }
+    .icon-list >div::before {
+        display: block;
+        flex-shrink: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: .2rem;
+        margin-right: .5rem;
+        content: "";
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+</style>
+<footer class="container pt-5 my-5 text-muted border-top">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>www.atob.com · © 2021
+        <a href="">
+            <svg id="github" width="20" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+    </p>
+</footer>
+
+<div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">提示</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      感谢您的反馈!
+    </div>
+  </div>
+</div>
+
+<div class="container pb-md-4 text-center">
+    <div class="row justify-content-center">
+        <h4 class="mb-3">Feedback on requirements and issues</h4>
+        <div class="col-lg-6 col-md-7">
+            <div class="input-group">
+                <textarea class="form-control" aria-label="With textarea" id="report_textarea"></textarea>
+                <button class="btn btn-primary" type="submit" name="subscribe" id="report_button" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="focus" title="提示" data-bs-content="感谢您的提交！">Submit</button>
+            </div>
+        </div>
+        <div class="form-text opacity-50">If you have a good web tool that you would like to put on this site for use, please write down your github address and we will contact you!</div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/autosize@5.0.1/dist/autosize.min.js"></script>
+<!--<script-->
+<!--  src="https://js.sentry-cdn.com/2891f0de7aff4745b87a3813c8c0a31e.min.js"-->
+<!--  crossorigin="anonymous"-->
+<!--&gt;</script>-->
+<script type="text/javascript">
+    let report_textarea = document.querySelector('#report_textarea');
+    autosize(report_textarea);
+    let toast = new bootstrap.Toast(document.querySelector('.toast'))
+    let report_button = document.querySelector('#report_button');
+    var popover = new bootstrap.Popover(report_button, {
+      trigger: 'focus'
+    })
+    // report_button.onclick= function(e) {
+    //     Sentry.captureMessage(report_textarea.value);
+    //     toast.show();
+    // };
+    // Sentry.onLoad(function() {
+    //     Sentry.init();
+    //     Sentry.configureScope(scope => {
+    //         scope.setTag("data", 'report');
+    //         // scope.setUser({
+    //         //     id: 42,
+    //         //     email: "john.doe@example.com",
+    //         // });
+    //     });
+    // });
+    
+</script>
+    
+
+</body></html>

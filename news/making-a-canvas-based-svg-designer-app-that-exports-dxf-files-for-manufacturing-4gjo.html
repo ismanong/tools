@@ -1,0 +1,910 @@
+<!DOCTYPE html><html lang="zh-cn"><head>
+<!--    <base href="../">&lt;!&ndash;  设置后当前页锚点不可用  &ndash;&gt;-->
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!--  禁止ios webview 缩放  -->
+<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
+<!--  禁止ios webview 缩放  end  -->
+<meta name="description" content="This is a guest post by Ibsitam Arif. Check him out!    Vector graphics have become a... Tagged with node, javascript, svg, dxf.">
+<meta name="keywords" content="node, javascript, svg, dxf, software, coding, development, engineering, inclusive, community">
+<meta name="author" content="">
+<title></title>
+
+<!-- <link rel="icon" href="/favicon.ico"/> -->
+<!--<meta itemprop="name" content="xxx">-->
+<!--<meta itemprop="image" content="xxx">-->
+
+<!--<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">-->
+<!--bootstrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+        }
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+        @media (min-width: 768px) {
+            .display-4 {
+                font-size: 3rem;
+            }
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-scroller .nav-link {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            font-size: .875rem;
+        }
+
+        .card-img-right {
+            height: 100%;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .flex-auto {
+            flex: 0 0 auto;
+        }
+
+        .h-250 { height: 250px; }
+        @media (min-width: 768px) {
+            .h-md-250 { height: 250px; }
+        }
+
+        /* Pagination */
+        .blog-pagination {
+            margin-bottom: 4rem;
+        }
+        .blog-pagination > .btn {
+            border-radius: 2rem;
+        }
+
+        /*
+         * Blog posts
+         */
+        .blog-post {
+            margin-bottom: 4rem;
+        }
+        .blog-post-title {
+            margin-bottom: .25rem;
+            font-size: 2.5rem;
+        }
+        .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #727272;
+        }
+
+
+    </style>
+<script defer="" src="../assets/js/news.9f8df4ba.js"></script><link href="../assets/css/news.9f8df4ba.css" rel="stylesheet"></head>
+<body>
+<input type="hidden" name="" id="template_version" value="1">
+
+<style>
+    .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+    .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+    }
+    .text-small {
+        font-size: 85%;
+    }
+    .dropdown-toggle {
+        outline: 0;
+    }
+</style>
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="bootstrap" viewBox="0 0 118 94">
+        <title>Bootstrap</title>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+    </symbol>
+    <symbol id="home" viewBox="0 0 16 16">
+        <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"></path>
+    </symbol>
+    <symbol id="speedometer2" viewBox="0 0 16 16">
+        <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
+        <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"></path>
+    </symbol>
+    <symbol id="table" viewBox="0 0 16 16">
+        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
+    </symbol>
+    <symbol id="people-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+    </symbol>
+    <symbol id="grid" viewBox="0 0 16 16">
+        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"></path>
+    </symbol>
+</svg>
+<header class="p-3 bg-dark text-white">
+    <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <div id="splash">
+                    <div id="logo-wrap" class="header">
+                        <canvas id="logo-canvas" style="display: block;"></canvas>
+                    </div>
+                </div>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Formatting checks
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../index.html">Formatting checks</a></li>
+                        
+                         <li><a class="dropdown-item" href="../json2entity.html">JSON to entity class</a></li>
+                        
+                         <li><a class="dropdown-item" href="../jsonview.html">JSON View</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Base64
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../encodeindex.html">Base64</a></li>
+                        
+                         <li><a class="dropdown-item" href="../encodeurl.html">URL encoding</a></li>
+                        
+                         <li><a class="dropdown-item" href="../encodemd5.html">MD5 encoding</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Excel to CSV
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="../excelindex.html">Excel to CSV</a></li>
+                        
+                         <li><a class="dropdown-item" href="../excelcsv.html">CSV to Excel</a></li>
+                        
+                         <li><a class="dropdown-item" href="../exceli18n.html">i18n</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../appparser.html">
+                        Tools
+                    </a>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../ocrindex.html">
+                        OCR
+                    </a>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     active" href="../link.html">
+                        Daily Collection
+                    </a>
+                
+                </li>
+                
+            </ul>
+
+<!--            <form class="d-flex">-->
+<!--                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-warning" type="submit">Search</button>-->
+<!--            </form>-->
+
+            
+        </div>
+    </div>
+</header>
+
+
+    <div class="container container-fluid pb-3" style="padding-top:3rem;">
+
+    </div>
+
+<main class="container">
+
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="781190" data-author-id="602327" data-path="/franksandqvist/making-a-canvas-based-svg-designer-app-that-exports-dxf-files-for-manufacturing-4gjo" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+        <header class="crayons-article__header" id="main-title">
+            
+
+          <div class="crayons-article__header__meta">
+            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 long">
+              Making a Canvas-based SVG designer app that exports DXF files for manufacturing
+            </h1>
+
+              
+
+            <div class="crayons-article__subheader"><span class="block">
+              
+                
+                Frank Sandqvist
+              
+              
+
+              
+                  Aug 4
+
+
+                ・6 min read
+              
+              
+            <!--/span--></span></div>
+          </div>
+        </header>
+
+        <div class="crayons-article__main">
+
+          <div class="crayons-article__body text-styles spec__body" data-article-id="781190" id="article-body">
+            <blockquote>
+<h4>
+  <a name="this-is-a-guest-post-by-ibsitam-arif-check-him-out" href="#this-is-a-guest-post-by-ibsitam-arif-check-him-out">
+  </a>
+  This is a guest post by <a href="https://github.com/ibtisamarif831">Ibsitam Arif</a>. Check him out!
+</h4>
+</blockquote>
+
+<p>Vector graphics have become a standard in almost every manufacturing industry. The blueprint is usually given in vector form and the machine operates accordingly. Similarly, in the printing industry, print designs are in vector form.</p>
+
+<p>When we talk about the web, the most popular vector files are SVGs, and in this article, we will see how we can convert an SVG to DXF; a popular vector file for 2D and 3D models created by AutoDesk and it is popular for exporting data between different CAD programs. We have our simple frontend canvas that will allow the user to design an SVG which input will be sent to the Express.js backend where we will be making an API call to the <a href="https://www.smidyo.com/vector-express">Vector Express API</a>. Vector Express is an excellent API for people that are looking to convert their vectors into different forms without any hassle. In this tutorial we use it to conert the resulting SVG to a DXF. So let us get started!</p>
+
+
+<div class="ltag-github-readme-tag">
+  <div class="readme-overview">
+    <h2>
+      <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--i3JOwpme--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev.to/assets/github-logo-ba8488d21cd8ee1fee097b8410db9deaa41d0ca30b004c0c63de0a479114156f.svg" alt="GitHub logo" loading="lazy">
+      <a href="https://github.com/ibtisamarif831">
+        ibtisamarif831
+      </a> / <a style="font-weight: 600;" href="https://github.com/ibtisamarif831/svg-to-dxf">
+        svg-to-dxf
+      </a>
+    </h2>
+    <h3>
+      A simple web application that takes SVG and sends request to Vector-express for conversion to DXF
+    </h3>
+  </div>
+  <div class="ltag-github-body">
+    
+<div id="readme" class="md" data-path="README.md"><article class="markdown-body entry-content container-lg" itemprop="text"><h1>
+svg-to-dxf</h1>
+<p>A simple web application that takes SVG and sends request to Vector-express for conversion to DXF</p>
+<h2>
+Project running.</h2>
+<p>run node myserver.js in terminal to start the server</p>
+</article></div>
+
+
+
+</div>
+<br>
+  <div class="gh-btn-container"><a class="gh-btn" href="https://github.com/ibtisamarif831/svg-to-dxf">View on GitHub</a></div>
+<br>
+</div>
+<br>
+
+
+<h2>
+  <a name="what-well-be-building" href="#what-well-be-building">
+  </a>
+  What we'll be building
+</h2>
+
+<p>Let's imagine that we have a CNC machine that can cut various materials. We want to build a webshop where our customers can design various shapes, and place an order. When the order has been placed, we want to automatically generate a DXF file which we can send directly to the machine for manufacturing.</p>
+
+<h2>
+  <a name="project-structure" href="#project-structure">
+  </a>
+  Project structure
+</h2>
+
+<p>In this project, we have our client-side frontend and our backend. Let's start with the client-side first which will be served by our Express server.</p>
+
+<p>Create a new folder and name it as you please. Make sure you have the following files in it.</p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--ul90ieq---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xio4fszjfptkzr29al8r.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--ul90ieq---/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/xio4fszjfptkzr29al8r.png" alt="image" loading="lazy"></a></p>
+
+<h3>
+  <a name="frontend" href="#frontend">
+  </a>
+  Frontend
+</h3>
+
+<p>The HTML file looks as follows.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+   <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;title&gt;</span>Canvas<span class="nt">&lt;/title&gt;</span>
+   <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"index.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"canvas"</span> <span class="na">height=</span><span class="s">"500"</span> <span class="na">width=</span><span class="s">"500"</span> <span class="nt">&gt;&lt;/canvas&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">'ellipse'</span> <span class="na">type=</span><span class="s">'submit'</span><span class="nt">&gt;</span>Ellipse<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">'rectangle'</span> <span class="na">type=</span><span class="s">'submit'</span><span class="nt">&gt;</span>Rectangle<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">'clear'</span> <span class="na">type=</span><span class="s">'submit'</span><span class="nt">&gt;</span>Clear Canvas<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"order"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>Place Order<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;h3</span> <span class="na">id=</span><span class="s">"success"</span><span class="nt">&gt;&lt;/h3&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;script
+</span><span class="na">src=</span><span class="s">"https://code.jquery.com/jquery-3.6.0.min.js"</span>
+<span class="na">integrity=</span><span class="s">"sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="</span>
+<span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdnjs.cloudflare.com/ajax/libs/fabric.js/451/fabric.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"canvas.js"</span> <span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Here, we have imported jQuery and fabric.js for our canvas.</p>
+
+<p>Our CSS file only adds a border to canvas. I have kept things simpler but you are free to edit.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight css"><code><span class="nf">#canvas</span><span class="p">{</span>
+  <span class="nl">border</span><span class="p">:</span> <span class="m">1px</span> <span class="nb">solid</span> <span class="no">blue</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>And finally, the main file, canvas.js, which handles all the logic for creating shapes on the canvas. We create a fabric canvas that takes the id of our HTML canvas. This gives us access to the functionality of the library.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">canvas</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">fabric</span><span class="p">.</span><span class="nx">Canvas</span><span class="p">(</span><span class="dl">"</span><span class="s2">canvas</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">clear</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">clear</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">rectangle</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">rectangle</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">ellipse</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">ellipse</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">order</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">order</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">success</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">success</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">isEllipse</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">isRectangle</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">circle</span><span class="p">,</span> <span class="nx">isDown</span><span class="p">,</span> <span class="nx">origX</span><span class="p">,</span> <span class="nx">origY</span><span class="p">;</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nx">rectangle</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">isEllipse</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="nx">isRectangle</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">rectangle</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nx">ellipse</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">isEllipse</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="nx">isRectangle</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">ellipse</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nx">clear</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">objects</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getObjects</span><span class="p">();</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">objects</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">objects</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+  <span class="nx">canvas</span><span class="p">.</span><span class="nx">renderAll</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="nx">order</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="k">async</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">mySvg</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">toSVG</span><span class="p">();</span>
+  <span class="kd">let</span> <span class="nx">response</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://127.0.0.1:3000/</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">body</span><span class="p">:</span> <span class="nx">mySvg</span><span class="p">,</span>
+  <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Order Placed</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">mouse:down</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">isDown</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">pointer</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getPointer</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">e</span><span class="p">);</span>
+  <span class="nx">origX</span> <span class="o">=</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>
+  <span class="nx">origY</span> <span class="o">=</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isEllipse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">circle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">fabric</span><span class="p">.</span><span class="nx">Circle</span><span class="p">({</span>
+      <span class="na">left</span><span class="p">:</span> <span class="nx">origX</span><span class="p">,</span>
+      <span class="na">top</span><span class="p">:</span> <span class="nx">origY</span><span class="p">,</span>
+      <span class="na">originX</span><span class="p">:</span> <span class="dl">"</span><span class="s2">left</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">originY</span><span class="p">:</span> <span class="dl">"</span><span class="s2">top</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">radius</span><span class="p">:</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">origX</span><span class="p">,</span>
+      <span class="na">angle</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">fill</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+      <span class="na">stroke</span><span class="p">:</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">strokeWidth</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="p">});</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">circle</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isRectangle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">rectangle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">fabric</span><span class="p">.</span><span class="nx">Rect</span><span class="p">({</span>
+      <span class="na">left</span><span class="p">:</span> <span class="nx">origX</span><span class="p">,</span>
+      <span class="na">top</span><span class="p">:</span> <span class="nx">origY</span><span class="p">,</span>
+      <span class="na">fill</span><span class="p">:</span> <span class="dl">"</span><span class="s2">transparent</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">stroke</span><span class="p">:</span> <span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">strokeWidth</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="p">});</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">rectangle</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">mouse:move</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">isDown</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">pointer</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">getPointer</span><span class="p">(</span><span class="nx">o</span><span class="p">.</span><span class="nx">e</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">radius</span> <span class="o">=</span>
+    <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">origY</span> <span class="o">-</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">y</span><span class="p">),</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">origX</span> <span class="o">-</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">x</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isEllipse</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">radius</span> <span class="o">&gt;</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">strokeWidth</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">radius</span> <span class="o">-=</span> <span class="nx">circle</span><span class="p">.</span><span class="nx">strokeWidth</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">circle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">radius</span><span class="p">:</span> <span class="nx">radius</span> <span class="p">});</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">origX</span> <span class="o">&gt;</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">circle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">originX</span><span class="p">:</span> <span class="dl">"</span><span class="s2">right</span><span class="dl">"</span> <span class="p">});</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">circle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">originX</span><span class="p">:</span> <span class="dl">"</span><span class="s2">left</span><span class="dl">"</span> <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">origY</span> <span class="o">&gt;</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">circle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">originY</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bottom</span><span class="dl">"</span> <span class="p">});</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">circle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">originY</span><span class="p">:</span> <span class="dl">"</span><span class="s2">top</span><span class="dl">"</span> <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">renderAll</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">isRectangle</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">origX</span> <span class="o">&gt;</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">rectangle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">left</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">pointer</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="p">});</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">origY</span> <span class="o">&gt;</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">rectangle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">top</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">pointer</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="nx">rectangle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">width</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">origX</span> <span class="o">-</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">x</span><span class="p">)</span> <span class="p">});</span>
+    <span class="nx">rectangle</span><span class="p">.</span><span class="kd">set</span><span class="p">({</span> <span class="na">height</span><span class="p">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">origY</span> <span class="o">-</span> <span class="nx">pointer</span><span class="p">.</span><span class="nx">y</span><span class="p">)</span> <span class="p">});</span>
+    <span class="nx">canvas</span><span class="p">.</span><span class="nx">renderAll</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">canvas</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">"</span><span class="s2">mouse:up</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">isDown</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>After we are done drawing on canvas, we invoke the <em>toSVG()</em> on the fabric canvas which returns everything on the canvas as SVG. Then this is sent to the backend where the SVG is saved.</p>
+
+<p>This is what we will end up with:</p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--VG5-2css--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/uuc9cqkb0cf8zztvv429.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--VG5-2css--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/uuc9cqkb0cf8zztvv429.png" alt="image" loading="lazy"></a> </p>
+
+<p>Let us draw some shapes and place an "order".</p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--wqSfjbhd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/arw1f3h63kwvgbunn2hh.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--wqSfjbhd--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/arw1f3h63kwvgbunn2hh.png" alt="image" loading="lazy"></a> </p>
+
+<p>After placing the order, we get an alert and our request is sent to the backend.</p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--9f28EWG9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/y224t548jajjsoq17f2w.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--9f28EWG9--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/y224t548jajjsoq17f2w.png" alt="image" loading="lazy"></a> </p>
+
+<h3>
+  <a name="backend" href="#backend">
+  </a>
+  Backend
+</h3>
+
+<p>For the handling of SVG and DXF, we are using Express.js. Create a new folder and name it as a server. Let us install the following libraries to get started.</p>
+
+<p><code>npm install body-parser cors express @smidyo/vectorexpress-nodejs</code></p>
+
+<p>Let's now create <code>server.js</code> to house our backend code.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight javascript"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">express</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="kd">const</span> <span class="nx">port</span> <span class="o">=</span> <span class="mi">3000</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">vectorExpress</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">./node_modules/@smidyo/vectorexpress-nodejs/index</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">const</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">cors</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">cors</span><span class="dl">"</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">cors</span><span class="p">());</span>
+
+<span class="kd">var</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">body-parser</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">express</span><span class="p">.</span><span class="kd">static</span><span class="p">(</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">/client</span><span class="dl">'</span> <span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="na">extended</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">sendFile</span><span class="p">(</span> <span class="nx">__dirname</span><span class="p">,</span> <span class="o">+</span><span class="dl">'</span><span class="s1">client</span><span class="dl">'</span><span class="o">+</span><span class="dl">'</span><span class="s1">/index.html</span><span class="dl">'</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">svg</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+  <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="dl">"</span><span class="s2">svgFromFrontend.svg</span><span class="dl">"</span><span class="p">,</span> <span class="nx">svg</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">__dirname</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/svgFromFrontend.svg</span><span class="dl">"</span><span class="p">);</span>
+    <span class="nx">vectorExpress</span>
+      <span class="p">.</span><span class="nx">convert</span><span class="p">(</span><span class="dl">"</span><span class="s2">svg</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">dxf</span><span class="dl">"</span><span class="p">,</span> <span class="p">{</span>
+        <span class="nx">file</span><span class="p">,</span>
+        <span class="na">save</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="na">path</span><span class="p">:</span> <span class="nx">__dirname</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">/svgFromFrontendConverted.dxf</span><span class="dl">"</span><span class="p">,</span>
+      <span class="p">})</span>
+    <span class="p">});</span>
+  <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">Converted</span><span class="dl">"</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">port</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`App listening on </span><span class="p">${</span><span class="nx">port</span><span class="p">}</span><span class="s2"> port!`</span><span class="p">));</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Let's see how the backend works. First, after the user makes a POST request, it is saved in a new SVG file. In the frontend, we created 2 rectangles and one eclipse. The SVG for it was saved as follows in the same folder with the following content.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>&lt;?xml version="1.0" encoding="UTF-8" standalone="no" ?&gt;
+&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="500" viewBox="0 0 500 500" xml:space="preserve"&gt;
+&lt;desc&gt;Created with Fabric.js 4.5.1&lt;/desc&gt;
+&lt;defs&gt;
+&lt;/defs&gt;
+&lt;g transform="matrix(1 0 0 1 123.5 100.5)"  &gt;
+&lt;rect style="stroke: rgb(255,0,0); stroke-width: 3; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;"  x="-65" y="-48" rx="0" ry="0" width="130" height="96" /&gt;
+&lt;/g&gt;
+&lt;g transform="matrix(1 0 0 1 167.5 280.5)"  &gt;
+&lt;circle style="stroke: rgb(255,0,0); stroke-width: 3; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="54" /&gt;
+&lt;/g&gt;
+&lt;g transform="matrix(1 0 0 1 164.5 410)"  &gt;
+&lt;rect style="stroke: rgb(255,0,0); stroke-width: 3; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;"  x="-77" y="-51.5" rx="0" ry="0" width="154" height="103" /&gt;
+&lt;/g&gt;
+&lt;/svg&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Now, this is sent to the Vector Express API using its Node.js wrapper and it returns us a DXF file that is saved in the same directory.</p>
+
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--p7CD-JgN--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a5sjyxumuocu8vw1usik.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--p7CD-JgN--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a5sjyxumuocu8vw1usik.png" alt="image" loading="lazy"></a></p>
+
+<h3>
+  <a name="conclusion" href="#conclusion">
+  </a>
+  Conclusion
+</h3>
+
+<p>With this, we have a basic SVG designer app which does DXF conversion. The manufacturer can always get the DXF file from the backend while the client can place an order for his SVG vector.</p>
+
+<p>To develop this further, we should implement a database to store the orders, and a way for us to access our orders and the corresponding DXF file through a browser. We may even wish to build this on top of an existing e-commerce framework.</p>
+
+
+          </div>
+
+        </div>
+          
+
+
+      </article></div>
+
+</main>
+
+
+
+
+
+<style>
+    .icon-list {
+      padding-left: 0;
+      list-style: none;
+    }
+    .icon-list >div {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: .25rem;
+      font-size: 12px;
+    }
+    .icon-list >div::before {
+      display: block;
+      flex-shrink: 0;
+      width: 1em;
+      height: 1em;
+      margin-top: .2rem;
+      margin-right: .5rem;
+      content: "";
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+</style>
+<!--<section class="container py-5">-->
+<!--    <h2 style="padding-bottom: 10px"><%= langMap['news_hot'] %></h2>-->
+<!--    -->
+<!--</section>-->
+<section class="container py-5">
+    <h5 style="padding-bottom: 10px">Hot Articles</h5>
+    <div class="row icon-list" id="news_list_slot">
+        
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-see-which-branch-your-teammate-is-on-in-intellij-5aip.html">how to see which branch your teammate is on in intellij</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/10-trending-projects-on-github-for-web-developers-23rd-july-2021-524.html">10 trending projects on github for web developers 23rd july 2021</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/launching-support-for-clickhouse-as-storage-backend-for-signoz-1fk9.html">launching support for clickhouse as storage backend for signoz</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/top-skill-needed-as-a-javascript-developer-554n.html">top skill needed as a javascript developer</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/fanatic-laravel-stack-fantastically-laravel-combo-stacked-with-knock-out-power-3dbf.html">fanatic laravel stack fantastically laravel combo stacked with knock out power</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-code-a-game-like-apex-legends-3797.html">how to code a game like apex legends</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/modifying-array-data-with-indices-3d71.html">modifying array data with indices</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/set-up-talkback-like-a-pro-in-just-a-few-minutes-1foo.html">set up talkback like a pro in just a few minutes</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/implementing-merge-sort-in-rust-4ko8.html">implementing merge sort in rust</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/it-compliance-in-practice-correctly-containing-and-deleting-data-and-projects-in-b2b-software-development-2lfm.html">it compliance in practice correctly containing and deleting data and projects in b2b software development</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/utilizando-react-memo-43h.html">utilizando react memo</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/top-android-app-development-company-in-india-best-android-app-development-1d3f.html">top android app development company in india best android app development</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/generate-your-own-application-with-end-to-end-testing-thanks-to-jhipster-net-1f4l.html">generate your own application with end to end testing thanks to jhipster net</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/best-iphone-app-development-company-india-ios-app-development-agency-218h.html">best iphone app development company india ios app development agency</a>
+        </div>
+          
+        <div class="col-6">
+            <a class="d-inline-block text-truncate" href="./news/how-to-supercharge-your-software-engineering-skills-5dj2.html">how to supercharge your software engineering skills</a>
+        </div>
+          
+    </div>
+</section>
+<style>
+    .icon-list {
+        padding-left: 0;
+        list-style: none;
+    }
+    .icon-list >div {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: .25rem;
+        font-size: 12px;
+    }
+    .icon-list >div::before {
+        display: block;
+        flex-shrink: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: .2rem;
+        margin-right: .5rem;
+        content: "";
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+    }
+</style>
+<footer class="container pt-5 my-5 text-muted border-top">
+    <p class="float-end"><a href="#">Back to top</a></p>
+    <p>www.atob.com · © 2021
+        <a href="">
+            <svg id="github" width="20" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
+        </a>
+    </p>
+</footer>
+
+<div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <strong class="me-auto">提示</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      感谢您的反馈!
+    </div>
+  </div>
+</div>
+
+<div class="container pb-md-4 text-center">
+    <div class="row justify-content-center">
+        <h4 class="mb-3">Feedback on requirements and issues</h4>
+        <div class="col-lg-6 col-md-7">
+            <div class="input-group">
+                <textarea class="form-control" aria-label="With textarea" id="report_textarea"></textarea>
+                <button class="btn btn-primary" type="submit" name="subscribe" id="report_button" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="focus" title="提示" data-bs-content="感谢您的提交！">Submit</button>
+            </div>
+        </div>
+        <div class="form-text opacity-50">If you have a good web tool that you would like to put on this site for use, please write down your github address and we will contact you!</div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/autosize@5.0.1/dist/autosize.min.js"></script>
+<!--<script-->
+<!--  src="https://js.sentry-cdn.com/2891f0de7aff4745b87a3813c8c0a31e.min.js"-->
+<!--  crossorigin="anonymous"-->
+<!--&gt;</script>-->
+<script type="text/javascript">
+    let report_textarea = document.querySelector('#report_textarea');
+    autosize(report_textarea);
+    let toast = new bootstrap.Toast(document.querySelector('.toast'))
+    let report_button = document.querySelector('#report_button');
+    var popover = new bootstrap.Popover(report_button, {
+      trigger: 'focus'
+    })
+    // report_button.onclick= function(e) {
+    //     Sentry.captureMessage(report_textarea.value);
+    //     toast.show();
+    // };
+    // Sentry.onLoad(function() {
+    //     Sentry.init();
+    //     Sentry.configureScope(scope => {
+    //         scope.setTag("data", 'report');
+    //         // scope.setUser({
+    //         //     id: 42,
+    //         //     email: "john.doe@example.com",
+    //         // });
+    //     });
+    // });
+    
+</script>
+    
+
+</body></html>
