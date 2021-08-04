@@ -6,8 +6,8 @@
 <!--  禁止ios webview 缩放  -->
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
 <!--  禁止ios webview 缩放  end  -->
-<meta name="description" content="Ah, the dreaded resolve conflicts message. You've finished crafting the perfect code, just a quick... Tagged with vscode, programming, productivity, git.">
-<meta name="keywords" content="vscode, programming, productivity, git, software, coding, development, engineering, inclusive, community">
+<meta name="description" content="Vue is a progressive framework for building user interfaces. Unlike other monolithic frameworks, It... Tagged with javascript, devops, 100daysofcode, vue.">
+<meta name="keywords" content="javascript, devops, 100daysofcode, vue, software, coding, development, engineering, inclusive, community">
 <meta name="author" content="">
 <title></title>
 
@@ -274,14 +274,13 @@
 
 <main class="container">
 
-    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="775349" data-author-id="676308" data-path="/gitlive/how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="781008" data-author-id="635377" data-path="/oyedeletemitope/top-20-vue-js-frameworks-and-libraries-for-your-next-project-2o4d" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
         <header class="crayons-article__header" id="main-title">
             
 
           <div class="crayons-article__header__meta">
-              
-            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
-              How To Enable Real-Time Merge Conflict Detection in VS Code
+            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 long">
+              Top 20+ vue.js frameworks and libraries for your next project
             </h1>
 
               
@@ -289,15 +288,15 @@
             <div class="crayons-article__subheader"><span class="block">
               
                 
-                Andrew
+                oyedeletemitope
               
               
 
               
-                  Aug 3
+                  Aug 4
 
 
-                ・2 min read
+                ・8 min read
               
               
             <!--/span--></span></div>
@@ -306,36 +305,264 @@
 
         <div class="crayons-article__main">
 
-          <div class="crayons-article__body text-styles spec__body" data-article-id="775349" id="article-body">
-            <p>Ah, the dreaded <em>resolve conflicts</em> message. You've finished crafting the perfect code, just a quick merge in of master  (ahem, <em>main</em>) before you submit your PR, and then... 💥</p>
+          <div class="crayons-article__body text-styles spec__body" data-article-id="781008" id="article-body">
+            <p>Vue is a progressive framework for building user interfaces. Unlike other monolithic frameworks, It offers a functionality-driven structure, in-detail documentation, and an easy learning curve to make it a favorable choice for beginners and experienced developers. It is an opportunity to move from other JavaScript frameworks to Vue.js<br>
+In this article, we will be exploring over 20 vue frameworks and libraries that you might find useful for your next vue based projects.<br>
+And also, each frameworks and libraries are spitted into three categories for easier navigation:</p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--_fy5WcZA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627640616766/XPQfCdYI3.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--_fy5WcZA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627640616766/XPQfCdYI3.png" alt="image-1-updated.png" loading="lazy"></a></p>
+<ul>
+<li><p>SSR/SPA : In this category, we will be listing vue most popular spa (single page application) and ssr (server side rendered) application generators.</p></li>
+<li><p>Component-based : From ui library to helpful custom component necessary for the success of your project.</p></li>
+<li><p>Miscellaneous:  All other important library that does not fall between the two categories above.</p></li>
+</ul>
 
-<p>If only there was an early warning system for merge conflicts so you could be better prepared or even avoid the conflicts in the first place I hear you say? Well if you are a VS Code user today is your lucky day!</p>
+<p>Here we go!!!</p>
 
-<p>Firstly, you'll need to install and set up <a href="https://marketplace.visualstudio.com/items?itemName=TeamHub.teamhub">GitLive</a>, then you should see this icon in the top right-hand corner. </p>
+<h2>
+  <a name="ssrspa-generator" href="#ssrspa-generator">
+  </a>
+  SSR/SPA Generator
+</h2>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--pvbtAXeg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667202435/pZaRYmSSw.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--pvbtAXeg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667202435/pZaRYmSSw.png" alt="colour toggle full.png" loading="lazy"></a></p>
+<h3>
+  <a name="1nuxt" href="#1nuxt">
+  </a>
+  1.Nuxt
+</h3>
 
-<p>It will be disabled if the file open in the editor is not from git or there are no other changes to it from contributors working on other branches (aka you are safe from conflicts). If it's enabled there will be one or more change indicators in the gutter of the editor. </p>
+<p>Server-Side Rendering is one of the most popular techniques to render SPAs on the server instead of the browser. It allows the website to have a faster page load time, and that is the key to a good user experience. Nuxt.js is built on SSR features, and with Nuxt, you can create SSR apps, PWAs, and SPAs, or you can use it as a static site generator. To get started <a href="https://nuxtjs.org">Click here</a></p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--NtFR8eOR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627557380368/lUMGbUDSH.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--NtFR8eOR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627557380368/lUMGbUDSH.png" alt="image-3-2200x1200.png" loading="lazy"></a></p>
+<h3>
+  <a name="2vuepress" href="#2vuepress">
+  </a>
+  2.VuePress
+</h3>
 
-<p>These will show you where your teammates have made changes compared to your version of the file and even update in real-time as you and your teammates are editing.</p>
+<p>In layman’s terms, VuePress is a big player in Vue’s ecosystem that is widely used as a Vue-powered static site generator tool. It was presented for writing technical documentation, however, now it is used as a powerful headless CMS and the significant benefit of VuePress is that it lets you include Vue components into your Markdown files. VuePress provides extra power and flexibility to build your website like a regular Vue app. To get started <a href="https://vuepress.vuejs.org">Click here</a></p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--n2uJxTdI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627652753721/ypYzQqcEA.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--n2uJxTdI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627652753721/ypYzQqcEA.png" alt="GL-gutter-4000.png" loading="lazy"></a></p>
+<h3>
+  <a name="3gridsome" href="#3gridsome">
+  </a>
+  3.Gridsome
+</h3>
 
-<p>If you've made a conflicting change you will see the bright red conflict indicator. These conflicts can be uncommitted local changes you have not pushed yet or existing changes on your branch that conflict with your teammates’ changes. </p>
+<p>Gridsome is a modern website development framework for creating fast and secure websites and deploy it to Netlify or Amazon s3 – CDN. Through it has been lately introduced; however, it has gained immense popularity and followers amongst Vue developers. Gridsome creators were influenced by Gatsby.js – a site generator for React. Gridsome generates SEO-friendly HTML files based on the data source. The data source can be JSON, Markdown, CSV, Drupal, WordPress, MongoDB or Airtable, etc. Once the content is loaded, it turns into a single GraphQL Data Layer for centralized data management, and then you can extract it to build and deploy your Vue application. To get started <a href="https://gridsome.org">Click here</a></p>
 
-<p>Hover your mouse over the code in the affected lines to see the diff between your version and theirs, the branch the offending changes are from, and the issue connected to that branch if there is one. </p>
+<h2>
+  <a name="componentbased-framework" href="#componentbased-framework">
+  </a>
+  Component-based framework
+</h2>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--8y6Lm6zj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667291312/iyynKT4dH.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--8y6Lm6zj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667291312/iyynKT4dH.png" alt="conflict popup 2 full.png" loading="lazy"></a></p>
+<h3>
+  <a name="1primevue" href="#1primevue">
+  </a>
+  1.Primevue
+</h3>
 
-<p>From this popup you can also cherry-pick your teammate’s change directly from their local version of the file. For simple conflicts this can be a quick way to resolve them as identical changes on different branches will merge cleanly. </p>
+<p>A Vue Component Library for amazing user interface design. Primevue is also available for Angular, Java, and React. To get started<a href="https://madewithvuejs.com/primevue">Click here</a></p>
 
-<p>Unfortunately, it's not always possible to resolve a conflict straight away but with the early warning, you'll be better prepared, avoiding any nasty surprises at merge time! </p>
+<h3>
+  <a name="2vuestic" href="#2vuestic">
+  </a>
+  2.Vuestic
+</h3>
 
-<p>Check out this <a href="https://blog.git.live/gitlive-11.0-Real-time-merge-conflict-detection">blog post</a> or the <a href="https://docs.git.live/docs/mergeconflicts/">GitLive docs</a> if you want to learn more.</p>
+<p>Vuestic is a Vue component library to build responsive dashboards using the functionality of Material Forms, i18n, Bootstrap 4, Webpack, and Google maps. Vasili Savitski designed this library and Epicmax developed it. To get started<a href="https://vuestic.dev/">Click here</a></p>
+
+<h3>
+  <a name="3-vee-validate" href="#3-vee-validate">
+  </a>
+  3. Vee Validate
+</h3>
+
+<p>Another validation library for Vue that keeps a check on input and displaying errors. The PHP Framework Laravel’s validation inspired Vue to come up with this library. It is template-based, has zero dependencies, and has support from 40+ locales. It is one of the vue best practices to include Vue Validation while developing your web application. To get started<a href="https://vee-validate.logaretm.com/v4/">Click here</a></p>
+
+<h3>
+  <a name="4weex" href="#4weex">
+  </a>
+  4.Weex
+</h3>
+
+<p>This one is a UI framework for Vue mobile applications for building modern and lightweight apps. Vue Developers will experience a new and vibrant mobile development experience when using Weex. To get started<a href="http://emas.weex.io/guide/use-vue-in-weex.html#runtime-only-build">Click here</a></p>
+
+<h3>
+  <a name="5filepond" href="#5filepond">
+  </a>
+  5.Filepond
+</h3>
+
+<p>Filepond is a JS component library that is available for Angular, Vue, React, Svelte, and jQuery which can help you upload anything from anywhere. It offers amazing flexibility, easy optimization of images before uploading, and a flawless UX. To get started<a href="https://pqina.nl/filepond/docs/getting-started/installation/vue/">Click here</a></p>
+
+<h3>
+  <a name="6mint-ui" href="#6mint-ui">
+  </a>
+  6.Mint UI
+</h3>
+
+<p>Mint UI is a lightweight library that enables using varied CSS and JS components such that you can build mobile apps and cohesive web pages at a much faster rate. It provides an iOS-like theme for your mobile application components and it is loaded on demand, hence no file-size issues. To get started<a href="https://madewithvuejs.com/mint-ui">Click here</a></p>
+
+<h3>
+  <a name="7vux" href="#7vux">
+  </a>
+  7.Vux
+</h3>
+
+<p>Vux is a Vue Component library having Chinese origin and it has various mobile UI components as well as WeUI components from the company WeChat. The Vux workflow + Vue-loader + Webpack are supporting the Vux. Though most of the documentation of this library is in Chinese and very little English translation is available, but you can get help from the community. To get started<a href="https://madewithvuejs.com/vux">Click here</a></p>
+
+<h3>
+  <a name="8iview" href="#8iview">
+  </a>
+  8.iView
+</h3>
+
+<p>Based on Vue.js 2, iView is a popular UI toolkit providing several widgets and UI components having a clean and elegant design. The component library comes with its offline documentation and CLI tool to visualize projects. To get started<a href="https://www.iviewui.com">Click here</a></p>
+
+<h3>
+  <a name="9vuelidate" href="#9vuelidate">
+  </a>
+  9.Vuelidate
+</h3>
+
+<p>A minimalistic validation component library for Vue, which is lightweight, simple, and is model-based. Vuelidate is decoupled from templates and has support from nested models, function composition, and collection validations. It helps you validate data from varied sources like computed values, Vuex getters, etc.<br>
+To get started<a href="https://vuelidate.js.org">Click here</a></p>
+
+<h3>
+  <a name="10eaglejs" href="#10eaglejs">
+  </a>
+  10.Eagle.js
+</h3>
+
+<p>Eagle is a Vue framework that presents a cool web-based slideshow and supports interactive widgets, themes, animations, reusable components, and more. You can easily customize the Eagle API for your Vue project. To get started<a href="https://www.vuescript.com/hackable-slideshow-framework-built-vue-js-eagle-js/">Click here</a></p>
+
+<h3>
+  <a name="11bootstrap-vue" href="#11bootstrap-vue">
+  </a>
+  11.Bootstrap Vue
+</h3>
+
+<p>Bootstrap Vue is a frontend CSS and Vue component library that simply eliminates the JavaScript in the routine bootstrap components with Vue code. With Bootstrap Vue, you can build mobile-first and responsive, projects making use of frontend CSS library — Bootstrap v4. Bootstrap Vue is one of the fastest ways to build interactive interfaces using Vue and bootstrap as it provides a lot of resources, starter kits, and themes to startup quickly. To get started<a href="https://bootstrap-vue.org">Click here</a></p>
+
+<h3>
+  <a name="12quasar" href="#12quasar">
+  </a>
+  12.Quasar
+</h3>
+
+<p>Quasar is a high performance, material design two and feature-complete node.js based collection of tools for building reliable, fast and engaging progressive web-app, developing and publishing a website; a secure way to make native apps for macOS, Linux, and Windows with Electron and a system for building cross-platform apps with Cordova. It’s an innovative solution for web developers derived from innovative ideas and concepts to alleviate the pain of managing the project with babel, eslinet, web pack, and more in a single framework. Quasar eliminates the use of additional libraries like Bootstrap, Hammerjs, or Momentjs as it has got that covered too. To get started<a href="https://quasar.dev/">Click here</a></p>
+
+<h3>
+  <a name="13vuetify" href="#13vuetify">
+  </a>
+  13.Vuetify
+</h3>
+
+<p>Vuetify is a large set of 80+ crafted component libraries based on Material Design such as banners, badges, form inputs and controls, buttons, progress widgets, and many more such things that are sufficient for any application’s requirements. Whether you want to start a new application or looking for assistance to add them to the existing app, you can use it to build SSR apps, mobile apps, SPAs, and PWAs. To get started<a href="https://vuetifyjs.com/en/">Click here</a></p>
+
+<h3>
+  <a name="14element-ui" href="#14element-ui">
+  </a>
+  14.Element UI
+</h3>
+
+<p>Element UI is a Vue component library with an active set of 500+ maintainers that are widely used by developers, designers, and product managers. Element UI is mostly used to create desktop applications, as its components are not responsive. It is one of the most popular component-based libraries of Vue.js. This library is based on a design system, so it precisely thought out down even the smallest detail. It provides lots of valuable information to assist you with components and several of its valuable resources. So, for the desktop application, without a doubt, it is one of the best libraries to take into consideration. To get started<a href="https://madewithvuejs.com/element-ui">Click here</a></p>
+
+<h3>
+  <a name="15vue-tailwind" href="#15vue-tailwind">
+  </a>
+  15.Vue Tailwind
+</h3>
+
+<p>A Vue component library for lightweight and customizable components for your application. It is based on Tailwind-CSS. To get started<a href="https://madewithvuejs.com/vue-tailwind">Click here</a></p>
+
+<h3>
+  <a name="16vue-multiselect" href="#16vue-multiselect">
+  </a>
+  16.Vue Multiselect
+</h3>
+
+<p>This Vue library component is for using the selections in your application. Multiselect offers no dependencies, single &amp; multiple selections, tagging, filtering, drop-downs, search suggestions, and so much more.  To get started<a href="https://vue-multiselect.js.org">Click here</a></p>
+
+<h3>
+  <a name="17buefy" href="#17buefy">
+  </a>
+  17.Buefy
+</h3>
+
+<p>Buefy is another lightweight Vue JS Component library that is based on Bulma. It helps you simplify your app UI by adding a JS layer of the interface created with BulmaCSS. You’ll see your Vue components following Material Design UX and Bulma designs.  To get started<a href="https://buefy.org">Click here</a></p>
+
+<h3>
+  <a name="18keen-ui" href="#18keen-ui">
+  </a>
+  18.Keen UI
+</h3>
+
+<p>Keen UI helps you build interactive javascript components for page layout, CSS framework, and structure. It has a simple API, but it doesn’t support typogra[hy styles or grid-system.  To get started<a href="https://madewithvuejs.com/keen-ui">Click here</a></p>
+
+<h3>
+  <a name="19cube-ui" href="#19cube-ui">
+  </a>
+  19.Cube UI
+</h3>
+
+<p>A Vue library for fantastic mobile user-interface design. It offers design scalability, keeps a uniform standard, and an interactive experience. To get started<a href="https://www.vuescript.com/mobile-ui-library-vue-cube-ui/">Click here</a></p>
+
+<h2>
+  <a name="miscellaneous" href="#miscellaneous">
+  </a>
+  Miscellaneous
+</h2>
+
+<h3>
+  <a name="1vue-cli" href="#1vue-cli">
+  </a>
+  1.Vue CLI
+</h3>
+
+<p>Vue CLI is a fully-featured set of tools with installed npm packages that allows you to create project structures and deploy boilerplates rapidly in your terminal. With the use of Vue CLI, you can experiment with new ideas to create instant prototypes to demonstrate new features. Moreover, Vue CLI offers support for web development tools like Babel, ESLint, PostCSS, TypeScript, Unit Testing, PWA Mocha, Cypress, Nightwatch, and end-to-end testing. However, the apple of the eye is Graphical UI – Vue UI that comes along with the CLI that lets you create new projects and manage them accordingly.  To get started<a href="https://cli.vuejs.org/">Click here</a></p>
+
+<h3>
+  <a name="2vuerouter" href="#2vuerouter">
+  </a>
+  2.Vue-router
+</h3>
+
+<p>If you are already familiar with other JavaScript frameworks, the concept of routing shouldn’t be new to you. The use of a router is to map the applications, and the Vue router supports component-based router configuration. Vue-router also supports wildcards, params, and querying to perform complex routing and the possibility to choose between hash mode or HTML5 history. To get started<a href="https://router.vuejs.org">Click here</a></p>
+
+<h3>
+  <a name="3vuex" href="#3vuex">
+  </a>
+  3.VueX
+</h3>
+
+<p>vuex is a state management system that you can use as a centralized store to solve all the state management functions and to make sure that states are mutated predictably. To get started<a href="https://vuex.vuejs.org">Click here</a></p>
+
+<h3>
+  <a name="4vue-apollo" href="#4vue-apollo">
+  </a>
+  4.Vue Apollo
+</h3>
+
+<p>You might have heard lots of buzz around GraphQL, and if you are interested in integrating it with Vue.js, then I would like to suggest you try Vue Apollo. The library makes use of Vue in the combination of GraphQL/Apollo for a smooth as well as a pleasant experience. To get started<a href="https://apollo.vuejs.org">Click here</a></p>
+
+<h3>
+  <a name="5vue-resource" href="#5vue-resource">
+  </a>
+  5.Vue Resource
+</h3>
+
+<p>Vue Resource is a Vue component library for handling web requests and responses. It either uses JSONP or XMLHttpRequest to undertake the procedure. It supports interceptors, Promise API, and URI templates. Web browsers like IE9+, Chrome, Firefox, Safari, Opera, etc. are supporting this Vue plugin. To get started<a href="https://www.npmjs.com/package/vue-resource">Click here</a></p>
+
+<h3>
+  <a name="6-poi" href="#6-poi">
+  </a>
+  6. Poi
+</h3>
+
+<p>Poi is a pre-configuration bundler for the web, and is popularly called a zero-config bundler. You can also avail Poi as a plugin so that you can use the extra features and options of the Poi library. To get started<a href="https://poi.js.org/">Click here</a></p>
+
+<p>Conclusion<br>
+There are tons of vue components out there, and this article has been able to help filter out the noise by listing the ones that are super important for your next project. If you find this useful, you should definitely share with your friends.</p>
 
 
           </div>
@@ -413,35 +640,35 @@
         
           
     <div class="col-6">
-            <a class="d-inline-block text-truncate" href="deno-the-next-step-in-node-js-ij1.html">deno the next step in node js</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="wittgenstein-s-beetle-in-software-engineering-6fi.html">wittgenstein s beetle in software engineering</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="really-why-react-5958.html">really why react</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="making-a-canvas-based-svg-designer-app-that-exports-dxf-files-for-manufacturing-4gjo.html">making a canvas based svg designer app that exports dxf files for manufacturing</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="how-i-unintentionally-became-a-hacker-3dkh.html">how i unintentionally became a hacker</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="how-to-make-infinity-1pa7.html">how to make infinity</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="how-to-add-a-real-time-unread-conversation-counter-to-a-talkjs-chat-2o05.html">how to add a real time unread conversation counter to a talkjs chat</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="why-hire-a-react-js-development-company-2806.html">why hire a react js development company</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="share-your-salary-and-see-what-everyone-else-is-making-in-devops-la4.html">share your salary and see what everyone else is making in devops</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="rock-paper-and-scissors-game-58g0.html">rock paper and scissors game</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="why-should-you-start-a-crypto-exchange-like-binance-in-2021-n0f.html">why should you start a crypto exchange like binance in 2021</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="top-reasons-for-choosing-wix-for-your-business-1k0c.html">top reasons for choosing wix for your business</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="wednesday-links-edition-2021-08-04-a8a.html">wednesday links edition 2021 08 04</a>
+            <a class="d-inline-block text-truncate" href="how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e.html">how to enable real time merge conflict detection in vs code</a>
         </div><div class="col-6">
             <a class="d-inline-block text-truncate" href="scrape-duckduckgo-organic-news-results-with-python-kod.html">scrape duckduckgo organic news results with python</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e.html">how to enable real time merge conflict detection in vs code</a>
+            <a class="d-inline-block text-truncate" href="wednesday-links-edition-2021-08-04-a8a.html">wednesday links edition 2021 08 04</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="top-reasons-for-choosing-wix-for-your-business-1k0c.html">top reasons for choosing wix for your business</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="why-should-you-start-a-crypto-exchange-like-binance-in-2021-n0f.html">why should you start a crypto exchange like binance in 2021</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="rock-paper-and-scissors-game-58g0.html">rock paper and scissors game</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="share-your-salary-and-see-what-everyone-else-is-making-in-devops-la4.html">share your salary and see what everyone else is making in devops</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="why-hire-a-react-js-development-company-2806.html">why hire a react js development company</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="how-to-add-a-real-time-unread-conversation-counter-to-a-talkjs-chat-2o05.html">how to add a real time unread conversation counter to a talkjs chat</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="how-to-make-infinity-1pa7.html">how to make infinity</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="how-i-unintentionally-became-a-hacker-3dkh.html">how i unintentionally became a hacker</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="making-a-canvas-based-svg-designer-app-that-exports-dxf-files-for-manufacturing-4gjo.html">making a canvas based svg designer app that exports dxf files for manufacturing</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="really-why-react-5958.html">really why react</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="wittgenstein-s-beetle-in-software-engineering-6fi.html">wittgenstein s beetle in software engineering</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="deno-the-next-step-in-node-js-ij1.html">deno the next step in node js</a>
         </div></div>
 </section>
 <style>

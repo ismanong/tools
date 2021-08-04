@@ -1,12 +1,13 @@
 <!DOCTYPE html><html lang="zh-cn"><head>
+<!--    <base href="../">&lt;!&ndash;  设置后当前页锚点不可用  &ndash;&gt;-->
     
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <!--  禁止ios webview 缩放  -->
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
 <!--  禁止ios webview 缩放  end  -->
-<meta name="description" content="">
-<meta name="keywords" content="">
+<meta name="description" content="When working in a digital agency, you come across a lot of different technologies to work with. Some... Tagged with security, api, webdev, hacking.">
+<meta name="keywords" content="security, api, webdev, hacking, software, coding, development, engineering, inclusive, community">
 <meta name="author" content="">
 <title></title>
 
@@ -19,35 +20,86 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     
-
-    <!-- Filepond stylesheet -->
-    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
-    <!-- Load FilePond library -->
-    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/chenquincy/app-info-parser/dist/app-info-parser.min.js"></script>
     <style>
-        .drop-box{
-            width: 320px;
-            height: 460px;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
         }
-        .filepond--root{
-            width: 100%;
+
+        .display-4 {
+            font-size: 2.5rem;
+        }
+        @media (min-width: 768px) {
+            .display-4 {
+                font-size: 3rem;
+            }
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-scroller .nav-link {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            font-size: .875rem;
+        }
+
+        .card-img-right {
             height: 100%;
+            border-radius: 0 3px 3px 0;
         }
-        .filepond--panel-root{
-            background-color: #F8BA0B;
+
+        .flex-auto {
+            flex: 0 0 auto;
         }
-        .filepond--drop-label{
-            height: 100%;
+
+        .h-250 { height: 250px; }
+        @media (min-width: 768px) {
+            .h-md-250 { height: 250px; }
         }
-        .filepond--label-action{
-            text-decoration: none;
-            color: #FFFFFF;
+
+        /* Pagination */
+        .blog-pagination {
+            margin-bottom: 4rem;
         }
+        .blog-pagination > .btn {
+            border-radius: 2rem;
+        }
+
+        /*
+         * Blog posts
+         */
+        .blog-post {
+            margin-bottom: 4rem;
+        }
+        .blog-post-title {
+            margin-bottom: .25rem;
+            font-size: 2.5rem;
+        }
+        .blog-post-meta {
+            margin-bottom: 1.25rem;
+            color: #727272;
+        }
+
+
     </style>
-<script defer="" src="assets/js/appparser.e9d5fa81.js"></script><link href="assets/css/appparser.e9d5fa81.css" rel="stylesheet"></head>
+<script defer="" src="../assets/js/news.9f8df4ba.js"></script><link href="../assets/css/news.9f8df4ba.css" rel="stylesheet"></head>
 <body>
+<input type="hidden" name="" id="template_version" value="1">
 
 <style>
     .b-example-divider {
@@ -115,11 +167,11 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
-                         <li><a class="dropdown-item" href="index.html">Formatting checks</a></li>
+                         <li><a class="dropdown-item" href="../index.html">Formatting checks</a></li>
                         
-                         <li><a class="dropdown-item" href="json2entity.html">JSON to entity class</a></li>
+                         <li><a class="dropdown-item" href="../json2entity.html">JSON to entity class</a></li>
                         
-                         <li><a class="dropdown-item" href="jsonview.html">JSON View</a></li>
+                         <li><a class="dropdown-item" href="../jsonview.html">JSON View</a></li>
                         
                     </ul>
                 
@@ -136,11 +188,11 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
-                         <li><a class="dropdown-item" href="encodeindex.html">Base64</a></li>
+                         <li><a class="dropdown-item" href="../encodeindex.html">Base64</a></li>
                         
-                         <li><a class="dropdown-item" href="encodeurl.html">URL encoding</a></li>
+                         <li><a class="dropdown-item" href="../encodeurl.html">URL encoding</a></li>
                         
-                         <li><a class="dropdown-item" href="encodemd5.html">MD5 encoding</a></li>
+                         <li><a class="dropdown-item" href="../encodemd5.html">MD5 encoding</a></li>
                         
                     </ul>
                 
@@ -157,11 +209,11 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
-                         <li><a class="dropdown-item" href="excelindex.html">Excel to CSV</a></li>
+                         <li><a class="dropdown-item" href="../excelindex.html">Excel to CSV</a></li>
                         
-                         <li><a class="dropdown-item" href="excelcsv.html">CSV to Excel</a></li>
+                         <li><a class="dropdown-item" href="../excelcsv.html">CSV to Excel</a></li>
                         
-                         <li><a class="dropdown-item" href="exceli18n.html">i18n</a></li>
+                         <li><a class="dropdown-item" href="../exceli18n.html">i18n</a></li>
                         
                     </ul>
                 
@@ -171,9 +223,9 @@
                 
                 <a class="nav-link px-2 
                     
-                    text-secondary
+                    text-white
                     
-                     active" href="appparser.html">
+                     active" href="../appparser.html">
                         Tools
                     </a>
                 
@@ -185,7 +237,7 @@
                     
                     text-white
                     
-                     active" href="ocrindex.html">
+                     active" href="../ocrindex.html">
                         OCR
                     </a>
                 
@@ -197,7 +249,7 @@
                     
                     text-white
                     
-                     active" href="link.html">
+                     active" href="../link.html">
                         Daily Collection
                     </a>
                 
@@ -211,57 +263,105 @@
 <!--            </form>-->
 
             
-            <div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group">
-                <a href="/zh-CN/appparser.html" class="btn btn-outline-warning " aria-current="page">简体中文</a>
-                <a href="/en/appparser.html" class="btn btn-outline-warning  active ">English</a>
-            </div>        
-            
         </div>
     </div>
 </header>
 
 
+    <div class="container container-fluid pb-3" style="padding-top:3rem;">
 
-
-    <div class="container container-fluid pb-3" style="padding-top: 3rem">
-        <p>Drag and drop apk, ipa files to parse</p>
-
-        <div class="d-grid gap-3" style="grid-template-columns: auto 1fr;">
-            <div class="position-sticky drop-box">
-                <!-- Filepond input-->
-                <input type="file" class="filepond" name="filepond" multiple="" data-allow-reorder="true" data-max-file-size="100MB" data-max-files="3">
-            </div>
-            <div class="bg-light border rounded-3">
-
-                <div class="accordion" id="accordionPanelsStayOpenExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                Basic Information
-                            </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                            <div class="accordion-body">
-                                <h6 class="text-secondary text-center" style="padding: 20px 0;">Please add the app file, don't worry, we won't upload your app</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-                                Application Permissions
-                            </button>
-                        </h2>
-                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                            <div class="accordion-body">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </div>
+
+<main class="container">
+
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="775334" data-author-id="675769" data-path="/s2engineers/how-i-unintentionally-became-a-hacker-3dkh" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+        <header class="crayons-article__header" id="main-title">
+            
+
+          <div class="crayons-article__header__meta">
+              
+            <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
+              How I (unintentionally) became a hacker
+            </h1>
+
+              
+
+            <div class="crayons-article__subheader"><span class="block">
+              
+                
+                Dennis Kopp
+              
+              
+
+              
+                  Aug 4
+
+
+                ・3 min read
+              
+              
+            <!--/span--></span></div>
+          </div>
+        </header>
+
+        <div class="crayons-article__main">
+
+          <div class="crayons-article__body text-styles spec__body" data-article-id="775334" id="article-body">
+            <p>When working in a digital agency, you come across a lot of different technologies to work with. Some of these were in the market for a long time already, while others are still quite new. Often, new technologies are fun to work with. They bring fresh air to a tech stack, change paradigms or are just more elegant to use. But what if this fancy new technology you came across has undiscovered security holes? What if you not only detected a big security issue within your own application, but were able to exploit it to get sensitive, personal data from other companies using this technology?</p>
+
+<p>In my case, I was taking over the backend of a client’s yet-to-be-released project from a coworker. This backend was a rather new open-source headless CMS. Having worked with Wordpress in the last couple of years (and not loving it), I found it quite refreshing to see other takes on the CMS topic. This headless CMS was written in JavaScript, offered the ability to add plugins and even had a GraphQL API. It ticked a lot of boxes for me, so I was quite happy with it.<br>
+Part of working with this CMS was to define a schema for the data types we needed, like a headline, image and content for articles. A Graph API based on this schema is exposed automatically. As the project required users to be able to login, we installed an official plugin that provides a schema for users, including signup and login logic. Like the self-defined one, this schema was also exposed via the API, but parts of it were only accessible for authenticated users. Also, authenticated users only had API access to their own data… or so I thought.</p>
+
+<h2>
+  <a name="something-smells-fishy" href="#something-smells-fishy">
+  </a>
+  Something smells fishy
+</h2>
+
+<p>The user plugin I mentioned before brought a role and rights management with it. It enables you to treat anonymous and authenticated users differently. While playing around with the API, I noticed that I was not only able to see the role of my own user, but that I was also able to get <strong>all</strong> users assigned to the same role. Even worse, I could see the email addresses of those users. Thankfully, the user plugin offered an option to hide fields from the API, so I did just that with the email field. As there was no other personal data exposed, the problem was solved. I briefly discussed this topic with the coworker who previously worked on the project and closed the case.</p>
+
+<h2>
+  <a name="data-leaks-data-leaks-everywhere" href="#data-leaks-data-leaks-everywhere">
+  </a>
+  Data leaks, data leaks everywhere
+</h2>
+
+<p>Some time later, my coworker contacted me again. He mentioned that the CMS’ official website shows some testimonials, along with websites that use the CMS. He found out that the problem we faced with email addresses being exposed was also affecting these testimonials. <br>
+In one example, we were able to download orders from a small online shop, including the full address of the users who made an order. <br>
+In another, we could download applications for job offerings, including full name, cover letter and even the resume (CV). <br>
+We were shocked. Was it really <strong>that</strong> easy to get sensitive information from websites using this CMS?</p>
+
+<h2>
+  <a name="its-not-a-bug-its-a-missing-feature" href="#its-not-a-bug-its-a-missing-feature">
+  </a>
+  It’s not a bug, it’s a (missing) feature
+</h2>
+
+<p>Because of the importance of this topic, I decided to contact the company that builds the CMS immediately. I gave them all the information I had, including concrete examples of API requests. As I feared retaliation from the affected website operators, I decided against contacting them directly. After all, they could sue me for hacking their systems. Instead, I advised the CMS company to not only state the API problem on their website (and to fix it, of course), but to also contact all of their testimonials to have them review their APIs. They reacted quite quickly to my email, but called the problem a “known limitation” and gave some vague instructions on how to mitigate it. Although they mentioned forwarding this issue to the development team and contacting the affected website operators, it felt like they didn’t treat the issue with the necessary priority.</p>
+
+<h2>
+  <a name="bottom-line" href="#bottom-line">
+  </a>
+  Bottom line
+</h2>
+
+<p>Security holes and data breaches come in all shapes and sizes. In this case, it was way too easy to get sensitive information that could be used to compromise people or businesses. Having an eye on privacy and security, for example by having an expert on board and perhaps by doing penetration tests, can help you make your website more secure.</p>
+
+<p>Image by <a href="https://www.pexels.com/@lanophotography">lalesh aldarwish</a></p>
+
+
+          </div>
+
+        </div>
+          
+
+
+      </article></div>
+
+</main>
+
+
+
 
 
 <style>
@@ -325,35 +425,35 @@
         
           
     <div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e.html">how to enable real time merge conflict detection in vs code</a>
+            <a class="d-inline-block text-truncate" href="deno-the-next-step-in-node-js-ij1.html">deno the next step in node js</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/scrape-duckduckgo-organic-news-results-with-python-kod.html">scrape duckduckgo organic news results with python</a>
+            <a class="d-inline-block text-truncate" href="wittgenstein-s-beetle-in-software-engineering-6fi.html">wittgenstein s beetle in software engineering</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/wednesday-links-edition-2021-08-04-a8a.html">wednesday links edition 2021 08 04</a>
+            <a class="d-inline-block text-truncate" href="really-why-react-5958.html">really why react</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/top-reasons-for-choosing-wix-for-your-business-1k0c.html">top reasons for choosing wix for your business</a>
+            <a class="d-inline-block text-truncate" href="making-a-canvas-based-svg-designer-app-that-exports-dxf-files-for-manufacturing-4gjo.html">making a canvas based svg designer app that exports dxf files for manufacturing</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/why-should-you-start-a-crypto-exchange-like-binance-in-2021-n0f.html">why should you start a crypto exchange like binance in 2021</a>
+            <a class="d-inline-block text-truncate" href="how-i-unintentionally-became-a-hacker-3dkh.html">how i unintentionally became a hacker</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/rock-paper-and-scissors-game-58g0.html">rock paper and scissors game</a>
+            <a class="d-inline-block text-truncate" href="how-to-make-infinity-1pa7.html">how to make infinity</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/share-your-salary-and-see-what-everyone-else-is-making-in-devops-la4.html">share your salary and see what everyone else is making in devops</a>
+            <a class="d-inline-block text-truncate" href="how-to-add-a-real-time-unread-conversation-counter-to-a-talkjs-chat-2o05.html">how to add a real time unread conversation counter to a talkjs chat</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/why-hire-a-react-js-development-company-2806.html">why hire a react js development company</a>
+            <a class="d-inline-block text-truncate" href="why-hire-a-react-js-development-company-2806.html">why hire a react js development company</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/how-to-add-a-real-time-unread-conversation-counter-to-a-talkjs-chat-2o05.html">how to add a real time unread conversation counter to a talkjs chat</a>
+            <a class="d-inline-block text-truncate" href="share-your-salary-and-see-what-everyone-else-is-making-in-devops-la4.html">share your salary and see what everyone else is making in devops</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/how-to-make-infinity-1pa7.html">how to make infinity</a>
+            <a class="d-inline-block text-truncate" href="rock-paper-and-scissors-game-58g0.html">rock paper and scissors game</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/how-i-unintentionally-became-a-hacker-3dkh.html">how i unintentionally became a hacker</a>
+            <a class="d-inline-block text-truncate" href="why-should-you-start-a-crypto-exchange-like-binance-in-2021-n0f.html">why should you start a crypto exchange like binance in 2021</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/making-a-canvas-based-svg-designer-app-that-exports-dxf-files-for-manufacturing-4gjo.html">making a canvas based svg designer app that exports dxf files for manufacturing</a>
+            <a class="d-inline-block text-truncate" href="top-reasons-for-choosing-wix-for-your-business-1k0c.html">top reasons for choosing wix for your business</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/really-why-react-5958.html">really why react</a>
+            <a class="d-inline-block text-truncate" href="wednesday-links-edition-2021-08-04-a8a.html">wednesday links edition 2021 08 04</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/wittgenstein-s-beetle-in-software-engineering-6fi.html">wittgenstein s beetle in software engineering</a>
+            <a class="d-inline-block text-truncate" href="scrape-duckduckgo-organic-news-results-with-python-kod.html">scrape duckduckgo organic news results with python</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="news/deno-the-next-step-in-node-js-ij1.html">deno the next step in node js</a>
+            <a class="d-inline-block text-truncate" href="how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e.html">how to enable real time merge conflict detection in vs code</a>
         </div></div>
 </section>
 <style>
@@ -441,7 +541,5 @@
     
 </script>
     
-
-
 
 </body></html>

@@ -6,8 +6,8 @@
 <!--  禁止ios webview 缩放  -->
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
 <!--  禁止ios webview 缩放  end  -->
-<meta name="description" content="Ah, the dreaded resolve conflicts message. You've finished crafting the perfect code, just a quick... Tagged with vscode, programming, productivity, git.">
-<meta name="keywords" content="vscode, programming, productivity, git, software, coding, development, engineering, inclusive, community">
+<meta name="description" content="Angular has two distinct way of handling form one is the template driven way and the other is the... Tagged with angular, forms, reactiveform, typescript.">
+<meta name="keywords" content="angular, forms, reactiveform, typescript, software, coding, development, engineering, inclusive, community">
 <meta name="author" content="">
 <title></title>
 
@@ -274,14 +274,13 @@
 
 <main class="container">
 
-    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="775349" data-author-id="676308" data-path="/gitlive/how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="781223" data-author-id="678470" data-path="/es404020/understanding-reactive-form-in-angular-eom" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
         <header class="crayons-article__header" id="main-title">
             
 
           <div class="crayons-article__header__meta">
-              
             <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
-              How To Enable Real-Time Merge Conflict Detection in VS Code
+              Understanding reactive form in Angular.
             </h1>
 
               
@@ -289,15 +288,15 @@
             <div class="crayons-article__subheader"><span class="block">
               
                 
-                Andrew
+                es404020
               
               
 
               
-                  Aug 3
+                  Aug 4
 
 
-                ・2 min read
+                ・3 min read
               
               
             <!--/span--></span></div>
@@ -306,36 +305,467 @@
 
         <div class="crayons-article__main">
 
-          <div class="crayons-article__body text-styles spec__body" data-article-id="775349" id="article-body">
-            <p>Ah, the dreaded <em>resolve conflicts</em> message. You've finished crafting the perfect code, just a quick merge in of master  (ahem, <em>main</em>) before you submit your PR, and then... 💥</p>
+          <div class="crayons-article__body text-styles spec__body" data-article-id="781223" id="article-body">
+            <p>Angular has two distinct way of handling form one is the template driven way and the other is the reactive form .In this post I am going to show you how is easy it is to get started with reactive form by creating a simple Username and password signup page  .</p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--_fy5WcZA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627640616766/XPQfCdYI3.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--_fy5WcZA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627640616766/XPQfCdYI3.png" alt="image-1-updated.png" loading="lazy"></a></p>
+<h3>
+  <a name="step-1" href="#step-1">
+  </a>
+  Step 1:
+</h3>
 
-<p>If only there was an early warning system for merge conflicts so you could be better prepared or even avoid the conflicts in the first place I hear you say? Well if you are a VS Code user today is your lucky day!</p>
+<p>Import the reactive form module which is <code>ReactiveFormsModule</code> from<br>
+</p>
 
-<p>Firstly, you'll need to install and set up <a href="https://marketplace.visualstudio.com/items?itemName=TeamHub.teamhub">GitLive</a>, then you should see this icon in the top right-hand corner. </p>
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--pvbtAXeg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667202435/pZaRYmSSw.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--pvbtAXeg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667202435/pZaRYmSSw.png" alt="colour toggle full.png" loading="lazy"></a></p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
 
-<p>It will be disabled if the file open in the editor is not from git or there are no other changes to it from contributors working on other branches (aka you are safe from conflicts). If it's enabled there will be one or more change indicators in the gutter of the editor. </p>
+</div>
+</div>
+</div>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--NtFR8eOR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627557380368/lUMGbUDSH.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--NtFR8eOR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627557380368/lUMGbUDSH.png" alt="image-3-2200x1200.png" loading="lazy"></a></p>
 
-<p>These will show you where your teammates have made changes compared to your version of the file and even update in real-time as you and your teammates are editing.</p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--n2uJxTdI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627652753721/ypYzQqcEA.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--n2uJxTdI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627652753721/ypYzQqcEA.png" alt="GL-gutter-4000.png" loading="lazy"></a></p>
+<p>This gives you access to all the classes required to create a reactive form in your module.</p>
 
-<p>If you've made a conflicting change you will see the bright red conflict indicator. These conflicts can be uncommitted local changes you have not pushed yet or existing changes on your branch that conflict with your teammates’ changes. </p>
+<h3>
+  <a name="step-2" href="#step-2">
+  </a>
+  step 2:
+</h3>
 
-<p>Hover your mouse over the code in the affected lines to see the diff between your version and theirs, the branch the offending changes are from, and the issue connected to that branch if there is one. </p>
+<p>Create a login component by using this command on your terminal.<br>
+</p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--8y6Lm6zj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667291312/iyynKT4dH.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--8y6Lm6zj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667291312/iyynKT4dH.png" alt="conflict popup 2 full.png" loading="lazy"></a></p>
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>ng g c @component/logging 
 
-<p>From this popup you can also cherry-pick your teammate’s change directly from their local version of the file. For simple conflicts this can be a quick way to resolve them as identical changes on different branches will merge cleanly. </p>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
 
-<p>Unfortunately, it's not always possible to resolve a conflict straight away but with the early warning, you'll be better prepared, avoiding any nasty surprises at merge time! </p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
 
-<p>Check out this <a href="https://blog.git.live/gitlive-11.0-Real-time-merge-conflict-detection">blog post</a> or the <a href="https://docs.git.live/docs/mergeconflicts/">GitLive docs</a> if you want to learn more.</p>
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-3" href="#step-3">
+  </a>
+  step 3:
+</h3>
+
+<p>import the following<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Create a variable of type <code>FormGroup</code><br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>form: FormGroup;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-4" href="#step-4">
+  </a>
+  step 4:
+</h3>
+
+<p>Configure your formGroup to accept both the username and password and set validation rules on them. Using the the validation required it shows that the field is required .<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code> ngOnInit() {
+
+    this.form = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+
+
+    });
+
+  }
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-5" href="#step-5">
+  </a>
+  step 5:
+</h3>
+
+<p>I love creating this two special functions they show the  error validation line around the input field and also scroll to the position where the error was first found this is very useful in long forms.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>scrollTo(el: any): void {
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      scrollToError(): void {
+        const firstElementWithError = document.querySelector(
+          ".ng-invalid[formControlName]"
+        );
+
+
+        this.scrollTo(firstElementWithError);
+      }
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-6" href="#step-6">
+  </a>
+  step 6:
+</h3>
+
+<p>Finally my validation functions which check if all fields where correctly inputted before making an api call.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code> validate() {
+        this.submitted = true;
+
+
+        if (this.form.invalid) {
+
+
+          this.scrollToError();
+        } else {
+
+          this.submitted = false;
+
+  //make Api call 
+
+
+        }
+
+      }
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-7" href="#step-7">
+  </a>
+  step 7:
+</h3>
+
+<p>It is time to access all the logic we have written in our login.html file.<br>
+The code below calls the formGroup in the form tag.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code> get L(){
+        return this.form.controls;
+    }
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>L is a getter that gives us access to the formcontrol. This has information about the formGroup. Ranging from if a form has an error or if it passed validation .<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>
+  &lt;form [formGroup]="form"&gt;
+        &lt;div class="body"&gt;
+            &lt;div class="row"&gt;
+
+                &lt;div class="form-group col-6"&gt;
+                    &lt;label for="form34"&gt;Menu Name&lt;/label&gt;
+                    &lt;input formControlName="username" type="text" id="form34" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted &amp;&amp; L.username.errors }"&gt;
+                    &lt;div *ngIf="submitted &amp;&amp;  L.username.errors" class="invalid-feedback mb-1"&gt;
+                        &lt;div *ngIf=" L.username.errors.required"&gt;
+                            Please provide a username. &lt;/div&gt;
+                    &lt;/div&gt;
+
+
+
+                &lt;/div&gt;
+
+                &lt;div class="form-group col-6"&gt;
+                    &lt;label for="form34"&gt;Menu URL&lt;/label&gt;
+                    &lt;input formControlName="password" type="text" id="form34" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted &amp;&amp; L.password.errors }"&gt;
+                    &lt;div *ngIf="submitted &amp;&amp;  L.password.errors" class="invalid-feedback mb-1"&gt;
+                        &lt;div *ngIf=" L.MenuURL.password.required"&gt;
+                            Please provide a password. &lt;/div&gt;
+                    &lt;/div&gt;
+
+
+
+                &lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        &lt;/div&gt;
+        &lt;div class='footer'&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-6"&gt;
+                    &lt;div class="float"&gt;
+                        &lt;button class="btn btn-primary" type="button" (click)="validate()"&gt;
+
+                            &lt;span *ngIf="!loading"&gt;Create&lt;/span&gt;
+
+                            &lt;div *ngIf="loading" class="spinner-grow text-danger" role="status"&gt;
+                                &lt;span class="sr-only"&gt;Loading...&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-6"&gt;
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+
+        &lt;/div&gt;
+
+    &lt;/form&gt;
+
+
+
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="complete-code" href="#complete-code">
+  </a>
+  Complete code:
+</h3>
+
+
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
+@Component({
+selector: 'app-login',
+templateUrl: './login.component.html',
+styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit { {
+
+  submitted: boolean;
+
+  loading: boolean = false;
+  employee: any;
+  form: FormGroup; 
+
+  constructor( public fb: FormBuilder) {
+
+  }
+
+  ngOnInit() {
+
+    this.form = this.fb.group({
+      Email: ['', [Validators.required]],
+      Password: ['', [Validators.required]]
+
+
+    });
+
+  }
+
+ scrollTo(el: any): void {
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      scrollToError(): void {
+        const firstElementWithError = document.querySelector(
+          ".ng-invalid[formControlName]"
+        );
+
+
+        this.scrollTo(firstElementWithError);
+      }
+
+   validate() {
+        this.submitted = true;
+
+
+        if (this.form.invalid) {
+
+
+          this.scrollToError();
+        } else {
+
+          this.submitted = false;
+
+  //make Api call 
+
+
+        }
+
+      }
+
+
+}
+
+
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Thanks for reading </p>
 
 
           </div>
@@ -413,35 +843,35 @@
         
           
     <div class="col-6">
-            <a class="d-inline-block text-truncate" href="deno-the-next-step-in-node-js-ij1.html">deno the next step in node js</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="wittgenstein-s-beetle-in-software-engineering-6fi.html">wittgenstein s beetle in software engineering</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="really-why-react-5958.html">really why react</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="making-a-canvas-based-svg-designer-app-that-exports-dxf-files-for-manufacturing-4gjo.html">making a canvas based svg designer app that exports dxf files for manufacturing</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="how-i-unintentionally-became-a-hacker-3dkh.html">how i unintentionally became a hacker</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="how-to-make-infinity-1pa7.html">how to make infinity</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="how-to-add-a-real-time-unread-conversation-counter-to-a-talkjs-chat-2o05.html">how to add a real time unread conversation counter to a talkjs chat</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="why-hire-a-react-js-development-company-2806.html">why hire a react js development company</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="share-your-salary-and-see-what-everyone-else-is-making-in-devops-la4.html">share your salary and see what everyone else is making in devops</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="rock-paper-and-scissors-game-58g0.html">rock paper and scissors game</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="why-should-you-start-a-crypto-exchange-like-binance-in-2021-n0f.html">why should you start a crypto exchange like binance in 2021</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="top-reasons-for-choosing-wix-for-your-business-1k0c.html">top reasons for choosing wix for your business</a>
-        </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="wednesday-links-edition-2021-08-04-a8a.html">wednesday links edition 2021 08 04</a>
+            <a class="d-inline-block text-truncate" href="how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e.html">how to enable real time merge conflict detection in vs code</a>
         </div><div class="col-6">
             <a class="d-inline-block text-truncate" href="scrape-duckduckgo-organic-news-results-with-python-kod.html">scrape duckduckgo organic news results with python</a>
         </div><div class="col-6">
-            <a class="d-inline-block text-truncate" href="how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e.html">how to enable real time merge conflict detection in vs code</a>
+            <a class="d-inline-block text-truncate" href="wednesday-links-edition-2021-08-04-a8a.html">wednesday links edition 2021 08 04</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="top-reasons-for-choosing-wix-for-your-business-1k0c.html">top reasons for choosing wix for your business</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="why-should-you-start-a-crypto-exchange-like-binance-in-2021-n0f.html">why should you start a crypto exchange like binance in 2021</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="rock-paper-and-scissors-game-58g0.html">rock paper and scissors game</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="share-your-salary-and-see-what-everyone-else-is-making-in-devops-la4.html">share your salary and see what everyone else is making in devops</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="why-hire-a-react-js-development-company-2806.html">why hire a react js development company</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="how-to-add-a-real-time-unread-conversation-counter-to-a-talkjs-chat-2o05.html">how to add a real time unread conversation counter to a talkjs chat</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="how-to-make-infinity-1pa7.html">how to make infinity</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="how-i-unintentionally-became-a-hacker-3dkh.html">how i unintentionally became a hacker</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="making-a-canvas-based-svg-designer-app-that-exports-dxf-files-for-manufacturing-4gjo.html">making a canvas based svg designer app that exports dxf files for manufacturing</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="really-why-react-5958.html">really why react</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="wittgenstein-s-beetle-in-software-engineering-6fi.html">wittgenstein s beetle in software engineering</a>
+        </div><div class="col-6">
+            <a class="d-inline-block text-truncate" href="deno-the-next-step-in-node-js-ij1.html">deno the next step in node js</a>
         </div></div>
 </section>
 <style>

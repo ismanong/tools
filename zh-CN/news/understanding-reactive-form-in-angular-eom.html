@@ -6,8 +6,8 @@
 <!--  禁止ios webview 缩放  -->
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
 <!--  禁止ios webview 缩放  end  -->
-<meta name="description" content="Streamlining the process of front-end web application development was the idea behind the development... Tagged with reactnative, react.">
-<meta name="keywords" content="reactnative, react, software, coding, development, engineering, inclusive, community">
+<meta name="description" content="Angular has two distinct way of handling form one is the template driven way and the other is the... Tagged with angular, forms, reactiveform, typescript.">
+<meta name="keywords" content="angular, forms, reactiveform, typescript, software, coding, development, engineering, inclusive, community">
 <meta name="author" content="">
 <title></title>
 
@@ -274,13 +274,13 @@
 
 <main class="container">
 
-    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="781193" data-author-id="679801" data-path="/polosofttech/why-hire-a-react-js-development-company-2806" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="781223" data-author-id="678470" data-path="/es404020/understanding-reactive-form-in-angular-eom" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
         <header class="crayons-article__header" id="main-title">
             
 
           <div class="crayons-article__header__meta">
             <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
-              Why Hire a React JS development Company 
+              Understanding reactive form in Angular.
             </h1>
 
               
@@ -288,7 +288,7 @@
             <div class="crayons-article__subheader"><span class="block">
               
                 
-                Polosoft Technologies
+                es404020
               
               
 
@@ -296,7 +296,7 @@
                   Aug 4
 
 
-                ・2 min read
+                ・3 min read
               
               
             <!--/span--></span></div>
@@ -305,34 +305,467 @@
 
         <div class="crayons-article__main">
 
-          <div class="crayons-article__body text-styles spec__body" data-article-id="781193" id="article-body">
-            <p>Streamlining the process of front-end web application development was the idea behind the development of platforms such as React JS. ReactJS is much faster, simpler, adaptable and scalable as compared to other platforms.<br>
-It proffers the feature of breaking down the website modules into smaller components. If considered it will be profusely beneficial to both the development process and the finished products.<br>
-Considering the rich features and high-performance solutions of React JS, big businesses keep choosing ReactJS development as their foremost choice.</p>
+          <div class="crayons-article__body text-styles spec__body" data-article-id="781223" id="article-body">
+            <p>Angular has two distinct way of handling form one is the template driven way and the other is the reactive form .In this post I am going to show you how is easy it is to get started with reactive form by creating a simple Username and password signup page  .</p>
 
-<h1>
-  <a name="perks-of-js" href="#perks-of-js">
+<h3>
+  <a name="step-1" href="#step-1">
   </a>
-  Perks of JS
-</h1>
+  Step 1:
+</h3>
 
-<p>● Easy to use: ReactJS is one of the JavaScript documentation which is user friendly and high yielding. Not only experienced professionals but rookie developers can easily grasp the components right away in no-time. Plain JavaScript and a component-based approach will assist techies in easy building of your website or mobile applications.</p>
+<p>Import the reactive form module which is <code>ReactiveFormsModule</code> from<br>
+</p>
 
-<p>● Virtual DOM: Every techie knows that a dashboard or data-visualization screen needs constant updates of components so that data can be tracked in real-time. </p>
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
 
-<p>● Build Rich UIs: Frequent updates may turn into unnecessary headaches due to the complex logic of the existing app. It’s more like a single modification can result in spreading and dramatically affect other components. ReactJS has an amplified development technology with the component usability feature. </p>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
 
-<p>● Secured Future: Compatibility of the React JS framework is quite commendable. ReactJS development service providers are spread across the globe. Irrespective of the update, all public APIs of the framework tend to remain the same. </p>
+</div>
+</div>
+</div>
 
-<p>● Easy Migration: This is a really important reason for React JS development company being in demand. Hassle free migration of data from the old server to the new.</p>
 
-<p>● Concurrent Mode: Facebook while developing the ReactJS came up with Concurrent Mode which was built with user and development experience in mind. Rendering is uninterrupted resulting in a huge improvement of the general UX. Functionalities which weren’t possible before can now be easily enabled by a ReactJS expert. </p>
 
-<p>● Faster development: Most of the React JS development company love the tech in particular. The same helps in increasing productivity, all you gotta do is make the most of its reusable components and ReactJS development tools. Increase in productivity is an increase in money. </p>
+<p>This gives you access to all the classes required to create a reactive form in your module.</p>
 
-<p>● Productivity and Maintenance: 85% of system components in React development technology that can be reused. Steadily with the due course of time it has become easy to manipulate and define objects which are already being used. Facilitating code maintenance at regular intervals but it also ensures there is some consistency in the application.  </p>
+<h3>
+  <a name="step-2" href="#step-2">
+  </a>
+  step 2:
+</h3>
 
-<p>The similar being told about a lot of React JS Development Company, but Polosoft Technologies leads the way with its dedicated team of developers and a project manager to guide the same. React JS development is the key to your success and we have kept it safe for you to achieve.</p>
+<p>Create a login component by using this command on your terminal.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>ng g c @component/logging 
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-3" href="#step-3">
+  </a>
+  step 3:
+</h3>
+
+<p>import the following<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Create a variable of type <code>FormGroup</code><br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>form: FormGroup;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-4" href="#step-4">
+  </a>
+  step 4:
+</h3>
+
+<p>Configure your formGroup to accept both the username and password and set validation rules on them. Using the the validation required it shows that the field is required .<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code> ngOnInit() {
+
+    this.form = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+
+
+    });
+
+  }
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-5" href="#step-5">
+  </a>
+  step 5:
+</h3>
+
+<p>I love creating this two special functions they show the  error validation line around the input field and also scroll to the position where the error was first found this is very useful in long forms.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>scrollTo(el: any): void {
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      scrollToError(): void {
+        const firstElementWithError = document.querySelector(
+          ".ng-invalid[formControlName]"
+        );
+
+
+        this.scrollTo(firstElementWithError);
+      }
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-6" href="#step-6">
+  </a>
+  step 6:
+</h3>
+
+<p>Finally my validation functions which check if all fields where correctly inputted before making an api call.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code> validate() {
+        this.submitted = true;
+
+
+        if (this.form.invalid) {
+
+
+          this.scrollToError();
+        } else {
+
+          this.submitted = false;
+
+  //make Api call 
+
+
+        }
+
+      }
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="step-7" href="#step-7">
+  </a>
+  step 7:
+</h3>
+
+<p>It is time to access all the logic we have written in our login.html file.<br>
+The code below calls the formGroup in the form tag.<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code> get L(){
+        return this.form.controls;
+    }
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>L is a getter that gives us access to the formcontrol. This has information about the formGroup. Ranging from if a form has an error or if it passed validation .<br>
+</p>
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>
+  &lt;form [formGroup]="form"&gt;
+        &lt;div class="body"&gt;
+            &lt;div class="row"&gt;
+
+                &lt;div class="form-group col-6"&gt;
+                    &lt;label for="form34"&gt;Menu Name&lt;/label&gt;
+                    &lt;input formControlName="username" type="text" id="form34" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted &amp;&amp; L.username.errors }"&gt;
+                    &lt;div *ngIf="submitted &amp;&amp;  L.username.errors" class="invalid-feedback mb-1"&gt;
+                        &lt;div *ngIf=" L.username.errors.required"&gt;
+                            Please provide a username. &lt;/div&gt;
+                    &lt;/div&gt;
+
+
+
+                &lt;/div&gt;
+
+                &lt;div class="form-group col-6"&gt;
+                    &lt;label for="form34"&gt;Menu URL&lt;/label&gt;
+                    &lt;input formControlName="password" type="text" id="form34" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted &amp;&amp; L.password.errors }"&gt;
+                    &lt;div *ngIf="submitted &amp;&amp;  L.password.errors" class="invalid-feedback mb-1"&gt;
+                        &lt;div *ngIf=" L.MenuURL.password.required"&gt;
+                            Please provide a password. &lt;/div&gt;
+                    &lt;/div&gt;
+
+
+
+                &lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        &lt;/div&gt;
+        &lt;div class='footer'&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-6"&gt;
+                    &lt;div class="float"&gt;
+                        &lt;button class="btn btn-primary" type="button" (click)="validate()"&gt;
+
+                            &lt;span *ngIf="!loading"&gt;Create&lt;/span&gt;
+
+                            &lt;div *ngIf="loading" class="spinner-grow text-danger" role="status"&gt;
+                                &lt;span class="sr-only"&gt;Loading...&lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-6"&gt;
+
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+
+        &lt;/div&gt;
+
+    &lt;/form&gt;
+
+
+
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<h3>
+  <a name="complete-code" href="#complete-code">
+  </a>
+  Complete code:
+</h3>
+
+
+
+<div class="highlight js-code-highlight">
+<pre class="highlight plaintext"><code>
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+
+@Component({
+selector: 'app-login',
+templateUrl: './login.component.html',
+styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit { {
+
+  submitted: boolean;
+
+  loading: boolean = false;
+  employee: any;
+  form: FormGroup; 
+
+  constructor( public fb: FormBuilder) {
+
+  }
+
+  ngOnInit() {
+
+    this.form = this.fb.group({
+      Email: ['', [Validators.required]],
+      Password: ['', [Validators.required]]
+
+
+    });
+
+  }
+
+ scrollTo(el: any): void {
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      scrollToError(): void {
+        const firstElementWithError = document.querySelector(
+          ".ng-invalid[formControlName]"
+        );
+
+
+        this.scrollTo(firstElementWithError);
+      }
+
+   validate() {
+        this.submitted = true;
+
+
+        if (this.form.invalid) {
+
+
+          this.scrollToError();
+        } else {
+
+          this.submitted = false;
+
+  //make Api call 
+
+
+        }
+
+      }
+
+
+}
+
+
+
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-on"><title>Enter fullscreen mode</title>
+    <path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" class="highlight-action crayons-icon highlight-action--fullscreen-off"><title>Exit fullscreen mode</title>
+    <path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+
+</div>
+</div>
+</div>
+
+
+
+<p>Thanks for reading </p>
 
 
           </div>

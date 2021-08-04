@@ -6,8 +6,8 @@
 <!--  禁止ios webview 缩放  -->
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width">
 <!--  禁止ios webview 缩放  end  -->
-<meta name="description" content="Ah, the dreaded resolve conflicts message. You've finished crafting the perfect code, just a quick... Tagged with vscode, programming, productivity, git.">
-<meta name="keywords" content="vscode, programming, productivity, git, software, coding, development, engineering, inclusive, community">
+<meta name="description" content="Try to clarify concepts when communicating an abstract idea, be sure that all parties... Tagged with webdev, programming, coding, dev.">
+<meta name="keywords" content="webdev, programming, coding, dev, software, coding, development, engineering, inclusive, community">
 <meta name="author" content="">
 <title></title>
 
@@ -274,14 +274,13 @@
 
 <main class="container">
 
-    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="775349" data-author-id="676308" data-path="/gitlive/how-to-enable-real-time-merge-conflict-detection-in-vs-code-l2e" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
+    <div class="row g-5" id="news_detail_slot"><article class="crayons-card crayons-article mb-4" id="article-show-container" data-article-id="781211" data-author-id="122" data-path="/fagnerbrack/wittgenstein-s-beetle-in-software-engineering-6fi" data-published="true" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="">
         <header class="crayons-article__header" id="main-title">
             
 
           <div class="crayons-article__header__meta">
-              
             <h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-4 medium">
-              How To Enable Real-Time Merge Conflict Detection in VS Code
+              Wittgenstein’s Beetle In Software Engineering
             </h1>
 
               
@@ -289,15 +288,19 @@
             <div class="crayons-article__subheader"><span class="block">
               
                 
-                Andrew
+                Fagner Brack
               
               
 
               
-                  Aug 3
+                  Aug 4
 
+                  
+                    Originally published at
+                    fagnerbrack.com
+                  
 
-                ・2 min read
+                ・4 min read
               
               
             <!--/span--></span></div>
@@ -306,36 +309,108 @@
 
         <div class="crayons-article__main">
 
-          <div class="crayons-article__body text-styles spec__body" data-article-id="775349" id="article-body">
-            <p>Ah, the dreaded <em>resolve conflicts</em> message. You've finished crafting the perfect code, just a quick merge in of master  (ahem, <em>main</em>) before you submit your PR, and then... 💥</p>
+          <div class="crayons-article__body text-styles spec__body" data-article-id="781211" id="article-body">
+            <h2>
+  <a name="try-to-clarify-concepts-when-communicating-an-abstract-idea-be-sure-that-all-parties-understand-the-attributes-of-what-is-being-referenced" href="#try-to-clarify-concepts-when-communicating-an-abstract-idea-be-sure-that-all-parties-understand-the-attributes-of-what-is-being-referenced">
+  </a>
+  Try to clarify concepts when communicating an abstract idea, be sure that all parties understand the attributes of what is being referenced
+</h2>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--_fy5WcZA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627640616766/XPQfCdYI3.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--_fy5WcZA--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627640616766/XPQfCdYI3.png" alt="image-1-updated.png" loading="lazy"></a></p>
 
-<p>If only there was an early warning system for merge conflicts so you could be better prepared or even avoid the conflicts in the first place I hear you say? Well if you are a VS Code user today is your lucky day!</p>
+<hr>
 
-<p>Firstly, you'll need to install and set up <a href="https://marketplace.visualstudio.com/items?itemName=TeamHub.teamhub">GitLive</a>, then you should see this icon in the top right-hand corner. </p>
+<p><a href="https://en.wikipedia.org/wiki/Ludwig_Wittgenstein">Ludwig Wittgenstein</a> was a philosopher from the 20th century that came up with an argument called the <a href="https://en.wikipedia.org/wiki/Private_language_argument">private language argument</a>. One part of this argument is called <a href="https://en.wikipedia.org/wiki/Private_language_argument#The_Beetle_in_a_box">The Beetle and The Box</a>.<br>
+It goes like this:</p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--pvbtAXeg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667202435/pZaRYmSSw.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--pvbtAXeg--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667202435/pZaRYmSSw.png" alt="colour toggle full.png" loading="lazy"></a></p>
+<blockquote>
+<p>[…] Suppose everyone had a box with something in it: we call it a ‘beetle’. No one can look into anyone else’s box, and everyone says he knows what a beetle is only by looking at his beetle. — Here it would be quite possible for everyone to have something different in his box. One might even imagine such a thing constantly changing. — But suppose the word ‘beetle’ had a use in these people’s language? — If so it would not be used as the name of a thing. The thing in the box has no place in the language-game at all; not even as a something: for the box might even be empty. — No, one can ‘divide through’ by the thing in the box; it cancels out, whatever it is. (1958, §293)<br>
+Wittgenstein, L., (1953), Philosophical investigations, translated [from the German] by G. E. M. Anscombe, Oxford: Blackwell, 1968.</p>
+</blockquote>
 
-<p>It will be disabled if the file open in the editor is not from git or there are no other changes to it from contributors working on other branches (aka you are safe from conflicts). If it's enabled there will be one or more change indicators in the gutter of the editor. </p>
+<p>Due to how we express thoughts, it is possible that in a real conversation two individuals believe they are talking about the same "thing", but in reality, they are talking about things that are totally different. It all depends on the subjective interpretation of each one and the assumption that the other knows what is being talked about.</p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--NtFR8eOR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627557380368/lUMGbUDSH.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--NtFR8eOR--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627557380368/lUMGbUDSH.png" alt="image-3-2200x1200.png" loading="lazy"></a></p>
+<p>A good example of this is a discussion, where each one wants to express the feelings about the beetle inside the box as if both were aware of what that is:</p>
 
-<p>These will show you where your teammates have made changes compared to your version of the file and even update in real-time as you and your teammates are editing.</p>
+<blockquote>
+<p>Person A: The beetle is cute.<br>
+Person B: The beetle is definitely not cute.<br>
+Person A: I can ensure you it is because I know it!<br>
+Person B: And I know it too, that is why I am saying it is not cute!</p>
+</blockquote>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--n2uJxTdI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627652753721/ypYzQqcEA.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--n2uJxTdI--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627652753721/ypYzQqcEA.png" alt="GL-gutter-4000.png" loading="lazy"></a></p>
+<p>They could try to describe the beetle in more details:</p>
 
-<p>If you've made a conflicting change you will see the bright red conflict indicator. These conflicts can be uncommitted local changes you have not pushed yet or existing changes on your branch that conflict with your teammates’ changes. </p>
+<blockquote>
+<p>Person A: The beetle has 6 legs.<br>
+Person B: Yes, and 2 eyes too!<br>
+Person B: Yes, and 2 eyes too!</p>
+</blockquote>
 
-<p>Hover your mouse over the code in the affected lines to see the diff between your version and theirs, the branch the offending changes are from, and the issue connected to that branch if there is one. </p>
+<p>Although, even with objective descriptions, there is no guarantee they are the same.</p>
 
-<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--8y6Lm6zj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667291312/iyynKT4dH.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--8y6Lm6zj--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn.hashnode.com/res/hashnode/image/upload/v1627667291312/iyynKT4dH.png" alt="conflict popup 2 full.png" loading="lazy"></a></p>
+<p><a href="https://res.cloudinary.com/practicaldev/image/fetch/s--oxr2oJ69--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/aj27e59yt7a2i9u9qxyf.png" class="article-body-image-wrapper"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--oxr2oJ69--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/aj27e59yt7a2i9u9qxyf.png" alt="Two different beetles, both with two eyes and six legs" loading="lazy"></a></p>
 
-<p>From this popup you can also cherry-pick your teammate’s change directly from their local version of the file. For simple conflicts this can be a quick way to resolve them as identical changes on different branches will merge cleanly. </p>
+<blockquote>
+<h3>
+  <a name="wittgensteins-beetle-represents-the-individual-perception-and-experiences-that-form-a-point-of-view" href="#wittgensteins-beetle-represents-the-individual-perception-and-experiences-that-form-a-point-of-view">
+  </a>
+  Wittgenstein's beetle represents the individual perception and experiences that form a point of view.
+</h3>
+</blockquote>
 
-<p>Unfortunately, it's not always possible to resolve a conflict straight away but with the early warning, you'll be better prepared, avoiding any nasty surprises at merge time! </p>
+<p>Now, what about software engineering?</p>
 
-<p>Check out this <a href="https://blog.git.live/gitlive-11.0-Real-time-merge-conflict-detection">blog post</a> or the <a href="https://docs.git.live/docs/mergeconflicts/">GitLive docs</a> if you want to learn more.</p>
+<p>Let's say that you are talking with a person and you want to suggest how to improve a piece of code.</p>
+
+<p>You can start making suggestions to create maintainable code using standard development principles. The other developer will understand that create maintainable code is a good thing and that using standard development principles is useful; you both agree.</p>
+
+<p>But then when the work is done you realize the code is totally different from what you expected. The other developer is not using standard development principles or creating maintainable code. But wait, what exactly are "standard development principles" and the act of creating more "maintainable code"?</p>
+
+<p>Of course, you know what they are, right?</p>
+
+<p>… or not?</p>
+
+<p><strong>What if you really don't know what you are talking about?</strong></p>
+
+<p>You might have been a victim of the famous <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect">Dunning-Kruger Effect</a>. The developer might have implemented principles that are unknown to you and you just don't see the benefits because you lack context.</p>
+
+<p><strong>What if the other developer don't know what they are talking about?</strong></p>
+
+<p>The other developer might have less experience than you. Or have different opinions over "good" principles.</p>
+
+<p><strong>What if neither of you has any idea of what good principles are</strong></p>
+
+<p>Remember, the feeling you have when you are wrong is the same feeling as when you are right. You just feel bad when you discover you were wrong, not when you actually are. Both of you can discuss naturally, and still, both of you can be wrong.</p>
+
+<p>When talking about software design we are still tied to the <a href="https://medium.com/@fagnerbrack/programming-subjective-discussion-9c177c31807f">subjective</a> nature of the human being. You can try to be as objective as possible, but when it comes to subjects such as design patterns, principles or abstractions, we are still bound to subjectivity. Even for more objective matters, we are still bound to the level of knowledge and experience that you or the other person have, for that <a href="https://medium.com/@fagnerbrack/how-to-destroy-the-myth-of-the-proper-solution-94ca958def1f">there is no such thing as the proper solution</a>.</p>
+
+<blockquote>
+<h3>
+  <a name="sometimes-it-is-impossible-to-be-completely-objective-each-individual-will-always-have-one-box-and-you-will-only-know-the-content-of-yours" href="#sometimes-it-is-impossible-to-be-completely-objective-each-individual-will-always-have-one-box-and-you-will-only-know-the-content-of-yours">
+  </a>
+  Sometimes it is impossible to be completely objective, each individual will always have one box, and you will only know the content of yours.
+</h3>
+</blockquote>
+
+<p>Next time you talk with someone using technical jargon, try to avoid making assumptions as much as possible. Try to go as deep as you can to make sure both understand, in detail, what is being discussed.</p>
+
+<p>There will always be a level of subjectivity, even in basic language. But what you can do to facilitate a conversation is try to reduce the amount of subjectivity into the smallest possible range, just enough for the task you have in hand.</p>
+
+<p>This way there will be a point where the subjectivity becomes irrelevant in practice.</p>
+
+<p>But it will never be null.</p>
+
+
+<hr>
+
+<p><strong>Edit Jul 26, 2016:</strong></p>
+
+<p>I have recently stumbled upon a post called <a href="https://eev.ee/blog/2016/07/26/the-hardest-problem-in-computer-science/">Naming Is The Hardest Problem In Computer Science</a>. It shows very good examples of Wittgenstein's Beetle happening in Software when different languages use the same terminology (like "object") to represent things that are completely different.</p>
+
+
+<hr>
+
+<p>Thanks for reading. If you have some feedback, reach out to me on <a href="https://twitter.com/FagnerBrack">Twitter</a>, <a href="https://www.facebook.com/fagner.brack">Facebook</a> or <a href="http://github.com/FagnerMartinsBrack">Github</a>.</p>
 
 
           </div>
