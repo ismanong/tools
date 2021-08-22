@@ -1,0 +1,53 @@
+.btn_border{color:#4338ca;background-color:#e0e7ff;padding:.5rem 1rem;border-radius:3px}.btn_border:hover{background-color:#c7d2fe;text-decoration:underline}.btn_primary{color:#fff;background-color:#4f46e5;padding:.5rem 1rem;border-radius:3px}.btn_primary:hover{background-color:#4338ca;text-decoration:underline}pre{padding:0;display:-webkit-box;display:-webkit-flex;display:flex;width:100%;height:100%;margin:0}pre code{width:100%}.page-title{padding-top:16px;padding-bottom:16px}
+/*body{*/
+/*    background: #DCE9E9 !important;*/
+/*}*/
+.btn_border {
+    color: rgba(67, 56, 202, 1);
+    background-color: rgba(224, 231, 255, 1);
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+}
+
+.btn_border:hover {
+    background-color: rgba(199, 210, 254, 1);
+    text-decoration: underline;
+}
+
+.btn_primary {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(79, 70, 229, 1);
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+}
+
+.btn_primary:hover {
+    background-color: rgba(67, 56, 202, 1);
+    text-decoration: underline;
+}
+
+pre {
+    padding: 0;
+    display: flex; /*flex可以消除行高带来的影响*/
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+pre code {
+    width: 100%;
+}
+
+/*.page-1000px {*/
+/*    width: 1000px;*/
+/*    margin: 0 auto;*/
+/*    padding: 0 .75rem;*/
+/*}*/
+
+.page-title {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+
+
