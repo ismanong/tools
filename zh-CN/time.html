@@ -1,5 +1,6 @@
+<!----------------------------------------公共头------------------------------------------>
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-CN">
 <head>
     
 <meta charset="utf-8">
@@ -21,9 +22,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<link rel="icon" href="../favicon.ico"><script defer src="../assets/js/time.8eec1884.js"></script><link href="../assets/css/time.460a91df.css" rel="stylesheet"></head>
+<link rel="icon" href="../favicon.ico"><script defer src="../assets/js/time.2d6da397.js"></script><script defer src="../assets/js/base.css.ea6fb02d.js"></script><script defer src="../assets/js/canvas-logo.cf51912b.js"></script><link href="../assets/css/base.css.cfe7e80b.css" rel="stylesheet"></head>
 <body>
 
 <style>
@@ -88,7 +87,7 @@
                     text-white
                     
                      dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        格式化校验
+                        json
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
@@ -109,7 +108,7 @@
                     text-white
                     
                      dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Base64
+                        encode
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
@@ -130,7 +129,7 @@
                     text-white
                     
                      dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Excel转CSV
+                        excel
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
@@ -155,13 +154,15 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
-                         <li><a class="dropdown-item" href="appparser.html">工具</a></li>
+                         <li><a class="dropdown-item" href="qrcode.html">二维码</a></li>
                         
                          <li><a class="dropdown-item" href="time.html">时间</a></li>
                         
                          <li><a class="dropdown-item" href="imgcompress.html">图片压缩</a></li>
                         
-                         <li><a class="dropdown-item" href="testapiindex.html">测试API</a></li>
+                         <li><a class="dropdown-item" href="ocr.html">OCR</a></li>
+                        
+                         <li><a class="dropdown-item" href="appparser.html">apk,ipa 解析器</a></li>
                         
                     </ul>
                 
@@ -173,20 +174,8 @@
                     
                     text-white
                     
-                     active" href="ocrindex.html">
-                        OCR
-                    </a>
-                
-                </li>
-                
-                <li class="nav-item dropdown">
-                
-                <a class="nav-link px-2 
-                    
-                    text-white
-                    
-                     active" href="link.html">
-                        每日收藏
+                     active" href="news.html">
+                        新闻
                     </a>
                 
                 </li>
@@ -208,37 +197,41 @@
     </div>
 </header>
 
-
-        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Twelfth navbar example">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-              <ul class="navbar-nav">
-                
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="appparser.html">工具</a>
-            </li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded" aria-label="Twelfth navbar example">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+          <ul class="navbar-nav">
             
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="time.html">时间</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="imgcompress.html">图片压缩</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link " aria-current="page" href="testapiindex.html">测试API</a>
-            </li>
-            
-              </ul>
-            </div>
-          </div>
-        </nav>
-        <h3 class="container page-title">时间</h3>
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="qrcode.html">二维码</a>
+        </li>
         
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="time.html">时间</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="imgcompress.html">图片压缩</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="ocr.html">OCR</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="appparser.html">apk,ipa 解析器</a>
+        </li>
+        
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h3 class="container page-title">时间</h3>
+    
+<!----------------------------------------公共头 end--------------------------------------->
 
 
 <div class="container">
@@ -441,108 +434,8 @@
     </div>
 </div>
 
-<script>
-    var epoch = Math.floor(Date.now()/1000);
 
-    function incrementEpoch() {
-        updateClock();
-        $('.epoch').html(epoch++);
-    }
-
-    function updateClock() {
-        var now = moment();
-            // second = now.seconds() * 6,
-            // minute = now.minutes() * 6 + second / 60,
-            // hour = ((now.hours() % 12) / 12) * 360 + 90 + minute / 12;
-
-        // $('#hour').css("transform", "rotate(" + hour + "deg)");
-        // $('#minute').css("transform", "rotate(" + minute + "deg)");
-        // $('#second').css("transform", "rotate(" + second + "deg)");
-
-        // $('#hour1').html(((now.hours() == 0 || now.hours() == 12) ? 12 : now.hours() % 12));
-        // $('#minute1').html(now.minutes().toString().length === 1 ? '0'+now.minutes(): now.minutes());
-        // $('#second1').html(now.seconds().toString().length === 1 ? '0'+now.seconds(): now.seconds()).append(now.format(' A'));
-
-        $('#hour1').html(now.format('YYYY-MM-DD HH:mm:ss'));
-    }
-
-    function ConvertTime(fields){
-        if(fields == 'timestamp'){
-            var timestamp = getTimeStamp();
-            if(!timestamp)
-                return;
-            $('.timestamp-results').show();
-            $('.timestamp-results .gmt').html(moment(timestamp).utc().toString());
-            $('.timestamp-results .local').html(moment(timestamp).toDate());
-            $('.timestamp-results .relative').html(moment(timestamp).fromNow());
-            $('.timestamp-results .yyyyMMddHHmmss').html(moment(timestamp).format('YYYY-MM-DD HH:mm:ss'));
-        }
-        else if(fields == 'entry'){
-            $('.entry-results').show();
-            var time = moment([
-                parseInt($('#y').val(),10),
-                parseInt($('#m').val(),10)-1,
-                parseInt($('#d').val(),10),
-                parseInt($('#hours').val(),10),
-                parseInt($('#min').val(),10),
-                parseInt($('#sec').val(),10),
-                0
-            ]);
-            $('.entry-results .unix').html(moment(time).unix());
-            $('.entry-results .gmt').html(moment(time).utc().toString());
-            $('.entry-results .local').html(moment(time).toDate());
-            $('.entry-results .relative').html(moment(time).fromNow());
-        }
-    }
-
-    function getTimeStamp(){
-        var timestamp = $('#timestamp').val();
-        $('.ui.negative.message').hide();
-        if ((timestamp >= 10E7) && (timestamp < 18E7)) {
-            $('.ui.negative.message').html("Expected a more recent date? You are missing 1 digit.").show();
-            return false;
-        }
-        if ((timestamp >= 1E16) || (timestamp <= -1E16)) {
-            $('.timestamp-results .format').html("Nanoseconds (1 billionth of a second)");
-            timestamp = Math.floor(timestamp / 1000000);
-        } else if ((timestamp >= 1E14) || (timestamp <= -1E14)) {
-            $('.timestamp-results .format').html("Microseconds (1/1,000,000 second)");
-            timestamp = Math.floor(timestamp / 1000);
-        } else if ((timestamp >= 1E11) || (timestamp <= -3E10)) {
-            $('.timestamp-results .format').html("Milliseconds (1/1,000 second)");
-        } else {
-            $('.timestamp-results .format').html("Seconds");
-            if ((timestamp > 1E11) || (timestamp < -1E10)) {
-                $('.ui.negative.message').html("Remove the last 3 digits if you are trying to convert milliseconds.").show();
-            }
-            timestamp = (timestamp * 1000);
-        }
-        if (timestamp < -68572224E5) {
-            $('.ui.negative.message').html("Dates before 14 september 1752 (pre-Gregorian calendar) are not accurate.").show();
-            return false;
-        }
-        return parseInt(timestamp, 10);
-    }
-
-    document.addEventListener('DOMContentLoaded', function(){
-        $(document).ready(function(){
-            setInterval(incrementEpoch, 1000);
-
-            $('#timestamp').on('keyup', function(event) {
-                if (event.keyCode === 13) {
-                    event.preventDefault();
-                    ConvertTime('timestamp');
-                }
-            });
-            $('.entry-inputs').on('keyup', function(event) {
-                if (event.keyCode === 13) {
-                    event.preventDefault();
-                    ConvertTime('entry');
-                }
-            });
-        });
-    });
-</script>
+<!----------------------------------------公共尾------------------------------------------>
 
 <style>
     .icon-list {
@@ -567,7 +460,7 @@
     }
 </style>
 <!--<section class="container py-5">-->
-<!--    <h2 style="padding-bottom: 10px"><%= langMap['news_hot'] %></h2>-->
+<!--    <h2 style="padding-bottom: 10px"><%= langDataMap['news_hot'] %></h2>-->
 <!--    -->
 <!--</section>-->
 <section class="container py-5">
@@ -721,6 +614,112 @@
     
 </script>
     
+<!----------------------------------------公共尾 end--------------------------------------->
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    var epoch = Math.floor(Date.now()/1000);
+
+    function incrementEpoch() {
+        updateClock();
+        $('.epoch').html(epoch++);
+    }
+
+    function updateClock() {
+        var now = moment();
+            // second = now.seconds() * 6,
+            // minute = now.minutes() * 6 + second / 60,
+            // hour = ((now.hours() % 12) / 12) * 360 + 90 + minute / 12;
+
+        // $('#hour').css("transform", "rotate(" + hour + "deg)");
+        // $('#minute').css("transform", "rotate(" + minute + "deg)");
+        // $('#second').css("transform", "rotate(" + second + "deg)");
+
+        // $('#hour1').html(((now.hours() == 0 || now.hours() == 12) ? 12 : now.hours() % 12));
+        // $('#minute1').html(now.minutes().toString().length === 1 ? '0'+now.minutes(): now.minutes());
+        // $('#second1').html(now.seconds().toString().length === 1 ? '0'+now.seconds(): now.seconds()).append(now.format(' A'));
+
+        $('#hour1').html(now.format('YYYY-MM-DD HH:mm:ss'));
+    }
+
+    function ConvertTime(fields){
+        if(fields == 'timestamp'){
+            var timestamp = getTimeStamp();
+            if(!timestamp)
+                return;
+            $('.timestamp-results').show();
+            $('.timestamp-results .gmt').html(moment(timestamp).utc().toString());
+            $('.timestamp-results .local').html(moment(timestamp).toDate());
+            $('.timestamp-results .relative').html(moment(timestamp).fromNow());
+            $('.timestamp-results .yyyyMMddHHmmss').html(moment(timestamp).format('YYYY-MM-DD HH:mm:ss'));
+        }
+        else if(fields == 'entry'){
+            $('.entry-results').show();
+            var time = moment([
+                parseInt($('#y').val(),10),
+                parseInt($('#m').val(),10)-1,
+                parseInt($('#d').val(),10),
+                parseInt($('#hours').val(),10),
+                parseInt($('#min').val(),10),
+                parseInt($('#sec').val(),10),
+                0
+            ]);
+            $('.entry-results .unix').html(moment(time).unix());
+            $('.entry-results .gmt').html(moment(time).utc().toString());
+            $('.entry-results .local').html(moment(time).toDate());
+            $('.entry-results .relative').html(moment(time).fromNow());
+        }
+    }
+
+    function getTimeStamp(){
+        var timestamp = $('#timestamp').val();
+        $('.ui.negative.message').hide();
+        if ((timestamp >= 10E7) && (timestamp < 18E7)) {
+            $('.ui.negative.message').html("Expected a more recent date? You are missing 1 digit.").show();
+            return false;
+        }
+        if ((timestamp >= 1E16) || (timestamp <= -1E16)) {
+            $('.timestamp-results .format').html("Nanoseconds (1 billionth of a second)");
+            timestamp = Math.floor(timestamp / 1000000);
+        } else if ((timestamp >= 1E14) || (timestamp <= -1E14)) {
+            $('.timestamp-results .format').html("Microseconds (1/1,000,000 second)");
+            timestamp = Math.floor(timestamp / 1000);
+        } else if ((timestamp >= 1E11) || (timestamp <= -3E10)) {
+            $('.timestamp-results .format').html("Milliseconds (1/1,000 second)");
+        } else {
+            $('.timestamp-results .format').html("Seconds");
+            if ((timestamp > 1E11) || (timestamp < -1E10)) {
+                $('.ui.negative.message').html("Remove the last 3 digits if you are trying to convert milliseconds.").show();
+            }
+            timestamp = (timestamp * 1000);
+        }
+        if (timestamp < -68572224E5) {
+            $('.ui.negative.message').html("Dates before 14 september 1752 (pre-Gregorian calendar) are not accurate.").show();
+            return false;
+        }
+        return parseInt(timestamp, 10);
+    }
+
+    document.addEventListener('DOMContentLoaded', function(){
+        $(document).ready(function(){
+            setInterval(incrementEpoch, 1000);
+
+            $('#timestamp').on('keyup', function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    ConvertTime('timestamp');
+                }
+            });
+            $('.entry-inputs').on('keyup', function(event) {
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    ConvertTime('entry');
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

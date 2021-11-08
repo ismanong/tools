@@ -1,6 +1,6 @@
 <!----------------------------------------公共头------------------------------------------>
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     
 <meta charset="utf-8">
@@ -8,10 +8,10 @@
 <!--  禁止ios webview 缩放  -->
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
 <!--  禁止ios webview 缩放  end  -->
-<meta name="description" content="提供方便快捷的在线Base64加密、解密服务。">
-<meta name="keywords" content="Base64加密、解密,Base64加密,Base64解密,Base64加密解密,Base64 encryption,Base64 decryption,Base64在线,Base64工具">
+<meta name="description" content="ocr,online">
+<meta name="keywords" content="ocr,online">
 <meta name="author" content="">
-<title>Base64加密、解密</title>
+<title>Online OCR</title>
 
 <!-- <link rel="icon" href="/favicon.ico"/> -->
 <!--<meta itemprop="name" content="xxx">-->
@@ -22,7 +22,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     
-<link rel="icon" href="../favicon.ico"><script defer src="../assets/js/encodeindex.eabdc18c.js"></script><script defer src="../assets/js/base.css.ea6fb02d.js"></script><script defer src="../assets/js/canvas-logo.cf51912b.js"></script><link href="../assets/css/base.css.cfe7e80b.css" rel="stylesheet"></head>
+<link rel="icon" href="favicon.ico"><script defer src="assets/js/ocr.69d90b2a.js"></script><script defer src="assets/js/base.css.ea6fb02d.js"></script><script defer src="assets/js/canvas-logo.cf51912b.js"></script><link href="assets/css/base.css.cfe7e80b.css" rel="stylesheet"></head>
 <body>
 
 <style>
@@ -87,15 +87,57 @@
                     text-white
                     
                      dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        json
+                        Json
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
-                         <li><a class="dropdown-item" href="index.html">格式化校验</a></li>
+                         <li><a class="dropdown-item" href="index.html">Formatting checks</a></li>
                         
-                         <li><a class="dropdown-item" href="json2entity.html">JSON转实体类</a></li>
+                         <li><a class="dropdown-item" href="json2entity.html">JSON to entity class</a></li>
                         
-                         <li><a class="dropdown-item" href="jsonview.html">JSON视图</a></li>
+                         <li><a class="dropdown-item" href="jsonview.html">JSON View</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Encode
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="encodeindex.html">Base64</a></li>
+                        
+                         <li><a class="dropdown-item" href="encodeurl.html">URL encoding</a></li>
+                        
+                         <li><a class="dropdown-item" href="encodemd5.html">MD5 encoding</a></li>
+                        
+                    </ul>
+                
+                </li>
+                
+                <li class="nav-item dropdown">
+                
+                    <a class="nav-link px-2 
+                    
+                    text-white
+                    
+                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Excel
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        
+                         <li><a class="dropdown-item" href="excelindex.html">Excel to CSV</a></li>
+                        
+                         <li><a class="dropdown-item" href="excelcsv.html">CSV to Excel</a></li>
+                        
+                         <li><a class="dropdown-item" href="exceli18n.html">i18n</a></li>
                         
                     </ul>
                 
@@ -108,61 +150,19 @@
                     text-secondary
                     
                      dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        encode
+                        Tools
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
-                         <li><a class="dropdown-item" href="encodeindex.html">Base64</a></li>
+                         <li><a class="dropdown-item" href="qrcode.html">QR code</a></li>
                         
-                         <li><a class="dropdown-item" href="encodeurl.html">URL编码</a></li>
+                         <li><a class="dropdown-item" href="time.html">Time</a></li>
                         
-                         <li><a class="dropdown-item" href="encodemd5.html">MD5编码</a></li>
-                        
-                    </ul>
-                
-                </li>
-                
-                <li class="nav-item dropdown">
-                
-                    <a class="nav-link px-2 
-                    
-                    text-white
-                    
-                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        excel
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                         <li><a class="dropdown-item" href="excelindex.html">Excel转CSV</a></li>
-                        
-                         <li><a class="dropdown-item" href="excelcsv.html">CSV转Excel</a></li>
-                        
-                         <li><a class="dropdown-item" href="exceli18n.html">i18n</a></li>
-                        
-                    </ul>
-                
-                </li>
-                
-                <li class="nav-item dropdown">
-                
-                    <a class="nav-link px-2 
-                    
-                    text-white
-                    
-                     dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        工具
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        
-                         <li><a class="dropdown-item" href="qrcode.html">二维码</a></li>
-                        
-                         <li><a class="dropdown-item" href="time.html">时间</a></li>
-                        
-                         <li><a class="dropdown-item" href="imgcompress.html">图片压缩</a></li>
+                         <li><a class="dropdown-item" href="imgcompress.html">Image Compression</a></li>
                         
                          <li><a class="dropdown-item" href="ocr.html">OCR</a></li>
                         
-                         <li><a class="dropdown-item" href="appparser.html">apk,ipa 解析器</a></li>
+                         <li><a class="dropdown-item" href="appparser.html">apk,ipa Parser</a></li>
                         
                     </ul>
                 
@@ -175,7 +175,7 @@
                     text-white
                     
                      active" href="news.html">
-                        新闻
+                        News
                     </a>
                 
                 </li>
@@ -189,8 +189,8 @@
 
             
             <div class="btn-group d-flex" role="group" aria-label="Basic radio toggle button group">
-                <a href="/zh-CN/encodeindex.html" class="btn btn-outline-warning  active " aria-current="page">简体中文</a>
-                <a href="/encodeindex.html" class="btn btn-outline-warning ">English</a>
+                <a href="/zh-CN/ocr.html" class="btn btn-outline-warning " aria-current="page">简体中文</a>
+                <a href="/ocr.html" class="btn btn-outline-warning  active ">English</a>
             </div>        
             
         </div>
@@ -206,79 +206,89 @@
           <ul class="navbar-nav">
             
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="encodeindex.html">Base64</a>
+          <a class="nav-link " aria-current="page" href="qrcode.html">QR code</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="encodeurl.html">URL编码</a>
+          <a class="nav-link " aria-current="page" href="time.html">Time</a>
         </li>
         
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="encodemd5.html">MD5编码</a>
+          <a class="nav-link " aria-current="page" href="imgcompress.html">Image Compression</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="ocr.html">OCR</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link " aria-current="page" href="appparser.html">apk,ipa Parser</a>
         </li>
         
           </ul>
         </div>
       </div>
     </nav>
-    <h3 class="container page-title">Base64</h3>
+    <h3 class="container page-title">OCR</h3>
     
 <!----------------------------------------公共头 end--------------------------------------->
 
-    <div class="container container-fluid pb-3">
-        <div class="d-grid gap-3" style="grid-template-columns: 2fr 1fr;">
-            <div>
-                <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">加密/解密文本</label>
-                    <textarea class="form-control" id="exampleFormControlInput1" rows="5"></textarea>
-                </div>
 
+<style>
+    .content {
+        flex: 1;
+        min-height: 300px;
+        padding: 10px;
+        margin-bottom: 20px;
+        background: white;
+        box-shadow: 0px 0px 35px rgba(0,0,0,0.2);
+    }
+    .content.inverse {
+        background: rgb(56, 56, 56);
+        color: white;
+    }
+    .nose {
+        -moz-transition: background-color 0.5s;
+        -webkit-transition: background-color 0.5s;
+        -o-transition: background-color 0.5s;
+        transition: background-color 0.5s;
+        background: rgb(255, 245, 211);
+        box-shadow: 0px 0px 35px rgba(0,0,0,0.2);
+        cursor: pointer;
+    }
+    .nose:hover {
+        background-color: rgb(255, 222, 211);
+    }
+</style>
 
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="padding: 16px 0;">
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio1">Base64加密</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio2">Base64解密</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio3">Uint8Array</label>
-
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btnradio4">URL-safe Base64</label>
-                </div>
-
-
-                <div>
-                    <label for="exampleFormControlTextarea1" class="form-label">结果</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+    <div class="container container-fluid pb-3" style="padding-top: 3rem">
+        <div style="display: flex;justify-content: space-evenly;">
+            <div class="content">
+                
+        <div id="drop_zone" style="height: 100%;border: 2px dashed #bbb;border-radius: 5px;padding: 16px;background: white;transition: border-color 0.5s;text-align: center;position: relative;overflow: hidden;">
+            <input type="file" style="position:absolute; top: -100px" id="drop_picker">
+            <div id="drop_zone_tips"
+                style="position: absolute;top: 0;left: 0;width:100%;height:100%;display: flex;align-items: center;justify-content: center;background: rgba(255, 255, 255,.9);cursor: pointer;z-index: 1;">
+                <div style="text-align: left;">
+                    <div style="color: #999;">Drag and Drop</div>
                 </div>
             </div>
-            <div style="display: flex;flex-flow: column;overflow: hidden;">
-                <h5>记录</h5>
-                <div class="bg-light border rounded-3 p-1" style="flex: 1;overflow:auto;">
-                    <pre><code id="handle_record"></code></pre>
-                </div>
+            <div id="drop_content" style="width:100%;height: 100%;position: relative;background: transparent;"></div>
+        </div>
+        
             </div>
+            <div style="width: 20px;"></div>
+            <div class="content inverse">
+                <div id="timing"></div>
+                <div id="text" style="padding-top: 16px;"></div>
+            </div>
+        </div>
+
+        <div class="nose" style="padding: 25px;">
+            You can also <strong>drag and drop</strong> an image <small>(JPEG, PNG, GIF)</small> from your computer, or <strong>select a file</strong> by clicking anywhere in this box
         </div>
     </div>
 
-<!--    <script>-->
-<!--        var str = "http://www.vxqx.com/index.html"-->
-<!--        var temp = vxqxEncodeURI(str);-->
-<!--        console.log("url编码:" + temp);-->
-<!--        temp = vxqxDecodeURI(temp);-->
-<!--        console.log("url解码:" + temp);-->
-
-
-<!--        var timestamp = nowTimestamp();-->
-<!--        console.log("当前时间时间戳:" + timestamp);-->
-<!--        var date = convertTimestamp(timestamp + "")-->
-<!--        console.log("根据时间戳转换为时间:" + date);-->
-
-<!--        timestamp = convertDate("2021-11-11 11:11:11");-->
-<!--        console.log("根据输入时间获取时间戳:" + timestamp);-->
-<!--    </script>-->
 
 <!----------------------------------------公共尾------------------------------------------>
 
@@ -309,7 +319,7 @@
 <!--    -->
 <!--</section>-->
 <section class="container py-5">
-    <h5 style="padding-bottom: 10px">热门文章</h5>
+    <h5 style="padding-bottom: 10px">Hot Articles</h5>
     <div class="row icon-list" id="news_list_slot">
         
         <div class="col-6">
@@ -397,7 +407,7 @@
     }
 </style>
 <footer class="container pt-5 my-5 text-muted border-top">
-    <p class="float-end"><a href="#">回到顶部</a></p>
+    <p class="float-end"><a href="#">Back to top</a></p>
     <p>www.atob.run · © 2021
         <a href="https://atob.run/">
             <svg id="github" width="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path></svg>
@@ -408,25 +418,25 @@
 <div class="position-fixed bottom-0 start-0 p-3" style="z-index: 11">
   <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
-      <strong class="me-auto">提示</strong>
+      <strong class="me-auto">Tips</strong>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body">
-      感谢您的反馈!
+      Thank you for your feedback!
     </div>
   </div>
 </div>
 
 <div class="container pb-md-4 text-center">
     <div class="row justify-content-center">
-        <h4 class="mb-3">需求与问题反馈</h4>
+        <h4 class="mb-3">Feedback on requirements and issues</h4>
         <div class="col-lg-6 col-md-7">
             <div class="input-group">
                 <textarea class="form-control" aria-label="With textarea" id="report_textarea"></textarea>
-                <button class="btn btn-primary" type="submit" name="subscribe" id="report_button"  data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="focus" title="提示" data-bs-content="感谢您的反馈!">提交</button>
+                <button class="btn btn-primary" type="submit" name="subscribe" id="report_button"  data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="focus" title="Tips" data-bs-content="Thank you for your feedback!">Submit</button>
             </div>
         </div>
-        <div class="form-text opacity-50">如果您有好的web工具，想放在本网站上使用，请写下您的github地址，我们会联系您！</div>
+        <div class="form-text opacity-50">If you have a good web tool that you would like to put on this site for use, please write down your github address and we will contact you!</div>
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/autosize@5.0.1/dist/autosize.min.js"></script>
@@ -461,11 +471,7 @@
     
 <!----------------------------------------公共尾 end--------------------------------------->
 
-<!-- 格式化 -->
-<script src="https://unpkg.com/prettier@2.3.2/standalone.js"></script>
-<script src="https://unpkg.com/prettier@2.3.2/parser-babel.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.1/base64.min.js"></script>
+<script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
 
 </body>
 </html>
