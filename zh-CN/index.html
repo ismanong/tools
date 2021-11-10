@@ -8,10 +8,10 @@
 <!--  禁止ios webview 缩放  -->
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
 <!--  禁止ios webview 缩放  end  -->
-<meta name="description" content="在线,JSON,JSON 校验,格式化,xml转json 工具,在线工具,json视图,可视化,程序,服务器,域名注册,正则表达式,测试,在线json格式化工具,json 格式化,json格式化工具,json字符串格式化,json 在线查看器,json在线,json 在线验证,json tools online,在线文字对比工具">
-<meta name="keywords" content="JSON,在线JSON,JSON 校验,格式化,xml转json 工具,在线工具,json视图,可视化,程序,服务器,域名注册,正则表达式,测试,在线json格式化工具,json 格式化,json格式化工具,json字符串格式化,json 在线查看器,json在线,json 在线验证,json tools online,在线文字对比工具,jsonparse">
+<meta name="description" content="JSON,JSON calibration,formatting,xml to json tool,online tool,json view,visualization,program,server,domain registration,regular expression,test,online json formatting tool,json formatting,json formatting tool,json string formatting,json online viewer,json online,json online validation">
+<meta name="keywords" content="JSON,online json,json validation,formatting,xml to json tools,online tools,json view,visualization,program,server,domain registration,regular expression,test,online json formatting tools,json formatting,json formatting tools,json string formatting,json online viewer,json online, json online validation,json tools online,online text comparison tool">
 <meta name="author" content="">
-<title>json</title>
+<title>json, JSON Format, JSON checks, JSON To Entity - atob.run</title>
 
 <!-- <link rel="icon" href="/favicon.ico"/> -->
 <!--<meta itemprop="name" content="xxx">-->
@@ -22,7 +22,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     
-<link rel="icon" href="../favicon.ico"><script defer src="../assets/js/index.6fb2d5ea.js"></script><script defer src="../assets/js/base.css.ea6fb02d.js"></script><script defer src="../assets/js/canvas-logo.cf51912b.js"></script><link href="../assets/css/base.css.cfe7e80b.css" rel="stylesheet"></head>
+<link rel="icon" href="../favicon.ico"><script defer src="../assets/js/index.f459ef64.js"></script><script defer src="../assets/js/common.e4ccb1a9.js"></script><link href="../assets/css/common.cfe7e80b.css" rel="stylesheet"></head>
 <body>
 
 <style>
@@ -72,7 +72,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                 <div id="splash">
-                    <div id="logo-wrap" class="header" style="width: 40px;height: 40px;display: flex;justify-content: center;align-items: center;">
+                    <div id="logo-wrap" class="header" style="width: 40px;height: 40px;display: flex;justify-content: center;align-items: center;margin-right: 10px;">
                         <canvas id="logo-canvas" width="40" height="40"></canvas>
                     </div>
                 </div>
@@ -91,11 +91,9 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         
-                         <li><a class="dropdown-item" href="index.html">格式化校验</a></li>
+                         <li><a class="dropdown-item" href="index.html">格式化</a></li>
                         
                          <li><a class="dropdown-item" href="json2entity.html">JSON转实体类</a></li>
-                        
-                         <li><a class="dropdown-item" href="jsonview.html">JSON视图</a></li>
                         
                     </ul>
                 
@@ -206,66 +204,74 @@
           <ul class="navbar-nav">
             
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">格式化校验</a>
+          <a class="nav-link active" aria-current="page" href="index.html">格式化</a>
         </li>
         
         <li class="nav-item">
           <a class="nav-link " aria-current="page" href="json2entity.html">JSON转实体类</a>
         </li>
         
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="jsonview.html">JSON视图</a>
-        </li>
-        
           </ul>
         </div>
       </div>
     </nav>
-    <h3 class="container page-title">格式化校验</h3>
+    
     
 <!----------------------------------------公共头 end--------------------------------------->
 
-<div class="container container-fluid pb-3">
-    <div class="" style="display: flex;height:calc(100vh - 25rem);">
-        <div class="bg-light border rounded-3"  id="container" style="flex: 1;height:100%;overflow: hidden;border:1px solid grey"></div>
-        <!--        <div style="flex: 1;border:1px solid grey;height:100%;overflow: auto;display: flex;flex-flow: column;margin-left: 1rem;">-->
-        <!--            <span>格式化</span>-->
-        <!--            <div style="flex: 1;">-->
-        <!--                <pre><code class="language-json hljs" id="index_code_1"></code></pre>-->
-        <!--            </div>-->
-        <!--            <span>压缩</span>-->
-        <!--            <div style="height: 60px;">-->
-        <!--                <pre><code class="language-json hljs" id="index_code_2"></code></pre>-->
-        <!--            </div>-->
-        <!--        </div>-->
-    </div>
 
-    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="padding: 16px 0;">
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-        <label class="btn btn-outline-primary" for="btnradio1">格式化校验</label>
+<div class="container p-1" style="user-select: none;">
+    <input class="form-check-input" type="checkbox" value="" id="autoLineFeed" checked>
+    <label class="form-check-label" for="autoLineFeed">自动换行</label>
 
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio2">压缩</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio3">转义</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio4">去除转义</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio5">Unicode转中文</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio6">中文转Unicode</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio7">转GET参数</label>
-
-        <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off">
-        <label class="btn btn-outline-primary" for="btnradio8">中文符号转英文符号</label>
-    </div>
+    <button type="button" class="btn btn-outline-primary btn-sm" id="btnradio1">格式化</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" id="btnradio2">压缩</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" id="btnradio3">转义</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" id="btnradio4">去除转义</button>
+    <button type="button" class="btn btn-outline-primary btn-sm" id="btnradio7">转GET参数</button>
 </div>
+
+<div class="" style="display: flex;height:calc(100vh - 12rem);">
+    <div class="bg-light border rounded-3"  id="container" style="flex: 1;height:100%;overflow: hidden;border:1px solid grey"></div>
+    <!--        <div style="flex: 1;border:1px solid grey;height:100%;overflow: auto;display: flex;flex-flow: column;margin-left: 1rem;">-->
+    <!--            <span>格式化</span>-->
+    <!--            <div style="flex: 1;">-->
+    <!--                <pre><code class="language-json hljs" id="index_code_1"></code></pre>-->
+    <!--            </div>-->
+    <!--            <span>压缩</span>-->
+    <!--            <div style="height: 60px;">-->
+    <!--                <pre><code class="language-json hljs" id="index_code_2"></code></pre>-->
+    <!--            </div>-->
+    <!--        </div>-->
+</div>
+
+<!--    <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="padding: 16px 0;">-->
+
+<!--        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">-->
+<!--        <label class="btn btn-outline-primary" for="btnradio1">格式化</label>-->
+
+<!--        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">-->
+<!--        <label class="btn btn-outline-primary" for="btnradio2">压缩</label>-->
+
+<!--        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">-->
+<!--        <label class="btn btn-outline-primary" for="btnradio3">转义</label>-->
+
+<!--        <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">-->
+<!--        <label class="btn btn-outline-primary" for="btnradio4">去除转义</label>-->
+
+<!--        &lt;!&ndash;        <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">&ndash;&gt;-->
+<!--        &lt;!&ndash;        <label class="btn btn-outline-primary" for="btnradio5">Unicode转中文</label>&ndash;&gt;-->
+
+<!--        &lt;!&ndash;        <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">&ndash;&gt;-->
+<!--        &lt;!&ndash;        <label class="btn btn-outline-primary" for="btnradio6">中文转Unicode</label>&ndash;&gt;-->
+
+<!--        <input type="radio" class="btn-check" name="btnradio" id="btnradio7" autocomplete="off">-->
+<!--        <label class="btn btn-outline-primary" for="btnradio7">转GET参数</label>-->
+
+<!--        &lt;!&ndash;        <input type="radio" class="btn-check" name="btnradio" id="btnradio8" autocomplete="off">&ndash;&gt;-->
+<!--        &lt;!&ndash;        <label class="btn btn-outline-primary" for="btnradio8">中文符号转英文符号</label>&ndash;&gt;-->
+<!--    </div>-->
+
 
 <!----------------------------------------公共尾------------------------------------------>
 
@@ -447,7 +453,6 @@
 </script>
     
 <!----------------------------------------公共尾 end--------------------------------------->
-
 
 
 
