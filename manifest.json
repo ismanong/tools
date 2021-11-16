@@ -10,11 +10,11 @@
   "exceli18n.css": "autoassets/css/exceli18n.65b9df1a.css",
   "qrcode.js": "autoassets/js/qrcode.1db07557.js",
   "time.js": "autoassets/js/time.2d6da397.js",
-  "news.js": "autoassets/js/news.f78c2cb3.js",
+  "newslist.js": "autoassets/js/newslist.15d06e4b.js",
   "imgcompress.js": "autoassets/js/imgcompress.adb9915a.js",
   "ocr.js": "autoassets/js/ocr.69d90b2a.js",
   "appparser.js": "autoassets/js/appparser.5e601066.js",
-  "common.js": "autoassets/js/common.e4ccb1a9.js",
+  "common.js": "autoassets/js/common.3ca72634.js",
   "common.css": "autoassets/css/common.cfe7e80b.css",
   "zh-CN/time.html": "autozh-CN/time.html",
   "zh-CN/imgcompress.html": "autozh-CN/imgcompress.html",
@@ -29,6 +29,6 @@
   "zh-CN/excelindex.html": "autozh-CN/excelindex.html",
   "zh-CN/excelcsv.html": "autozh-CN/excelcsv.html",
   "zh-CN/exceli18n.html": "autozh-CN/exceli18n.html",
-  "zh-CN/news.html": "autozh-CN/news.html",
+  "zh-CN/newslist.html": "autozh-CN/newslist.html",
   "favicon.ico": "autofavicon.ico"
 }
