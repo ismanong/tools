@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>App-下载页</title>
+    <style>
+        html {
+            font-size: 100px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .package-list{
+
+        }
+        .package-list-item{
+            padding: .10rem;
+            border-bottom: 1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            font-size: .12rem;
+            color: #999;
+        }
+        .package-list-item >div:nth-child(1) >p >span{
+            display: inline-block;
+            width: 0.55rem;
+        }
+    </style>
+
+    <script>
+        function setRem() {
+            var ui_w = 375;  // 设计稿的ui宽度
+            // 获取屏幕的宽度
+            var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+            console.log(ui_w,clientWidth);
+
+            // 通过js动态改变html根节点字体大小
+            var html_ = document.getElementsByTagName('html')[0];
+            html_.style.fontSize = (clientWidth/ui_w)*100 +'px';
+        }
+        window.onresize = setRem;
+        setRem();
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <p style="font-size: .30rem;text-align: center;margin-bottom: .20rem;">App下载页</p>
+        <template v-if="dataJsonList.length > 0">
+            <ul class="package-list">
+                <li class="package-list-item" v-for="item in dataJsonList">
+                    <div>
+                        <p style="color: orangered;"><span>环境:</span>{{ item.env }}</p>
+                        <p style="color: green;" v-if="item.channel !== null"><span>渠道:</span>{{ item.channel }}</p>
+                        <p style="color: green;" v-if="item.channel === null"><span>渠道:</span>{{ item.filename.indexOf('.ipa') > -1 ? 'App Store' : '暂未兼容' }}</p>
+                        <p style="color: blue;"><span>文件:</span>{{ item.filename }}</p>
+                        <p><span>上传时间:</span>{{ item.update_time }}</p>
+                    </div>
+                    <a :href="getDownloadUrl(item)" style="padding: 0 .16rem;color: #fff;background-color:#009f95;display: inline-block;text-decoration: none;height: .42rem;line-height: .42rem;border-radius: .25rem;">下载安装</a>
+                </li>
+            </ul>
+        </template>
+    </div>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    dataJsonList: [],
+                }
+            },
+            methods: {
+                getDownloadUrl(item){
+                    let fileType = '';
+                    if(item.filename.indexOf('ipa') > -1){
+                        fileType = 'ipa'
+                        return `itms-services://?action=download-manifest&url=https://apps-dl.gtarcade.com/app/archives/${fileType}/${item.filename}.plist`
+                    }else if(item.filename.indexOf('apk') > -1){
+                        fileType = 'apk'
+                        return `https://apps-dl.gtarcade.com/app/archives/${fileType}/${item.filename}`
+                    }
+                    return '未找到链接'
+                },
+                // 获取配置json
+                getPackageInfo() {
+                    return new Promise((resolve, reject) => {
+                        const url = "./archives/records.json?v=" + Date.now()/*json文件url*/
+                        const request = new XMLHttpRequest();
+                        request.open("get", url);/*设置请求方法与路径*/
+                        request.send(null);/*不发送数据到服务器*/
+                        request.onload = () => {/*XHR对象获取到返回信息后执行*/
+                            if (request.status === 200) {/*返回状态为200，即为数据获取成功*/
+                                const json = JSON.parse(request.responseText);
+                                this.dataJsonList = json;
+                                console.log(json);
+                                resolve();
+                            }
+                        }
+
+                    })
+                },
+            },
+            created: function () {
+
+            },
+            mounted: function () {
+                this.getPackageInfo();
+            }
+        })
+    </script>
+</body>
+
+</html>
