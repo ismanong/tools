@@ -76,6 +76,8 @@
             data() {
                 return {
                     dataJsonList: [],
+                    dataJsonList: ,
+                    currentDir: location.href.split('/').slice(0,-1).join('/'),
                 }
             },
             methods: {
@@ -83,10 +85,10 @@
                     let fileType = '';
                     if(item.filename.indexOf('ipa') > -1){
                         fileType = 'ipa'
-                        return `itms-services://?action=download-manifest&url=https://apps-dl.gtarcade.com/app/archives/${fileType}/${item.filename}.plist`
+                        return `itms-services://?action=download-manifest&url=${currentDir}/archives/${fileType}/${item.filename}.plist`
                     }else if(item.filename.indexOf('apk') > -1){
                         fileType = 'apk'
-                        return `https://apps-dl.gtarcade.com/app/archives/${fileType}/${item.filename}`
+                        return `./archives/${fileType}/${item.filename}`
                     }
                     return '未找到链接'
                 },
