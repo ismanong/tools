@@ -69,7 +69,8 @@
                         <p style="color: blue;"><span>文件:</span>{{ item.filename }}</p>
                         <p><span>上传时间:</span>{{ item.update_time }}</p>
                     </div>
-                    <a :href="getDownloadUrl(item)" style="padding: 0 .16rem;color: #fff;background-color:#009f95;display: inline-block;text-decoration: none;height: .42rem;line-height: .42rem;border-radius: .25rem;">下载安装</a>
+                    <a :href="getDownloadUrl(item)" style="padding: 0 .16rem;color: #fff;background-color:#009f95;display: inline-block;text-decoration: none;height: .32rem;line-height: .32rem;border-radius: .25rem;">下载</a>
+                    <!-- 通过IOS系统打开此网页安装 -->
                 </li>
             </ul>
         </template>
