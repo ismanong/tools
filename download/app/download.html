@@ -55,7 +55,10 @@
 
 <body style="max-width: 800px;margin: 0 auto;">
     <div id="app">
-        <p style="font-size: .30rem;text-align: center;margin-bottom: .20rem;">App下载页</p>
+        <div style="padding: .10rem 0;display: flex;justify-content: center">
+            <span style="font-size: .30rem;margin-right: .05rem;">App下载页</span>
+            <span id="qrcodeImage"></span>
+        </div>
         <template v-if="dataJsonList.length > 0">
             <ul class="package-list">
                 <li class="package-list-item" v-for="item in dataJsonList">
@@ -74,6 +77,7 @@
 
     <script src="https://unpkg.com/vue/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs2@0.0.2/qrcode.min.js"></script>
     <script>
         new Vue({
             el: "#app",
@@ -119,6 +123,14 @@
             },
             mounted: function () {
                 this.getPackageInfo();
+                new QRCode(document.getElementById('qrcodeImage'), {
+                    text: 'https://apps-dl.gtarcade.com/app/download.html', // 需要转换为二维码的内容
+                    width: 100,
+                    height: 100,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
             }
         })
     </script>
