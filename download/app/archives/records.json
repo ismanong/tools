@@ -1,264 +1,34 @@
 [
     {
-        "filename": "1.0.3+1-ydyx.apk",
-        "version_name": "1.0.3",
+        "filename": "1.0.1+1.exe",
+        "version_name": "1.0.1",
         "version_code": "1",
-        "update_time": "2022-01-10 08:34:45",
-        "filetype": "apk",
+        "update_time": "2022-06-14 04:21:53",
+        "filetype": "exe",
         "channel": "ydyx"
     },
     {
-        "filename": "1.0.3+1-ydyx.apk",
-        "version_name": "1.0.3",
+        "filename": "1.0.1+1.exe",
+        "version_name": "1.0.1",
         "version_code": "1",
-        "update_time": "2022-01-01 01:17:36",
-        "filetype": "apk",
+        "update_time": "2022-06-14 04:14:49",
+        "filetype": "exe",
         "channel": "ydyx"
     },
     {
-        "filename": "1.0.2+1-ydyx.apk",
-        "version_name": "1.0.2",
+        "filename": "1.0.1+1.exe",
+        "version_name": "1.0.1",
         "version_code": "1",
-        "update_time": "2021-12-30 07:16:32",
-        "filetype": "apk",
+        "update_time": "2022-06-14 04:09:42",
+        "filetype": "exe",
         "channel": "ydyx"
     },
     {
-        "filename": "1.0.2+1-ydyx.apk",
-        "version_name": "1.0.2",
+        "filename": "1.0.0+1.exe",
+        "version_name": "1.0.0",
         "version_code": "1",
-        "update_time": "2021-12-28 19:03:28",
-        "filetype": "apk",
+        "update_time": "2022-06-14 03:51:29",
+        "filetype": "exe",
         "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.2+1",
-        "version_name": "1.0.2",
-        "version_code": "1-ydyx.apk",
-        "update_time": "2021-12-28 18:59:54",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.2+1-ydyx.apk",
-        "update_time": "2021-12-28 18:23:41",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 18:22:58",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 18:19:22",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 18:07:26",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 18:05:55",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 18:05:01",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 17:56:04",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 17:22:14",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 17:21:32",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 17:12:49",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 17:10:43",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 16:59:59",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 16:41:31",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.1+1-ydyx.apk",
-        "update_time": "2021-12-28 16:37:20",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.0+1-ydyx.apk",
-        "update_time": "2021-12-28 16:35:48",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.0+1-ydyx.apk",
-        "update_time": "2021-12-28 16:29:13",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "filename": "1.0.0+1-ydyx.apk",
-        "update_time": "2021-12-28 16:28:00",
-        "filetype": "apk",
-        "channel": "ydyx"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 15:05:36"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 15:01:59"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 14:58:46"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 14:56:00"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:29:56"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:29:14"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:28:06"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:25:50"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:22:53"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:22:01"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:21:19"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:19:50"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:19:14"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:18:10"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:16:58"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 13:15:22"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 12:34:45"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-28 11:18:23"
-    },
-    {
-        "env": "release",
-        "channel": "google",
-        "filename": "1.0.0+1-release-google.apk",
-        "update_time": "2021-12-27 20:37:58"
-    },
-    {
-        "env": "release",
-        "channel": "xxx",
-        "filename": "app-release.apk",
-        "update_time": "2021-12-24 22:05:21"
     }
 ]
