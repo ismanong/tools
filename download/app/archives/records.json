@@ -1,5 +1,13 @@
 [
     {
+        "filename": "1.0.2+1.exe",
+        "version_name": "1.0.2",
+        "version_code": "1",
+        "update_time": "2022-06-15 04:59:05",
+        "filetype": "exe",
+        "channel": "ydyx"
+    },
+    {
         "filename": "1.0.1+1.exe",
         "version_name": "1.0.1",
         "version_code": "1",
