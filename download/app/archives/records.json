@@ -1,5 +1,14 @@
 [
     {
+        "filename": "1.0.5+1.exe",
+        "md5": "2de8c23368e78b16c27d4323278f5ee5",
+        "version_name": "1.0.5",
+        "version_code": "1",
+        "update_time": "2022-06-19 00:46:33",
+        "filetype": "exe",
+        "channel": "ydyx"
+    },
+    {
         "filename": "1.0.4+1.exe",
         "md5": "96c7a069eedb44b50137c03020ffc574",
         "version_name": "1.0.4",
