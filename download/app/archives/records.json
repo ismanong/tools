@@ -1,5 +1,14 @@
 [
     {
+        "filename": "1.0.7+1.exe",
+        "md5": "448e4694f38d3b86cd9ba9243a954c6a",
+        "version_name": "1.0.7",
+        "version_code": "1",
+        "update_time": "2022-07-05 01:21:57",
+        "filetype": "exe",
+        "channel": 0
+    },
+    {
         "filename": "1.0.6+1.exe",
         "md5": "ff692b074dc420e67489a786f70bffe2",
         "version_name": "1.0.6",
