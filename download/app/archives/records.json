@@ -1,5 +1,23 @@
 [
     {
+        "filename": "1.0.10+4.apk",
+        "md5": "f596ec5990ffaef757357340cd21e551",
+        "version_name": "1.0.10",
+        "version_code": "4",
+        "update_time": "2022-07-14 19:07:45",
+        "filetype": "apk",
+        "channel": 0
+    },
+    {
+        "filename": "1.0.10+4.exe",
+        "md5": "14dd1fb6616d1f67c8aa37bfd90915a3",
+        "version_name": "1.0.10",
+        "version_code": "4",
+        "update_time": "2022-07-14 19:04:09",
+        "filetype": "exe",
+        "channel": 0
+    },
+    {
         "filename": "1.0.9+3.apk",
         "md5": "97ff5ec3b05807b17aa683f8a6afffa7",
         "version_name": "1.0.9",
