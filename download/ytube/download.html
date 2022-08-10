@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>App-下载页</title>
+    <style>
+        html {
+            font-size: 100px;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .package-list{
+
+        }
+        .package-list-item{
+            padding: .10rem;
+            border-bottom: 1px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            font-size: .12rem;
+            color: #999;
+        }
+        .package-list-item >div:nth-child(1) >p >span{
+            display: inline-block;
+            width: 0.55rem;
+        }
+        .banner__download-item {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: hsla(0,0%,100%,.07);
+            background-color: hsla(148,61%,42%,.9);
+            color: hsla(0,0%,100%,.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 24px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .banner__download-item:hover {
+            background-color: hsla(0,0%,100%,.15);
+            background-color: hsla(148,61%,42%,1);
+        }
+        .banner__download-item i {
+            margin-bottom: 4px;
+            margin-top: 26px;
+        }
+        .banner__download-item span {
+            margin: 0 10px;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .icon-android {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E  %3Cdefs%3E    %3Cpath id='a688108f-309f-4e18-a0dc-ed026741fa12-a' d='M0 0h33.684v18.947H0z'/%3E  %3C/defs%3E  %3Cg fill='none' fill-rule='evenodd'%3E    %3Cpath d='M0 0h40v40H0z'/%3E    %3Cg opacity='.8' transform='translate(3.158 11.158)'%3E      %3Cmask id='a688108f-309f-4e18-a0dc-ed026741fa12-b' fill='%23fff'%3E        %3Cuse xlink:href='%23a688108f-309f-4e18-a0dc-ed026741fa12-a'/%3E      %3C/mask%3E      %3Cpath fill='%23FFF' d='M24.594 14.156a1.402 1.402 0 1 1-.003-2.803 1.402 1.402 0 0 1 .003 2.803m-15.504 0a1.402 1.402 0 1 1-.002-2.803 1.402 1.402 0 0 1 .002 2.803M25.097 5.72L27.9.874a.584.584 0 0 0-1.01-.583L24.05 5.2c-2.17-.989-4.608-1.54-7.21-1.54-2.6 0-5.038.552-7.209 1.54L6.794.291a.584.584 0 0 0-1.01.582l2.803 4.848C3.774 8.335.482 13.2 0 18.947h33.684C33.202 13.2 29.91 8.335 25.097 5.721' mask='url(%23a688108f-309f-4e18-a0dc-ed026741fa12-b)'/%3E    %3C/g%3E  %3C/g%3E%3C/svg%3E")
+        }
+        .icon-android,.icon-ios {
+            display: inline-block;
+            vertical-align: middle;
+            width: 40px;
+            height: 40px;
+            background-size: cover
+        }
+        .icon-ios {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E  %3Cdefs%3E    %3Cpath id='47f1323c-993c-4d45-aab1-bebb1206c2bb-a' d='M.001.592h26.926v24.039H.001z'/%3E  %3C/defs%3E  %3Cg fill='none' fill-rule='evenodd'%3E    %3Cpath d='M0 0h40v40H0z'/%3E    %3Cg opacity='.8' transform='translate(6.316 2.737)'%3E      %3Cg transform='translate(0 7.045)'%3E        %3Cmask id='47f1323c-993c-4d45-aab1-bebb1206c2bb-b' fill='%23fff'%3E          %3Cuse xlink:href='%2347f1323c-993c-4d45-aab1-bebb1206c2bb-a'/%3E        %3C/mask%3E        %3Cpath fill='%23FFF' d='M20.005.608c-2.722-.193-5.031 1.456-6.32 1.456-1.308 0-3.324-1.415-5.461-1.376-2.806.04-5.393 1.564-6.84 3.972C-1.531 9.506.64 16.687 3.479 20.62c1.389 1.922 3.045 4.088 5.221 4.009 2.094-.08 2.887-1.298 5.418-1.298 2.53 0 3.243 1.298 5.458 1.259 2.254-.04 3.683-1.962 5.061-3.894 1.596-2.23 2.251-4.39 2.29-4.505-.05-.018-4.394-1.614-4.437-6.408-.04-4.008 3.415-5.935 3.573-6.028C24.102.989 21.073.684 20.005.608' mask='url(%2347f1323c-993c-4d45-aab1-bebb1206c2bb-b)'/%3E      %3C/g%3E      %3Cpath fill='%23FFF' d='M18.325 5.057C19.482 3.718 20.26 1.854 20.045 0c-1.663.063-3.676 1.062-4.87 2.4-1.07 1.185-2.008 3.083-1.753 4.899 1.855.137 3.748-.902 4.903-2.242'/%3E    %3C/g%3E  %3C/g%3E%3C/svg%3E")
+        }
+        .icon-windows {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E  %3Cg fill='%23FFF' fill-rule='evenodd'%3E    %3Cpath d='M6.316 21.826v9.025l10.99 1.539V21.826zm12.045 0v10.712l14.463 2.026V21.826zM6.316 11.767v9.004h10.99V10.205zM32.824 8l-14.463 2.055v10.716h14.463z' opacity='.8'/%3E    %3Cpath fill='none' d='M0 0h40v40H0z'/%3E  %3C/g%3E%3C/svg%3E")
+        }
+        .icon-macos,.icon-windows {
+            display: inline-block;
+            vertical-align: middle;
+            width: 40px;
+            height: 40px;
+            background-size: cover
+        }
+        .icon-macos {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='40' height='40' viewBox='0 0 40 40'%3E  %3Cdefs%3E    %3Cpath id='47f1323c-993c-4d45-aab1-bebb1206c2bb-a' d='M.001.592h26.926v24.039H.001z'/%3E  %3C/defs%3E  %3Cg fill='none' fill-rule='evenodd'%3E    %3Cpath d='M0 0h40v40H0z'/%3E    %3Cg opacity='.8' transform='translate(6.316 2.737)'%3E      %3Cg transform='translate(0 7.045)'%3E        %3Cmask id='47f1323c-993c-4d45-aab1-bebb1206c2bb-b' fill='%23fff'%3E          %3Cuse xlink:href='%2347f1323c-993c-4d45-aab1-bebb1206c2bb-a'/%3E        %3C/mask%3E        %3Cpath fill='%23FFF' d='M20.005.608c-2.722-.193-5.031 1.456-6.32 1.456-1.308 0-3.324-1.415-5.461-1.376-2.806.04-5.393 1.564-6.84 3.972C-1.531 9.506.64 16.687 3.479 20.62c1.389 1.922 3.045 4.088 5.221 4.009 2.094-.08 2.887-1.298 5.418-1.298 2.53 0 3.243 1.298 5.458 1.259 2.254-.04 3.683-1.962 5.061-3.894 1.596-2.23 2.251-4.39 2.29-4.505-.05-.018-4.394-1.614-4.437-6.408-.04-4.008 3.415-5.935 3.573-6.028C24.102.989 21.073.684 20.005.608' mask='url(%2347f1323c-993c-4d45-aab1-bebb1206c2bb-b)'/%3E      %3C/g%3E      %3Cpath fill='%23FFF' d='M18.325 5.057C19.482 3.718 20.26 1.854 20.045 0c-1.663.063-3.676 1.062-4.87 2.4-1.07 1.185-2.008 3.083-1.753 4.899 1.855.137 3.748-.902 4.903-2.242'/%3E    %3C/g%3E  %3C/g%3E%3C/svg%3E")
+        }
+
+    </style>
+
+    <script>
+        function setRem() {
+            var ui_w = 375; // 设计稿的ui宽度
+            var clientWidth = 750;
+
+            if(document.documentElement.clientWidth === document.body.clientWidth){
+                clientWidth = document.documentElement.clientWidth; // 获取全屏幕宽度
+            }else{
+                clientWidth = document.body.clientWidth; // 获取最大展示区域的父元素 避免pc端太大
+            }
+
+            // 通过js动态改变html根节点字体大小
+            var html_ = document.getElementsByTagName('html')[0];
+            html_.style.fontSize = (clientWidth/ui_w)*100 +'px';
+        }
+        window.onresize = setRem;
+        window.onload = setRem;
+    </script>
+</head>
+
+<body style="max-width: 1280px;margin: 0 auto;">
+    <div id="app">
+        <div style="padding: .10rem 0;display: flex;justify-content: center">
+            <span style="font-size: .30rem;margin-right: .05rem;">App下载页</span>
+            <span id="qrcodeImage"></span>
+        </div>
+        <template v-if="dataJsonList.length > 0">
+            <ul class="package-list">
+                <li class="package-list-item" v-for="item in dataMap">
+                    <div>
+                        <p style="color: orangered;"><span>环境:</span>{{ item[0].env }}</p>
+                        <p style="color: green;" v-if="item.channel !== null"><span>渠道:</span>{{ item[0].channel }}</p>
+                        <p style="color: green;" v-if="item.channel === null"><span>渠道:</span>{{ item[0].filename.indexOf('.ipa') > -1 ? 'App Store' : '暂未兼容' }}</p>
+                        <p style="color: blue;"><span>文件:</span>{{ item[0].filename }}</p>
+                        <p><span>上传时间:</span>{{ item[0].update_time }}</p>
+                    </div>
+                    <!-- 现在是一条一条资源 如果整合需要修改数据结构 -->
+                    <a v-for="i2 in item" :href="getDownloadUrl(i2)" class="banner__download-item">
+                        <template v-if="i2.filetype === 'apk'"><i class="icon-android"></i><span>Android</span></template>
+                        <template v-if="i2.filetype === 'ios'"><i class="icon-ios"></i><span>iOS</span></template>
+                        <template v-if="i2.filetype === 'exe'"><i class="icon-windows"></i><span>Windows</span></template>
+                        <template v-if="i2.filetype === 'dmg'"><i class="icon-macos"></i><span>macOS</span></template>
+                    </a>
+                    <!-- <a :href="getDownloadUrl(item)" class="banner__download-item" style="padding: 0 .16rem;color: #fff;background-color:#009f95;display: inline-block;text-decoration: none;height: .32rem;line-height: .32rem;border-radius: .25rem;">下载</a> -->
+                    <!-- 通过IOS系统打开此网页安装 -->
+                </li>
+            </ul>
+        </template>
+    </div>
+
+    <!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> old -->
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <!-- <script src="https://unpkg.com/vue/dist/vue.global.prod.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@3.2.37/dist/vue.global.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs2@0.0.2/qrcode.min.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data() {
+                return {
+                    currentDir: location.href.split('/').slice(0,-1).join('/'),
+                    dataJsonList: [],
+                    dataMap: {},
+                }
+            },
+            methods: {
+                getDownloadUrl(item){
+                    let fileType = '';
+                    if(item.filename.indexOf('ipa') > -1){
+                        fileType = 'ipa';
+                        return `itms-services://?action=download-manifest&url=${currentDir}/archives/${fileType}/${item.filename}.plist`;
+                    }else if(item.filename.indexOf('apk') > -1){
+                        fileType = 'apk';
+                    }else if(item.filename.indexOf('exe') > -1){
+                        fileType = 'exe';
+                    }else{
+                        return null;
+                    }
+                    return `./archives/${fileType}/${item.filename}`;
+                },
+                // 获取配置json
+                getPackageInfo() {
+                    return new Promise((resolve, reject) => {
+                        const url = "./archives/records.json?v=" + Date.now()/*json文件url*/
+                        const request = new XMLHttpRequest();
+                        request.open("get", url);/*设置请求方法与路径*/
+                        request.send(null);/*不发送数据到服务器*/
+                        request.onload = () => {/*XHR对象获取到返回信息后执行*/
+                            if (request.status === 200) {/*返回状态为200，即为数据获取成功*/
+                                const json = JSON.parse(request.responseText);
+                                this.dataJsonList = json;
+                                console.log(json);
+
+                                //转换为Map
+                                let map = {};
+                                for (const item of json) {
+                                    let key = `${item.version_name}+${item.version_code}`;
+                                    if(map[key] === undefined){
+                                        map[key] = [];
+                                    }
+                                    map[key].push(item);
+                                }
+                                console.log(map);
+                                this.dataMap = map;
+                                resolve();
+                            }
+                        }
+
+                    })
+                },
+            },
+            created: function () {
+
+            },
+            mounted: function () {
+                this.getPackageInfo();
+                new QRCode(document.getElementById('qrcodeImage'), {
+                    text: location.href, // 需要转换为二维码的内容
+                    width: 100,
+                    height: 100,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
+        })
+    </script>
+</body>
+
+</html>
