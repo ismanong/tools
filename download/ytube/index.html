@@ -12,11 +12,11 @@
             box-sizing: border-box;
         }
         .logo-text {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-flow: column;
-            height: 100vh;
         }
         .logo-title{
             font-size: 200px;
@@ -26,13 +26,27 @@
             font-size: 40px;
             font-weight: bold;
         }
+        .index-page{
+            height: 100vh;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+        }
+        footer{
+            padding: 20px 0;
+        }
     </style>
 </head>
 
 <body>
-    <div class="logo-text">
-        <div class="logo-title">ytube</div>
-        <div class="logo-subtitle">无广告的Youtube工具</p>
+    <div class="index-page">
+        <div class="logo-text">
+            <div class="logo-title">ytube</div>
+            <div class="logo-subtitle">无广告的Youtube工具</div>
+        </div>
+        <footer>    
+            <a href="./privacy-policy.html">隐私政策</a> | <a href="./service-agreement.html">服务协议</a>
+        </footer>
     </div>
 </body>
 
