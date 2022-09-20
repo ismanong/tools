@@ -11,43 +11,50 @@
             padding: 0;
             box-sizing: border-box;
         }
-        .package-list{
+
+        .package-list {
             display: flex;
             flex-flow: wrap;
             padding-top: 30px;
         }
-        .package-list-item{
+
+        .package-list-item {
             width: calc(100% / 6);
             padding-bottom: 20px;
         }
+
         @media screen and (max-width: 1280px) {
-            .package-list-item{
+            .package-list-item {
                 width: calc(100% / 4);
             }
         }
+
         @media screen and (max-width: 640px) {
-            .package-list-item{
+            .package-list-item {
                 width: calc(100% / 2);
             }
         }
+
         .apk-label {
-            display:inline-block;
+            display: inline-block;
             background: black;
             width: 20px;
             height: 20px;
             background-size: cover;
             background-image: url('data:image/png;base64,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');
         }
+
         .ipa-label {
-            display:inline-block;
+            display: inline-block;
             background: black;
             width: 20px;
             height: 20px;
             background-size: cover;
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAABPFJREFUeAHtm2uIFlUYx33V3KQsqRTJS2p4YVnyTgQibGgSgR/CL6EQSh9EhBCCLgT1QVDRL94wSBBSvKWCuH7SytY+iJEQqaUp6pbslgmteL+9/f6yC9Pw7jlnzsw7c0Z84L/vXJ7n/1zOZebMzPbq9VjCrkC1Wh0EPgAt4Dx4NeyIM4qORIeCLeA2iMrUjFyES0O2i0FnNOvI9ivhRp4yMpLsDb6IJBvfvMmBhpRuwjQnsQrYGs84tt8aZvQZREWiS2PJ1tr9KANX4VGQaROIT3bxAlznwHPhRZ9BRCS2O55tjf01GbgKj4JEG8GDGglHD7Wx82w9ou9dD9KEnPPQrxhsHnBuYaVS6TTolPcULXs02tSx7Xvszy9vdpbISa4BKMlacpWDb1soyn2aBAfUypxj+8CwcmfnED1JDowUoIPtdWCag2lmKqbJJzMnPRGRrCbhEaCDSe6WQe+ZLr0qvzdBO/r6DUNIZDDQAmYHOA20kLkProAjYBlwXsSg2w+8ATaAiyAuumyeAZvAm6BvIZXA8XiwE9wFLvIrSh+DF2sFzPGpYCP4FySRCyirAfrU4jUd8xoCOJLdp+AzkNgpNvfBt+AguAzGgTmgEaSRnzB+l+FxMg2J0ZbkNXPvBaGKLp8zjUlETibqARAPwfYbkLalIiHUZfMurLPoCd/b2J0LQPLq6uqyzTbSQM7/QxyTKcIfpniSrAU03suSvC6XX4J2U/I659QDaH0lfggkKZj4i5B7ONVEuM3FuWsBjkA23YWwYB2tHOeT/HbXOKwtSutPhqwMySvn5UmSl4G1AOi8L8USyI/EqHkqkRiHAK0/ADbNpv0SsRaj3EzrH07q2tYDpkBYhuRbfZJXsWwFKMtrqF1JW75b31aAXNfm3UF5/O73sHloYitAky9xjnaddP82X3+2AjztS5yjXUcaX7YCNKQhz8lWVylveRQKMMg7ewxtBXgiDXlOtsPT+LEV4O805DnZ9ueGbbCvL1sBjGtpX6d1sJvty/moFGBevQrQ5kucs91MhsFLPj5tPeC4D2kBNnpct9bHr201qIeg7T7EBdnM5a5wTxLfxgKIiK51lp+Xk5AWqHsd369ThGOuMdiGgHj0OKws8hSBHqDRXnMN2KUALa5kgei9QBzfUYRFwNrDrQqQPAnhX0BvaMsmrQT8IUPiaE+BW3sAxnptvbcngsCPzyC+zaYYrQXoMnZ6xm5yVOA5Y+zWIaDAu8bSKTbHF5iIj2u9hR5FL+7xlt6pB0CgV00rfSIo2OZrU/KKzakHSJFeoKXxOZBq+SmuHGUiBfjZ5M+pB4gAIr1yLlMvaLEl/zAv/XEVeoHuufUVxgRXm4L07uC3iQL8bvPv3ANEBKEmlcVAc0LIstoleSXgPAdEs6Un6N37e9FjAW1fJJZGCnDDJSbfAuhxuZbKY1yc5Kij1+PNJN/q6jPREOgmxcE1tt8BGmshyYokyacOnKGwBIQiPxBI/h9M4nRVABX4jRieT92iPgQ41n97bfMsgr4wvQwuAf1PkI/oI+tRPrFnZkMAfcF6x+jPovc5mAT+9+KF/RFgATgMbP9Gg0r1BBidWSJpiQjmLXAKxEWt+xVw/tYI3dFAH1n/CeKiHvMJSP3u0usyaCsUgU1EZxzQDdMv4Ayzs26iEgtcinEsGAnUY9rACfh0yXssaSvwHw2cIvx3a/jQAAAAAElFTkSuQmCC');
         }
+
         .play-label {
-            display:inline-block;
+            display: inline-block;
             background: black;
             width: 20px;
             height: 20px;
@@ -55,15 +62,41 @@
             background-image: url('data:image/png;base64,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');
         }
     </style>
+    <style>
+        .filepond--root .filepond--drop-label {
+            min-height: 10em !important;
+        }
+    </style>
 </head>
 
 <body style="text-align: center;">
     <div id="app">
-        <div id="qrcodeImage">
+        <div id="qrcodeImage" style="position: fixed;">
             <!-- <p class="scan-tips">扫描二维码下载<br>或用手机浏览器输入这个网址:&nbsp;&nbsp;<span>http://apps-qa.gtarcade.com/app-download-assets/download.html</span></p> -->
         </div>
+
         <h1 style="padding-top: 30px;">Git上传/应用分发</h1>
-        <p style="color:#999;font-size:12px;">公司gitlab个人访问令牌【归属账户gao_yy】: yA5_jN6xb61CbeWo4Tip</p>
+        <a style="color:#999;font-size:12px;" href="https://gitlab.uuzu.com/desktop/apps-dl.gtarcade.com/-/tree/release">公司gitlab个人访问令牌【归属账户gao_yy】: yA5_jN6xb61CbeWo4Tip</a>
+
+        <div style="padding: 20px;">
+            <template>
+                <el-table :data="gitTreeData" style="width: 100%" border>
+                    <el-table-column prop="name" label="目录" width="150"> </el-table-column>
+                    <el-table-column prop="path" label="路径" width="250"> </el-table-column>
+                    <el-table-column label="最新">
+                        <template slot-scope="scope">
+                            <el-link type="primary" :href="scope.row.url">{{scope.row.url}}</el-link>
+                        </template>
+                    </el-table-column>
+                </el-table>
+            </template>
+        </div>
+
+        <!-- Filepond input-->
+        <div>
+            <input type="file" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="100MB" data-max-files="3" style="min-height: 300px;">
+        </div>
+
 
         <div class="package-list">
             <div class="package-list-item" v-for="item in dataJsonList">
@@ -75,7 +108,8 @@
                     <p style="color:#999;font-size:12px;">{{item.size}}</p>
                     <p style="color:#999;font-size:12px;">更新时间：{{item.update_time}}</p>
                 </div>
-                <a :href="item.url" style="width: 120px;color: #fff;background-color:#009f95;display: inline-block;text-decoration: none;height: 42px;line-height: 42px;border: 1px solid #e1e1e1;border-radius: 25px;">下载安装</a>
+                <a :href="item.url"
+                    style="width: 120px;color: #fff;background-color:#009f95;display: inline-block;text-decoration: none;height: 42px;line-height: 42px;border: 1px solid #e1e1e1;border-radius: 25px;">下载安装</a>
             </div>
         </div>
     </div>
@@ -84,20 +118,18 @@
         <li style="color: red;">* ipa地址必须https</p>
     </ul> -->
 
-    <!-- Filepond input-->
-    <input type="file" class="filepond" name="filepond" multiple data-allow-reorder="true" data-max-file-size="100MB" data-max-files="3">
 
 
-
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2/dist/vue.js"></script>
     <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui@2/lib/theme-chalk/index.css">
     <!-- 引入组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <!-- Filepond -->
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-    <script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script
+        src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
     <!-- Filepond end -->
     <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/chenquincy/app-info-parser/dist/app-info-parser.min.js"></script>
@@ -107,6 +139,7 @@
             el: "#app",
             data() {
                 return {
+                    gitTreeData: [],
                     dataJsonList: [],
                     dataJson: {},
                 }
@@ -170,7 +203,7 @@
                         map['icon'] = result.icon;
                         map['version'] = result.CFBundleShortVersionString + '+' + result.CFBundleVersion;
                         map['filename'] = `${map['name']}-${map['version']}-${map['env']}.ipa`;
-                        map['plist_path'] = `app/ios-download${env==='release'?'':'-'+env}.plist`;
+                        map['plist_path'] = `app/ios-download${env === 'release' ? '' : '-' + env}.plist`;
                         map['url'] = `itms-services://?action=download-manifest&url=https://apps-dl.gtarcade.com/${map['plist_path']}`;
                     }
                     map['size'] = (file.size / 1024 / 1024).toFixed(1) + ' MB';
@@ -188,70 +221,60 @@
                     // 例子
                     // var str="hello (world)";
                     // var nstr = str.replace(/\([^\)]*\)/g,"1111");
-                    let newPlistStr = res.data.replace(/archives\/ipa\/.*?\.ipa/g,`archives/ipa/${item.filename}`);
+                    let newPlistStr = res.data.replace(/archives\/ipa\/.*?\.ipa/g, `archives/ipa/${item.filename}`);
                     console.log('修改ios的plist:\n', newPlistStr);
                     return newPlistStr;
                 },
-
-                // 更新存储库
-                async updateRepo(file, progress) {
-                    let newPkgItem = await this.fileParserToPackageInfo(file);
-                    let jsonCopy = JSON.parse(JSON.stringify(this.dataJson));
-                    jsonCopy.list = jsonCopy.list.map(item => {
-                        if (item.type == newPkgItem.type && item.env === newPkgItem.env) return newPkgItem;
-                        return item;
-                    })
-
-                    // const file_path = encodeURIComponent(`dist/app-download-assets/${file.name}`);
-                    // const file_path_pkg_json = encodeURIComponent(`dist/app-download-assets/package_info.json`);
-                    let result = await new Promise(resolve => {
-                        const reader = new FileReader();
-                        reader.addEventListener("load", () => resolve(reader.result), false);
-                        reader.readAsDataURL(file);
-                    })
-                    // convert image file to base64 string
-                    let base64 = result.split(';base64,')[1];
-                    let filename = file.name;
-                    if (filename.indexOf('.ipa') > -1) {
-                        // 兼容ipa 兼容windows忽略大小写 无聊业务问题
-                        filename = filename.toLowerCase();
+                // 检测git仓库是否存在此文件
+                async checkFileExists(filepath,filename) {
+                    let filepathDir = filepath;
+                    if(filepathDir.indexOf('/') > -1){
+                        filepathDir = filepathDir.substring(0, filepathDir.lastIndexOf('/')); // 如果是文件 则修改为父目录
                     }
-                    // gitlab的推送动作
-                    let file_path = `app/archives/${newPkgItem.type}/${newPkgItem.filename}`;
-                    let actions = [
-                        {
-                            "action": "update",
-                            "file_path": "app/package_info.json",
-                            "content": JSON.stringify(jsonCopy, null, "\t"),
-                        }
-                    ];
-                    // -------------------------------- 检测文件是否存在 -------------------
-                    let resCheck = await axios.request({
+                    if(filename == undefined){
+                        filename = filepath.split('/').pop();
+                    }
+                    const resCheck = await axios.request({
                         method: 'get',
                         url: `https://gitlab.uuzu.com/api/v4/projects/3358/repository/tree`,
                         params: {
-                            "path": file_path.substring(0,file_path.lastIndexOf('/')),
+                            "path": filepathDir,
                             "ref": 'release',
                             "private_token": 'yA5_jN6xb61CbeWo4Tip',
                         },
                     })
-                    let isExists = resCheck.data.some(item=> item.name === newPkgItem.filename);
+                    const bo = resCheck.data.some(item => item.name === filename);
+                    return bo;
+                },
+                // 更新存储库
+                async updateRepo(file, progress) {
+                    const dir = 'app/archives/';
+                    const filename = file.name;
+                    const suffix = filename.split('.').pop();
+                    const filepath = dir + suffix + '/' + filename; // const filepath = encodeURIComponent(filepath);
+                    
+                    // 读取文件
+                    const result = await new Promise(resolve => {
+                        const reader = new FileReader();
+                        reader.addEventListener("load", () => resolve(reader.result), false);
+                        reader.readAsDataURL(file);
+                    })
+                    const base64 = result.split(';base64,')[1];// convert file to base64 string
+
+                    // 设置gitlab的推送操作
+                    const actions = [];
+                    // -------------------------------- 检测文件是否存在 -------------------
+                    const isExists = await this.checkFileExists(filepath);
                     actions.push({
-                        "action": isExists  ? "update" :  "create", // create, delete, move, update, chmod
-                        "file_path": file_path,
+                        "action": isExists ? "update" : "create", // create, delete, move, update, chmod
+                        "file_path": filepath,
                         "encoding": "base64",
                         "content": base64,
                     });
                     // -------------------------------- 检测文件是否存在 -------------------end
-                    if(newPkgItem.type === 'ipa'){
-                        let plistStr = await this.updatePlist(newPkgItem);
-                        actions.push({
-                                "action": "update",
-                                "file_path": newPkgItem.plist_path,
-                                "content": plistStr,
-                            });
-                    }
-                    let res = await axios.request({
+                
+                    // 开始请求推送
+                    const res = await axios.request({
                         // method: 'put',
                         // url: 'https://gitlab.uuzu.com/api/v4/projects/2930/repository/files/dist%2Fapp-download-assets%2Flatest_version.json?private_token=yA5_jN6xb61CbeWo4Tip',
                         // url: `https://gitlab.uuzu.com/api/v4/projects/2930/repository/files/${file_path}?private_token=yA5_jN6xb61CbeWo4Tip`,
@@ -260,7 +283,7 @@
                         url: `https://gitlab.uuzu.com/api/v4/projects/3358/repository/commits`,
                         data: {
                             "branch": "release",
-                            "commit_message": `📦 ${filename}`,
+                            "commit_message": `📦 ${filename} 来源:${location.href}`,
                             "actions": actions,
                         },
                         onUploadProgress(p) {
@@ -271,7 +294,38 @@
                             console.log(100 * (p.loaded / p.total))
                         }
                     })
-                    return newPkgItem;
+                    return filepath;
+                },
+                async getGitTree() {
+                    let res = await axios.request({
+                        method: 'get',
+                        url: `https://gitlab.uuzu.com/api/v4/projects/3358/repository/tree`,
+                        params: {
+                            "path": 'app/archives/',
+                            "ref": 'release',
+                            "private_token": 'yA5_jN6xb61CbeWo4Tip',
+                        },
+                    });
+                    
+                    for(item of res.data){
+                        if(item.type === 'tree'){
+                            let res2 = await axios.request({
+                                method: 'get',
+                                url: `https://gitlab.uuzu.com/api/v4/projects/3358/repository/tree`,
+                                params: {
+                                    "path": item.path,
+                                    "ref": 'release',
+                                    "private_token": 'yA5_jN6xb61CbeWo4Tip',
+                                },
+                            });
+                            let last = res2.data.pop();//最后一个
+                            // item.latest = last;
+                            item.url = `https://apps-dl.gtarcade.com/${last.path}`;
+                        }else{
+                            item.url = `https://apps-dl.gtarcade.com/${item.path}`;
+                        }
+                    }
+                    this.gitTreeData = res.data;
                 },
                 // 获取配置json
                 getPackageInfo() {
@@ -289,53 +343,72 @@
                                 resolve();
                             }
                         }
-
                     })
+                },
+                // 检测此文件是否可以下载
+                checkFileDownload(filepath) {
+                    return new Promise((resolve, reject) => {
+                        try{
+                            const url = `https://apps-dl.gtarcade.com/${filepath}`;
+                            const xhr = new XMLHttpRequest();
+                            xhr.open("HEAD", url);/*设置请求方法与路径*/
+                            xhr.send(null);/*不发送数据到服务器*/
+                            xhr.onload = () => {/*XHR对象获取到返回信息后执行*/
+                                if(xhr.status === 200){/*返回状态为200，即为数据获取成功*/
+                                    // xhr.abort();//避免200后 下载数据 xhr.open("HEAD", url)
+                                    resolve(true);
+                                }else{
+                                    resolve(false);//xhr.status !== 404
+                                }
+                            }
+                        }catch(e){
+                            resolve(false);//跨域 好像拦截不了
+                        }
+                    });
                 },
             },
             created: function () {
 
             },
             mounted: function () {
+                this.getGitTree();
                 this.getPackageInfo();
+
+                // 初始化上传组件
                 FilePond.registerPlugin(
                     // FilePondPluginImagePreview,
                     // FilePondPluginImageExifOrientation,
                     FilePondPluginFileValidateSize,
                     // FilePondPluginImageEdit
                 );
-                FilePond.setOptions({
-                    labelIdle: '<span style="color: red;">只能开发上传哦！建议一个一个上传</span><br/> Drag & Drop your files or <span class="filepond--label-action"> Browse </span>',
-                });
                 FilePond.create(
-                    document.querySelector('input'),
+                    document.querySelector('input[type="file"]'),
                     {
+                        labelIdle: '<span style="color: red;">只能开发上传哦！建议一个一个上传</span><br/> Drag & Drop your files or <span class="filepond--label-action"> Browse </span>',
                         //
                         // TODO 实现阻塞 一个一个上传 避免状态无法一起同步 等复杂逻辑
                         //
-                        
+
                         // server: '/upload',
                         server: {
                             process: (fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
                                 /* store file somewhere and call `load` when done */
-                                this.updateRepo(file, progress).then((newPkgItem) => {
+                                this.updateRepo(file, progress).then((filepath) => {
                                     load();
                                     let loading = this.loadingUtil();
                                     loading.show();
                                     let timer;
                                     let timerFunc = () => {
                                         timer = setTimeout(() => {
-                                            this.getPackageInfo().then(() => {
-                                                let tagItem = this.dataJson.list.filter(item => item.type === newPkgItem.type && item.env === newPkgItem.env)[0];
-                                                console.log('获取时间: ',tagItem.update_time)
-                                                console.log('上传时间: ',newPkgItem.update_time)
-                                                console.log('--------------------------------')
-                                                if (tagItem.update_time === newPkgItem.update_time) {
-                                                    loading.hide()
+                                            this.checkFileDownload(filepath).then(res => {
+                                                if (res) {
                                                     clearTimeout(timer);
+                                                    loading.hide();
+                                                    this.getGitTree();
                                                 } else {
                                                     timerFunc();
                                                 }
+                                                console.count(`timer count:`); //计数
                                             });
                                         }, 1000)
                                     }
@@ -346,14 +419,16 @@
                         // instantUpload: false, // 自动上传
                     }
                 );
-                // new QRCode(document.getElementById('qrcodeImage'), {
-                //     text: 'http://apps-qa.gtarcade.com/app-download-assets/download.html', // 需要转换为二维码的内容
-                //     width: 100,
-                //     height: 100,
-                //     colorDark: '#000000',
-                //     colorLight: '#ffffff',
-                //     correctLevel: QRCode.CorrectLevel.H
-                // });
+
+                // 生成二维码
+                new QRCode(document.getElementById('qrcodeImage'), {
+                    text: location.href, // 需要转换为二维码的内容
+                    width: 100,
+                    height: 100,
+                    colorDark: '#000000',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.H
+                });
             }
         })
     </script>
