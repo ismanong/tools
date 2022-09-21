@@ -56,11 +56,11 @@ customElements.define('gitlab-download-dir',
 
           <div id="app">
           <div id="qrcodeImage" style="position: fixed;">
-              <!-- <p class="scan-tips">扫描二维码下载<br>或用手机浏览器输入这个网址:&nbsp;&nbsp;<span>http://apps-qa.gtarcade.com/app-download-assets/download.html</span></p> -->
+              <!-- <p class="scan-tips">扫描二维码下载<br>或用手机浏览器输入这个网址:&nbsp;&nbsp;<span>http://apps-qa.com/app-download-assets/download.html</span></p> -->
           </div>
 
           <h1 style="padding-top: 30px;">Git上传/应用分发</h1>
-          <a style="color:#999;font-size:12px;" href="https://gitlab.com/desktop/apps-dl.gtarcade.com/-/tree/release"> </a>
+          <a style="color:#999;font-size:12px;" href="https://gitlab.com/desktop/apps-dl.com/-/tree/release"> </a>
 
           <div style="padding: 20px;">
               <template>
@@ -192,7 +192,7 @@ function loadSctipt(elem) {
         //         map['icon'] = result.icon;
         //         map['version'] = result.versionName + '+' + result.versionCode;
         //         map['filename'] = `${map['name']}-${map['version']}-${map['env']}.apk`;
-        //         map['url'] = `https://apps-dl.gtarcade.com/app/archives/${key}/${map['filename']}`;
+        //         map['url'] = `https://apps-dl.com/app/archives/${key}/${map['filename']}`;
         //     } else if (file.name.indexOf('.ipa') > -1) {
         //         key = 'ipa'
         //         map['env'] = env;
@@ -202,7 +202,7 @@ function loadSctipt(elem) {
         //         map['version'] = result.CFBundleShortVersionString + '+' + result.CFBundleVersion;
         //         map['filename'] = `${map['name']}-${map['version']}-${map['env']}.ipa`;
         //         map['plist_path'] = `app/ios-download${env === 'release' ? '' : '-' + env}.plist`;
-        //         map['url'] = `itms-services://?action=download-manifest&url=https://apps-dl.gtarcade.com/${map['plist_path']}`;
+        //         map['url'] = `itms-services://?action=download-manifest&url=https://apps-dl.com/${map['plist_path']}`;
         //     }
         //     map['size'] = (file.size / 1024 / 1024).toFixed(1) + ' MB';
         //     map['update_time'] = new Date().toLocaleString(undefined, { hour12: false });
