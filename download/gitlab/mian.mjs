@@ -60,7 +60,7 @@ customElements.define('gitlab-download-dir',
           </div>
 
           <h1 style="padding-top: 30px;">Git上传/应用分发</h1>
-          <a style="color:#999;font-size:12px;" href="https://gitlab.uuzu.com/desktop/apps-dl.gtarcade.com/-/tree/release">公司gitlab个人访问令牌【归属账户gao_yy】: yA5_jN6xb61CbeWo4Tip</a>
+          <a style="color:#999;font-size:12px;" href="https://gitlab.com/desktop/apps-dl.gtarcade.com/-/tree/release"> </a>
 
           <div style="padding: 20px;">
               <template>
@@ -146,7 +146,7 @@ function loadSctipt(elem) {
         // clickDownload(item){
         //     if(item.type === 'apk'){
         //         let path = encodeURIComponent(`app-archives/app-${item.env}.apk`)
-        //         location.href = `https://gitlab.uuzu.com/api/v4/projects/3358/repository/files/${path}/raw?ref=develop&private_token=yA5_jN6xb61CbeWo4Tip`
+        //         location.href = `https://gitlab.com/api/v4/projects/3358/repository/files/${path}/raw?ref=develop&private_token=`
         //     }
         //     if(item.type === 'ipa'){
         //         location.href = item.url
@@ -214,7 +214,7 @@ function loadSctipt(elem) {
         //     let path = encodeURIComponent(item.plist_path);
         //     let res = await axios.request({
         //         method: 'get',
-        //         url: `https://gitlab.uuzu.com/api/v4/projects/3358/repository/files/${path}/raw?ref=release&private_token=yA5_jN6xb61CbeWo4Tip`,
+        //         url: `https://gitlab..com/api/v4/projects/3358/repository/files/${path}/raw?ref=release&private_token=`,
         //     })
         //     // 例子
         //     // var str="hello (world)";
@@ -274,8 +274,8 @@ function loadSctipt(elem) {
             // 开始请求推送
             const res = await axios.request({
                 // method: 'put',
-                // url: 'https://gitlab.uuzu.com/api/v4/projects/2930/repository/files/dist%2Fapp-download-assets%2Flatest_version.json?private_token=yA5_jN6xb61CbeWo4Tip',
-                // url: `https://gitlab.uuzu.com/api/v4/projects/2930/repository/files/${file_path}?private_token=yA5_jN6xb61CbeWo4Tip`,
+                // url: 'https://gitlab..com/api/v4/projects/2930/repository/files/dist%2Fapp-download-assets%2Flatest_version.json?private_token=',
+                // url: `https://gitlab..com/api/v4/projects/2930/repository/files/${file_path}?private_token=`,
                 method: 'post',
                 headers: { "PRIVATE-TOKEN": gitlabPrivateToken },
                 url: `${gitlabHost}/api/v4/projects/3358/repository/commits`,
