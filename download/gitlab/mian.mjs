@@ -305,7 +305,7 @@ function loadSctipt(elem) {
                 },
             });
             
-            for(item of res.data){
+            for(let item of res.data){
                 if(item.type === 'tree'){
                     let res2 = await axios.request({
                         method: 'get',
