@@ -3,7 +3,7 @@ name: Pub Publish plugin
 on: push
 
 jobs:
-  publish:
+  push_to_feishu:
     runs-on: ubuntu-latest
     steps:
       - name: actions-feishu
@@ -14,8 +14,8 @@ jobs:
           # Webhook address
           webhook: https://open.feishu.cn/open-apis/bot/v2/hook/606954a8-230a-4c26-b7bf-3a6a8fbb5bc5
           # Message title
-          # title: # optional, default is Actions Feishu
+          title: 代码有新的提交
           # Message body
-          content: 1111
+          content: 请拉取...
           # Message type
           # message_type: # optional, default is post
