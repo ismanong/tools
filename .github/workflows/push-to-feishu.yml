@@ -1,5 +1,3 @@
-name: Pub Publish plugin
-
 on: push
 
 jobs:
