@@ -1,0 +1,21 @@
+name: Pub Publish plugin
+
+on: push
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions-feishu
+        # You may pin to the exact commit or the version.
+        # uses: xiachufang/actions-feishu@c5b2c39977b1e99cfb0e2c17920d14d6b94b49e5
+        uses: xiachufang/actions-feishu@v1.2
+        with:
+          # Webhook address
+          webhook: https://open.feishu.cn/open-apis/bot/v2/hook/606954a8-230a-4c26-b7bf-3a6a8fbb5bc5
+          # Message title
+          # title: # optional, default is Actions Feishu
+          # Message body
+          content: 1111
+          # Message type
+          # message_type: # optional, default is post
